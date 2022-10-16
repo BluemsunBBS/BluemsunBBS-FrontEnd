@@ -76,7 +76,11 @@ export default () => {
                 <WeiboOutlined style={Object.assign(Object.assign({}, iconStyles), { color: '#333333' })}/>
               </div>
             </Space> */}
-          </div>}>
+          </div>}
+        //   onFinish={function(regis){
+
+        //   }}
+          >
         <Tabs centered activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey)}>
           <Tabs.TabPane key={'account'} tab={'注册'}/>
           <Tabs.TabPane key={'login'} tab={'登录'}/>
