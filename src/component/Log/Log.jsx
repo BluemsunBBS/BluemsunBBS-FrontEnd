@@ -88,7 +88,7 @@ export default () => {
                 prefix: <UserOutlined className={'prefixIcon'}/>,
                 onChange:function(e){
                     regis.username = e.target.value;
-                    console.log(regis.username);
+                    console.log(regis);
                 }
             }} placeholder={'请输入用户名'} rules={[
                 {
@@ -99,6 +99,10 @@ export default () => {
             <ProFormText name="nickname" fieldProps={{
                 size: 'large',
                 prefix: <HeartOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.nickname = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入一个喜欢的昵称'} rules={[
                 {
                     required: true,
@@ -108,6 +112,10 @@ export default () => {
             <ProFormText name="realname" fieldProps={{
                 size: 'large',
                 prefix: <IdcardOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.realname = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入您的真实姓名'} rules={[
                 {
                     required: true,
@@ -117,6 +125,12 @@ export default () => {
             <ProFormRadio.Group
             name="radio-button"
             radioType="button"
+            fieldProps={{
+                onChange:function(e){
+                    regis.gender = e.target.value;
+                    console.log(regis);
+                }
+            }}
             options={[
               {
                 label: 'I am a male',
@@ -133,6 +147,10 @@ export default () => {
             <ProFormText fieldProps={{
                 size: 'large',
                 prefix: <MobileOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.phone = e.target.value;
+                    console.log(regis);
+                }
             }} name="mobile" placeholder={'请输入手机号'} rules={[
                 {
                     required: true,
@@ -146,6 +164,10 @@ export default () => {
             <ProFormText.Password name="password" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.password = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入密码'} rules={[
                 {
                     required: true,
