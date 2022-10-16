@@ -5,6 +5,8 @@ import { useState } from 'react';
 import logoUrl from "./../../img/logo.jpg";
 import bgcUrl from "./../../img/bgc.jpg";
 import './Log.css'
+import './../../utils/http.js'
+import { http } from './../../utils/http.js';
 
 const logourl = logoUrl;
 const bgcurl = bgcUrl;
@@ -20,6 +22,10 @@ const regis = {
     realname:'',
     gender:'',
     phone:'',
+    password:''
+}
+const log = {
+    username:'',
     password:''
 }
 export default () => {
@@ -77,9 +83,15 @@ export default () => {
               </div>
             </Space> */}
           </div>}
-        //   onFinish={function(regis){
-
-        //   }}
+          onFinish={async (arg)=>{
+            //注册口
+            if(arg.logusername === ''){
+                var res = await http.post("/account/register", regis);
+                localStorage.setItem("token",res.data);
+            }
+            var res = await http.post("/account/login", log);
+            localStorage.setItem("token",res.data);
+          }}
           >
         <Tabs centered activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey)}>
           <Tabs.TabPane key={'account'} tab={'注册'}/>
@@ -189,18 +201,26 @@ export default () => {
             ]}/>
           </>)}
         {loginType === 'login' && (<>
-            <ProFormText name="username" fieldProps={{
+            <ProFormText name="logusername" fieldProps={{
                 size: 'large',
                 prefix: <UserOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    log.username = e.target.value;
+                    console.log(log);
+                }
             }} placeholder={'请输入用户名'} rules={[
                 {
                     required: true,
                     message: '请输入用户名!',
                 },
             ]}/>
-            <ProFormText.Password name="password" fieldProps={{
+            <ProFormText.Password name="logpassword" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    log.password = e.target.value;
+                    console.log(log);
+                }
             }} placeholder={'请输入密码'} rules={[
                 {
                     required: true,

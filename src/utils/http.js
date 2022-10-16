@@ -14,7 +14,7 @@ export function getToken() {
 }  
   
 const http = axios.create({
-  baseURL: 'https://bbs.wyy.ink:8080',
+  baseURL: 'http://bbs.wyy.ink:8080',
   timeout: 600000,
 })
 
