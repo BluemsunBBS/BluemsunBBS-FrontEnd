@@ -17,7 +17,7 @@ function App() {
         <button className="searchBtn">BBS搜索</button>
       </div>
       <br/><br/>
-      <Log/>
+      {/* <Log/> */}
     </div>
   )
 }
