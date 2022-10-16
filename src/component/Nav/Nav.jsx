@@ -1,4 +1,4 @@
-import imgurl from "./../img/1.jpg";
+import imgurl from "./../../img/1.jpg";
 import './Nav.css';
 
 function Nav() {

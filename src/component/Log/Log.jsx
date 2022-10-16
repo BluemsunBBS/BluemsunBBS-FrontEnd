@@ -2,8 +2,8 @@ import { HeartOutlined, LockOutlined, MobileOutlined, IdcardOutlined, UserOutlin
 import { LoginFormPage, ProFormCaptcha, ProFormRadio, ProFormText, } from '@ant-design/pro-components';
 import { Button, Divider, message, Space, Tabs } from 'antd';
 import { useState } from 'react';
-import logoUrl from "./../img/logo.jpg";
-import bgcUrl from "./../img/bgc.jpg";
+import logoUrl from "./../../img/logo.jpg";
+import bgcUrl from "./../../img/bgc.jpg";
 import './Log.css'
 
 const logourl = logoUrl;
