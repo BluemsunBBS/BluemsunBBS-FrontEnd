@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div className='root'>
-      
       <Nav/>
       <div className="searchContainer">
         <input type="text" className="inputBox"></input>

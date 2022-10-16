@@ -89,20 +89,20 @@ export default () => {
                 var res = await http.post("/account/register", regis);
                 localStorage.setItem("token",res.data);
                 if(res.code == 2){
-                    notification[error]({
+                    notification['error']({
                         message: "注册失败",
                         description: res.msg
-                    })
+                    });
                 }
             }
             else{
                 var res = await http.post("/account/login", log);
                 localStorage.setItem("token",res.data);
                 if(res.code == 2){
-                    notification[error]({
+                    notification['error']({
                         message: "登录失败",
                         description: res.msg
-                    })
+                    });
                 }
             }
           }}
