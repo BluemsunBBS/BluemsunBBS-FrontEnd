@@ -28,6 +28,14 @@ const log = {
     username:'',
     password:''
 }
+
+const openNotification = (msg, des) => {
+    notification.error({
+        message: msg,
+        description: des
+    });
+};
+
 export default () => {
     const [loginType, setLoginType] = useState('login');
     return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1310px',textAlign:'center',marginLeft:100}}>
@@ -87,22 +95,18 @@ export default () => {
             //注册口
             if(arg.logusername === ''){
                 var res = await http.post("/account/register", regis);
-                localStorage.setItem("token",res.data);
                 if(res.code == 2){
-                    notification['error']({
-                        message: "注册失败",
-                        description: res.msg
-                    });
+                    openNotification("注册失败", res.msg);
+                } else {
+                    localStorage.setItem("token",res.data);
                 }
             }
             else{
                 var res = await http.post("/account/login", log);
-                localStorage.setItem("token",res.data);
                 if(res.code == 2){
-                    notification['error']({
-                        message: "登录失败",
-                        description: res.msg
-                    });
+                    openNotification("登录失败", res.msg);
+                } else {
+                    localStorage.setItem("token",res.data);
                 }
             }
           }}
