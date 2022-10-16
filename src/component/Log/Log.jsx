@@ -14,6 +14,14 @@ const iconStyles = {
     verticalAlign: 'middle',
     cursor: 'pointer',
 };
+const regis = {
+    username:'',
+    nickname:'',
+    realname:'',
+    gender:'',
+    phone:'',
+    password:''
+}
 export default () => {
     const [loginType, setLoginType] = useState('login');
     return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1310px',textAlign:'center',marginLeft:100}}>
@@ -78,6 +86,10 @@ export default () => {
             <ProFormText name="username" fieldProps={{
                 size: 'large',
                 prefix: <UserOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.username = e.target.value;
+                    console.log(regis.username);
+                }
             }} placeholder={'请输入用户名'} rules={[
                 {
                     required: true,
