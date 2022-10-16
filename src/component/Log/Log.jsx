@@ -174,7 +174,7 @@ export default () => {
                     message: '请输入密码！',
                 },
             ]}/>
-            <ProFormText.Password name="password" fieldProps={{
+            <ProFormText.Password name="repassword" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
             }} placeholder={'请再次确认你的密码'} rules={[
