@@ -93,7 +93,7 @@ export default () => {
           </div>}
           onFinish={async (arg)=>{
             //注册口
-            if(arg.logusername === ''){
+            if(arg.logusername == undefined){
                 var res = await http.post("/account/register", regis);
                 if(res.code == 2){
                     openNotification("注册失败", res.msg);
