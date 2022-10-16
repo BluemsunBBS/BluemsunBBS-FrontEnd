@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import './App.css'
 
 import axios from 'axios'
-import Nav from './Nav/Nav'
-import Log from './Log/Log'
+import Nav from './component/Nav/Nav'
+import Log from './component/Log/Log'
 
 function App() {
   const [count, setCount] = useState(0)

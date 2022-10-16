@@ -2,8 +2,8 @@ import { HeartOutlined, LockOutlined, MobileOutlined, IdcardOutlined, UserOutlin
 import { LoginFormPage, ProFormCaptcha, ProFormRadio, ProFormText, } from '@ant-design/pro-components';
 import { Button, Divider, message, Space, Tabs } from 'antd';
 import { useState } from 'react';
-import logoUrl from "./../img/logo.jpg";
-import bgcUrl from "./../img/bgc.jpg";
+import logoUrl from "./../../img/logo.jpg";
+import bgcUrl from "./../../img/bgc.jpg";
 import './Log.css'
 
 const logourl = logoUrl;
@@ -14,6 +14,14 @@ const iconStyles = {
     verticalAlign: 'middle',
     cursor: 'pointer',
 };
+const regis = {
+    username:'',
+    nickname:'',
+    realname:'',
+    gender:'',
+    phone:'',
+    password:''
+}
 export default () => {
     const [loginType, setLoginType] = useState('login');
     return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1310px',textAlign:'center',marginLeft:100}}>
@@ -78,6 +86,10 @@ export default () => {
             <ProFormText name="username" fieldProps={{
                 size: 'large',
                 prefix: <UserOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.username = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入用户名'} rules={[
                 {
                     required: true,
@@ -87,6 +99,10 @@ export default () => {
             <ProFormText name="nickname" fieldProps={{
                 size: 'large',
                 prefix: <HeartOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.nickname = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入一个喜欢的昵称'} rules={[
                 {
                     required: true,
@@ -96,6 +112,10 @@ export default () => {
             <ProFormText name="realname" fieldProps={{
                 size: 'large',
                 prefix: <IdcardOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.realname = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入您的真实姓名'} rules={[
                 {
                     required: true,
@@ -105,6 +125,12 @@ export default () => {
             <ProFormRadio.Group
             name="radio-button"
             radioType="button"
+            fieldProps={{
+                onChange:function(e){
+                    regis.gender = e.target.value;
+                    console.log(regis);
+                }
+            }}
             options={[
               {
                 label: 'I am a male',
@@ -121,6 +147,10 @@ export default () => {
             <ProFormText fieldProps={{
                 size: 'large',
                 prefix: <MobileOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.phone = e.target.value;
+                    console.log(regis);
+                }
             }} name="mobile" placeholder={'请输入手机号'} rules={[
                 {
                     required: true,
@@ -134,13 +164,17 @@ export default () => {
             <ProFormText.Password name="password" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    regis.password = e.target.value;
+                    console.log(regis);
+                }
             }} placeholder={'请输入密码'} rules={[
                 {
                     required: true,
                     message: '请输入密码！',
                 },
             ]}/>
-            <ProFormText.Password name="password" fieldProps={{
+            <ProFormText.Password name="repassword" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
             }} placeholder={'请再次确认你的密码'} rules={[
