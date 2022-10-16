@@ -1,0 +1,49 @@
+.logBox{
+    background-color: pink;
+    height: 1000px;
+    text-align: center;
+}
+.box{
+    width: 1000px;
+    height: 500px;
+    margin: 20px auto;
+}
+.leftBox{
+    vertical-align: top;
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    background-color: #fff;
+}
+.rightBox{
+    display: inline-block;
+    width: 500px;
+    height: 500px;
+    background-color: blanchedalmond;
+}
+.right{
+    /* background-color: red; */
+    height: 420px;
+    width: 420px;
+    margin: 40px;
+    color: #7952b3;
+}
+#floatingInput,#floatingPassword{
+    color: #7952b3;
+    outline: none !important;
+}
+#floatingInput:focus,#floatingPassword:focus{
+    outline: 0 !important;
+    outline-offset: 2px;
+}
+.form-control{
+    border-radius: 0px;
+    border-color:#fff;
+    box-shadow:none;
+}
+.form-control:focus {
+    border-color: transparent;
+    outline: 0;
+    -webkit-box-shadow:none;
+    box-shadow: none;
+};

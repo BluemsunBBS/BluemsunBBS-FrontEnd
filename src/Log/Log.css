@@ -1,0 +1,29 @@
+.ant-btn-primary{
+    background:#7952b3 !important;
+    border: 2px solid #7952b3 !important;
+}
+.ant-btn-primary:hover{
+    background-color: #a070e8 !important;
+    border: 2px solid #a070e8 !important;
+}
+.ant-tabs-tab-btn{
+    color: #7952b3 !important;
+}
+.ant-tabs-ink-bar{
+    background:#7952b3 !important;
+}
+.ant-input-affix-wrapper-focused,.ant-input-affix-wrapper:hover,.ant-input-affix-wrapper:focus{
+    border: 1px solid #7952b3 !important;
+    box-shadow: none;
+    outline: 0 !important;
+}
+.ant-radio-button-wrapper-checked{
+    /* border-color: #7952b3 !important;
+    border-left-color: #7952b3 !important; */
+    box-shadow: none !important;
+    outline: 0 !important;
+    color: #7952b3 !important;
+}
+.ant-radio-button-wrapper:hover{
+    color: #7952b3;
+}
