@@ -1,6 +1,6 @@
 import { HeartOutlined, LockOutlined, MobileOutlined, IdcardOutlined, UserOutlined, WeiboOutlined, } from '@ant-design/icons';
 import { LoginFormPage, ProFormCaptcha, ProFormRadio, ProFormText, } from '@ant-design/pro-components';
-import { Button, Divider, message, Space, Tabs } from 'antd';
+import { Button, Divider, message, Space, Tabs, notification } from 'antd';
 import { useState } from 'react';
 import logoUrl from "./../../img/logo.jpg";
 import bgcUrl from "./../../img/bgc.jpg";
@@ -88,9 +88,23 @@ export default () => {
             if(arg.logusername === ''){
                 var res = await http.post("/account/register", regis);
                 localStorage.setItem("token",res.data);
+                if(res.code == 2){
+                    notification[error]({
+                        message: "注册失败",
+                        description: res.msg
+                    })
+                }
             }
-            var res = await http.post("/account/login", log);
-            localStorage.setItem("token",res.data);
+            else{
+                var res = await http.post("/account/login", log);
+                localStorage.setItem("token",res.data);
+                if(res.code == 2){
+                    notification[error]({
+                        message: "登录失败",
+                        description: res.msg
+                    })
+                }
+            }
           }}
           >
         <Tabs centered activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey)}>
