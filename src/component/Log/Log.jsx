@@ -38,7 +38,7 @@ const openNotification = (msg, des) => {
 
 export default () => {
     const [loginType, setLoginType] = useState('login');
-    return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1310px',textAlign:'center',marginLeft:100}}>
+    return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1230px',textAlign:'center',marginLeft:100}}>
       <LoginFormPage backgroundImageUrl={bgcurl} logo={logourl} title="BluemsunBBS" subTitle="全东师最大的技术交流论坛" width='800px'
           actions={<div style={{
                 // display: 'flex',
