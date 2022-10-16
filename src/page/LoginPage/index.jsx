@@ -1,10 +1,11 @@
 import Nav from '../../component/Nav/Nav'
-import Log from '../../component/Log/Log'
+import Log from '../../component/Log'
+import './index.css'
 
 function LoginPage() {
 
   return (
-    <div className='root'>
+    <div>
       <Nav/>
       <div className="searchContainer">
         <input type="text" className="inputBox"></input>

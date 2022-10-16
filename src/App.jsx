@@ -1,15 +1,22 @@
-import { useState, useEffect } from 'react'
 import "antd/dist/antd.css";
 import './App.css'
-import LoginPage from './page/LoginPage/LoginPage';
+
+import LoginPage from './page/LoginPage';
+import NotfoundPage from "./page/NotfoundPage";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
 
   return (
-    <div className='root'>
-      {/* <LoginPage/> */}
-      <LoginPage/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LoginPage/>}>
+          <Route path="login" element={<LoginPage />}></Route>
+        </Route>
+        <Route path="*" element={<NotfoundPage/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

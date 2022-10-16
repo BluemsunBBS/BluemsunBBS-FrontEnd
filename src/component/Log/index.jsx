@@ -5,8 +5,8 @@ import { useState } from 'react';
 import logoUrl from "./../../img/logo.jpg";
 import bgcUrl from "./../../img/bgc.jpg";
 import './Log.css'
-import './../../utils/http.js'
-import { http } from './../../utils/http.js';
+import '../../utils/http.js'
+import { http } from '../../utils/http.js';
 
 const logourl = logoUrl;
 const bgcurl = bgcUrl;
