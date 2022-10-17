@@ -29,10 +29,11 @@ const log = {
     password:''
 }
 
-const openNotification = (msg, des) => {
-    notification.error({
+const openNotification = (type, msg, des, duration=4) => {
+    notification[type]({
         message: msg,
-        description: des
+        description: des,
+        duration: duration
     });
 };
 
@@ -96,17 +97,21 @@ export default () => {
             if(arg.logusername == undefined){
                 var res = await http.post("/account/register", regis);
                 if(res.code == 2){
-                    openNotification("注册失败", res.msg);
+                    openNotification("error", "注册失败", res.msg);
                 } else {
+                    openNotification("success", "注册成功", "正在转入主页", 1);
                     localStorage.setItem("token",res.data);
+                    setTimeout(()=>{window.location.href = "/";}, 1000);
                 }
             }
             else{
                 var res = await http.post("/account/login", log);
                 if(res.code == 2){
-                    openNotification("登录失败", res.msg);
+                    openNotification("error", "登录失败", res.msg);
                 } else {
+                    openNotification("success", "登录成功", "正在转入主页", 1);
                     localStorage.setItem("token",res.data);
+                    setTimeout(()=>{window.location.href = "/";}, 1000);
                 }
             }
           }}
