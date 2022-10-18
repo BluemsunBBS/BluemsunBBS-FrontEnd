@@ -1,19 +1,14 @@
 import Nav from '../../component/Nav/Nav'
-import './index.css'
+import Search from './../../component/Search';
 
-function LoginPage() {
+function HomePage() {
 
   return (
     <div>
       <Nav/>
-      <div className="searchContainer">
-        <input type="text" className="inputBox"></input>
-        <button className="searchBtn">BBS搜索</button>
-      </div>
-      <br/><br/>
-      <Log/>
+      <Search/>
     </div>
   )
 }
 
-export default LoginPage;
+export default HomePage;
