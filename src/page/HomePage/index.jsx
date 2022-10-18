@@ -3,18 +3,21 @@ import Search from './../../component/Search';
 import Carousel from '../../component/Carou';
 import './index.css'
 import pic from './../../img/1.jpg'
-import './../../utils/token.js'
+import {getUserInfo} from './../../utils/func.js'
 import './../../utils/func.js'
 
 function HomePage() {
-  // const user = this.getUserInfo();
-  // const username = user.username;
-  // console.log(username);
+  var nickname = '陌生人'
+  const user = getUserInfo();
+  if(user !== null){
+    nickname = user.nickname;
+    console.log(nickname);
+  }
   const url = pic;
   return (
     <div>
       {/* 导航栏 */}
-      <Nav/>
+      <Nav nickname={nickname}/>
       {/* 搜索框 */}
       <Search/>
       {/* 轮播图 */}

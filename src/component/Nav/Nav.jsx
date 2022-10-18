@@ -2,7 +2,7 @@ import imgurl from "./../../img/1.jpg";
 import logo from './../../img/logo.jpg'
 import './Nav.css';
 
-function Nav() {
+function Nav(props) {
     const url = imgurl;
     const bbsurl = logo;
     return (
@@ -14,7 +14,7 @@ function Nav() {
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button>
             <span className="blockBox">
                 <img src={url} className="photo"></img>
-                <span className="hello">你好，陌生人</span>
+                <span className="hello">你好，{props.nickname}</span>
             </span>
             
         </div>

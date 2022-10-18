@@ -1,7 +1,10 @@
-import './token'
+import {setToken} from './token.js'
 
-function getUserInfo(){
-    const t = localStorage.getItem("token");
-    const obj = this.setToken(t);
+export function getUserInfo(){
+    var t = localStorage.getItem("token");
+    if(t==undefined){
+        return null;
+    }
+    var obj = setToken(t);
     return obj;
 }
