@@ -1,5 +1,6 @@
 import Nav from '../../component/Nav/Nav'
 import Search from './../../component/Search';
+import Carousel from '../../component/Carou';
 
 function HomePage() {
 
@@ -7,6 +8,7 @@ function HomePage() {
     <div>
       <Nav/>
       <Search/>
+      <Carousel/>
     </div>
   )
 }
