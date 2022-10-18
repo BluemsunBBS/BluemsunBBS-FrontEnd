@@ -6,7 +6,6 @@ function LoginPage() {
   return (
     <div>
       <Nav/>
-      
       <br/><br/>
       <Log/>
     </div>
