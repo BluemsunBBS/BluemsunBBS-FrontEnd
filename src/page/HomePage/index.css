@@ -1,0 +1,28 @@
+.centerBox{
+    width: 1000px;
+    height: 800px;
+    background-color:palevioletred;
+    margin: 0 auto;
+}
+/* 左侧部分 */
+.leftBox{
+    display: inline-block;
+    background-color:#DCDCDC;
+    height: 800px;
+    width: 200px;
+    vertical-align: top;
+}
+.myTitle{
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+/* 右侧部分 */
+.rightBox{
+    display: inline-block;
+    background-color:bisque;
+    height: 800px;
+    width: 800px;
+}

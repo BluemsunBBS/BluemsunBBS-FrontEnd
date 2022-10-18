@@ -1,10 +1,13 @@
 import imgurl from "./../../img/1.jpg";
+import logo from './../../img/logo.jpg'
 import './Nav.css';
 
 function Nav() {
     const url = imgurl;
+    const bbsurl = logo;
     return (
         <div className="navContainer">
+            <img src={bbsurl} className="logo"/>
             <span className='bbsTitle' onClick={()=>{window.location.href="/home"}}>BluemsunBBS</span>
             
             <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
