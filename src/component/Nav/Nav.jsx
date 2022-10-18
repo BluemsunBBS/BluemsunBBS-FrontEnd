@@ -5,6 +5,10 @@ import './Nav.css';
 function Nav(props) {
     const url = imgurl;
     const bbsurl = logo;
+    var nickname = '陌生人';
+    if(props.nickname !== null&&props.nickname !== undefined){
+        nickname = props.nickname;
+    }
     return (
         <div className="navContainer">
             <img src={bbsurl} className="logo"/>
@@ -13,8 +17,8 @@ function Nav(props) {
             <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button>
             <span className="blockBox">
-                <img src={url} className="photo"></img>
-                <span className="hello">你好，{props.nickname}</span>
+                <img src={url} className="photo" onClick={()=>{window.location.href="/setUserInfo"}}></img>
+                <span className="hello">你好，{nickname}</span>
             </span>
             
         </div>

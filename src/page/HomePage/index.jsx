@@ -7,12 +7,8 @@ import {getUserInfo} from './../../utils/func.js'
 import './../../utils/func.js'
 
 function HomePage() {
-  var nickname = '陌生人'
-  const user = getUserInfo();
-  if(user !== null){
-    nickname = user.nickname;
-    console.log(nickname);
-  }
+  var nickname = getUserInfo("nickname");
+  console.log(nickname)
   const url = pic;
   return (
     <div>
