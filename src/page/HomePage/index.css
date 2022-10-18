@@ -7,22 +7,60 @@
 /* 左侧部分 */
 .leftBox{
     display: inline-block;
-    background-color:#DCDCDC;
+    background-color:#f0efef;
     height: 800px;
     width: 200px;
     vertical-align: top;
+    text-align: center;
+    border: 2px solid rgb(234, 232, 232);
 }
 .myTitle{
-    font-size: large;
+    margin-top: 10px;
     font-weight: bold;
     text-align: center;
     height: 40px;
     line-height: 40px;
+    font-size: large;
+}
+.myPic{
+    width: 100px;
+    height: 100px;
+    /* border-radius: 50px; */
+    margin-bottom: 10px;
+}
+.my1,.my2{
+    height: 40px;
+    line-height: 40px;
+    font-weight: bold;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.ba{
+     /*1. 先强制一行内显示文本*/
+   white-space: nowrap;  
+   /*2. 超出的部分隐藏*/
+    overflow: hidden;
+   /*3. 文字用省略号替代超出的部分*/
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin: 2px 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    width: 80px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+.ba:hover{
+    background-color: rgb(234, 232, 232);
 }
 /* 右侧部分 */
 .rightBox{
     display: inline-block;
     background-color:bisque;
     height: 800px;
-    width: 800px;
+    width: 760px;
+    margin-left: 32px;
 }
