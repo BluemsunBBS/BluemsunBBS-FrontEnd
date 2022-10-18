@@ -9,6 +9,9 @@ function HomePage() {
       <Nav/>
       <Search/>
       <Carousel/>
+      <div className='leftBox'>
+
+      </div>
     </div>
   )
 }
