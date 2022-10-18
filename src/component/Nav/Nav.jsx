@@ -5,7 +5,7 @@ function Nav() {
     const url = imgurl;
     return (
         <div className="navContainer">
-            <span className='bbsTitle'>BluemsunBBS</span>
+            <span className='bbsTitle' onClick={()=>{window.location.href="/home"}}>BluemsunBBS</span>
             
             <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button>

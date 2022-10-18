@@ -1,17 +1,18 @@
 import { Carousel } from 'antd';
 import React from 'react';
+import './index.css'
 
 const contentStyle = {
-  height: '160px',
+  height: '400px',
   color: '#fff',
-  lineHeight: '160px',
+  lineHeight: '400px',
   textAlign: 'center',
   // background: '#364d79',
-  backgroundColor:'red',
+  backgroundColor:'#7952b3',
 };
 const Carou = () => (
   <Carousel autoplay>
-    <div style={{backgroundColor: 'red'}}>
+    <div>
       <h3 style={contentStyle}>1</h3>
     </div>
     <div>
