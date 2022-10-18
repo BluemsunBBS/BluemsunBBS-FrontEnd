@@ -3,11 +3,13 @@ import Search from './../../component/Search';
 import Carousel from '../../component/Carou';
 import './index.css'
 import pic from './../../img/1.jpg'
+import './../../utils/token.js'
+import './../../utils/func.js'
 
-// function getUserInfo(){
-//   var res = await http.get("/account/register");
-// }
 function HomePage() {
+  // const user = this.getUserInfo();
+  // const username = user.username;
+  // console.log(username);
   const url = pic;
   return (
     <div>
@@ -38,7 +40,9 @@ function HomePage() {
         </div>
         {/* 右侧部分 */}
         <div className='rightBox'>
-          <div className='myTitle'>热门贴</div>
+          <div className='hot'>
+            <div className='hotTitle'>热门贴</div>
+          </div>
         </div>
       </div>
     </div>

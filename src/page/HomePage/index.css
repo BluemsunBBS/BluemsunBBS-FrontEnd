@@ -58,9 +58,20 @@
 /* 右侧部分 */
 .rightBox{
     display: inline-block;
-    background-color:#f0efef;
-    border: 2px solid rgb(234, 232, 232);
+    background-color:pink;
     height: 800px;
     width: 780px;
     margin-left: 20px;
+}
+.hot{
+    background-color:#f0efef;
+    width: 780px;
+    height: 200px;
+}
+.hotTitle{
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: large;
 }
