@@ -4,6 +4,9 @@ import Carousel from '../../component/Carou';
 import './index.css'
 import pic from './../../img/1.jpg'
 
+// function getUserInfo(){
+//   var res = await http.get("/account/register");
+// }
 function HomePage() {
   const url = pic;
   return (
@@ -35,7 +38,7 @@ function HomePage() {
         </div>
         {/* 右侧部分 */}
         <div className='rightBox'>
-
+          <div className='myTitle'>热门贴</div>
         </div>
       </div>
     </div>

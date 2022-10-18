@@ -1,14 +1,13 @@
 .centerBox{
     width: 1000px;
     height: 800px;
-    background-color:palevioletred;
     margin: 0 auto;
 }
 /* 左侧部分 */
 .leftBox{
     display: inline-block;
     background-color:#f0efef;
-    height: 800px;
+    height: 500px;
     width: 200px;
     vertical-align: top;
     text-align: center;
@@ -59,8 +58,9 @@
 /* 右侧部分 */
 .rightBox{
     display: inline-block;
-    background-color:bisque;
+    background-color:#f0efef;
+    border: 2px solid rgb(234, 232, 232);
     height: 800px;
-    width: 760px;
-    margin-left: 32px;
+    width: 780px;
+    margin-left: 20px;
 }
