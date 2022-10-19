@@ -87,7 +87,7 @@
     width: 200px;
     height: 100px;
 }
-.hotPic{
+.hotPic,.hotPic1{
     cursor: pointer;
     width: 100px;
     height: 100px;
@@ -111,14 +111,41 @@
 .hot-article{
     background-color: #f0efef;
     width: 780px;
-    height: 400px;
+    height: 800px;
     margin-top: 10px;
     border: 2px solid rgb(234, 232, 232);
 }
 .hot-article-block{
     background-color: #fff;
     width: 720px;
-    height: 100px;
-    margin: 10px auto;
+    height: 120px;
+    margin: 15px auto;
 }
-.hot-text-box1
+.hot-text-box1{
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+}
+.hot-text2{
+    padding-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: large;
+    font-weight: bold;
+}
+.hot-text3{
+    padding-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: large;
+    color: #7952b3;
+}
+.hot-text4{
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    color: #a3a1a1;
+}
+.hotPic1{
+    margin: 10px;
+}

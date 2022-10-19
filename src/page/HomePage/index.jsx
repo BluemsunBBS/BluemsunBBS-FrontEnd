@@ -114,9 +114,43 @@ function HomePage() {
           <div className='hot-article'>
             <div className='hotTitle'>热门文章</div>
             <div className='hot-article-block'>
-              <img src={url} className='hotPic'/>
+              <img src={url} className='hotPic1'/>
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+                <div className='hot-text3'>不早了，洗洗睡吧</div>
+                <div className='hot-text4'>吴越洋最新发布</div>
+              </span>
+            </div>
+            <div className='hot-article-block'>
+              <img src={url} className='hotPic1'/>
+              <span className='hot-text-box1'>
+                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+                <div className='hot-text3'>不早了，洗洗睡吧</div>
+                <div className='hot-text4'>吴越洋最新发布</div>
+              </span>
+            </div>
+            <div className='hot-article-block'>
+              <img src={url} className='hotPic1'/>
+              <span className='hot-text-box1'>
+                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+                <div className='hot-text3'>不早了，洗洗睡吧</div>
+                <div className='hot-text4'>吴越洋最新发布</div>
+              </span>
+            </div>
+            <div className='hot-article-block'>
+              <img src={url} className='hotPic1'/>
+              <span className='hot-text-box1'>
+                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+                <div className='hot-text3'>不早了，洗洗睡吧</div>
+                <div className='hot-text4'>吴越洋最新发布</div>
+              </span>
+            </div>
+            <div className='hot-article-block'>
+              <img src={url} className='hotPic1'/>
+              <span className='hot-text-box1'>
+                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+                <div className='hot-text3'>不早了，洗洗睡吧</div>
+                <div className='hot-text4'>吴越洋最新发布</div>
               </span>
             </div>
           </div>
