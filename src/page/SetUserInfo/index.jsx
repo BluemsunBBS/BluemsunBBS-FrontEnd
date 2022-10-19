@@ -15,19 +15,19 @@ export default () => {
                 <div className="left">
                     <div className="inputBox">
                         <span className="text1">昵称</span>
-                        <input type="text" className="input" value={getUserInfo("nickname")}></input>
+                        <input type="text" className="input" ></input>
                     </div>
                     <div className="inputBox">
                         <span className="text1">真实姓名</span>
-                        <input type="text" className="input" value={getUserInfo("realname")}></input>
+                        <input type="text" className="input" ></input>
                     </div>
                     <div className="inputBox">
                         <span className="text1">密码</span>
-                        <input type="password" className="input" value={getUserInfo("password")}></input>
+                        <input type="password" className="input" ></input>
                     </div>
                     <div className="inputBox">
                         <span className="text1">手机号</span>
-                        <input type="text" className="input" value={getUserInfo("phone")}></input>
+                        <input type="text" className="input" ></input>
                     </div>
                     <button className="btn">提交</button>
                     <button className="btn">重置</button>
