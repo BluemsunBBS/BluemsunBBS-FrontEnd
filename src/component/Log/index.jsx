@@ -1,12 +1,13 @@
 import { HeartOutlined, LockOutlined, MobileOutlined, IdcardOutlined, UserOutlined, WeiboOutlined, } from '@ant-design/icons';
 import { LoginFormPage, ProFormCaptcha, ProFormRadio, ProFormText, } from '@ant-design/pro-components';
-import { Button, Divider, message, Space, Tabs, notification } from 'antd';
+import { Button, Divider, message, Space, Tabs } from 'antd';
 import { useState } from 'react';
 import logoUrl from "./../../img/logo.jpg";
 import bgcUrl from "./../../img/bgc.jpg";
 import './Log.css'
 import '../../utils/http.js'
 import { http } from '../../utils/http.js';
+import { openNotification } from '../../utils/notification';
 
 const logourl = logoUrl;
 const bgcurl = bgcUrl;
@@ -28,14 +29,6 @@ const log = {
     username:'',
     password:''
 }
-
-const openNotification = (type, msg, des, duration=4) => {
-    notification[type]({
-        message: msg,
-        description: des,
-        duration: duration
-    });
-};
 
 export default () => {
     const [loginType, setLoginType] = useState('login');

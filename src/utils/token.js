@@ -32,7 +32,7 @@ function StringToAscii(str){
 function AsciiToString(asccode){ 
     return String.fromCharCode(asccode); 
 }
-export function setToken(t) {
+export function getToken(t) {
     if (t == null) {
         return null;
     }

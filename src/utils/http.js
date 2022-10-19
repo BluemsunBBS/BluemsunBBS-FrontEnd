@@ -1,17 +1,5 @@
 import axios from 'axios'
-
-export function getToken() {
-    const localStorage = window.localStorage
-    const token = JSON.parse(localStorage.getItem('token'))
-    if (token == null) return null
-    if (token.expiredTime < Date.now()) {
-      localStorage.removeItem('token')
-      return null
-    } else {
-      // console.log(token.value)
-      return token.value
-    }
-}  
+import { getToken } from './token'
   
 const http = axios.create({
   baseURL: 'http://bbs.wyy.ink:8080',
@@ -20,9 +8,8 @@ const http = axios.create({
 
 // 添加请求拦截器
 http.interceptors.request.use((config) => {
-  const token = getToken()
-  if (token) {
-    config.headers = {token: JSON.parse(localStorage.getItem("token")).value}
+  if (localStorage.getItem("token")) {
+    config.headers = {token: localStorage.getItem("token")}
   }
   return config
 }, (error) => {

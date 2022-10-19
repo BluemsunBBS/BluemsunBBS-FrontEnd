@@ -1,5 +1,5 @@
 import {
-    setToken
+    getToken
 } from './token.js'
 
 
@@ -9,6 +9,6 @@ export function getUserInfo(arg) {
     if (t == null) {
         return null;
     }
-    var obj = setToken(t);
+    var obj = getToken(t);
     return obj[arg];
 }
