@@ -41,16 +41,15 @@
     float: right;
 }
 .hello{
-    color: #fff;
-    float: right;
     line-height: 60px;
-    margin-right: 40px;
+    margin-right: 20px;
+    color: #fff;
 }
 .photo{
     height: 40px;
     width: 40px;
     border-radius: 20px;
-    margin: 10px 20px;
+    margin-right: 10px;
 }
 .logo{
     height: 40px;
@@ -58,4 +57,8 @@
     border-radius: 20px;
     margin-bottom: 10px;
     margin-left: 10px;
+}
+
+.ant-menu-root {
+    background-color: #7952b3 !important;
 }

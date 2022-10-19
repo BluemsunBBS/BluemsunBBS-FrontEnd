@@ -10,6 +10,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
 import { http } from "./utils/http";
 import { getUserInfo } from "./utils/func";
+import TestPage from "./page/TestPage";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="login" element={<LoginPage/>} />
           <Route path="home" element={<HomePage/>} />
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
+          <Route path="test" element={<TestPage/>}></Route>
           {/* <Route path="region" element={<RegionPage/>}></Route> */}
         </Route>
         <Route path="*" element={<NotfoundPage/>} />

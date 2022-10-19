@@ -1,0 +1,6 @@
+.block {
+    display: block;
+    background-color: rgb(171, 81, 81);
+    width: 100%;
+    height: 100px;
+}

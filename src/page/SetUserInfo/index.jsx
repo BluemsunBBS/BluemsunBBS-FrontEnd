@@ -17,7 +17,7 @@ export default () => {
 
     var [nickname, setNickname] = useState(getUserInfo("nickname"));
     var [realname, setRealname] = useState(getUserInfo("realname"));
-    var [password, setPassword] = useState("");
+    var [password, setPassword] = useState(null);
     var [phone, setPhone] = useState(getUserInfo("phone"));
 
     var handleSubmit = async () => {
@@ -41,7 +41,7 @@ export default () => {
         setNickname(getUserInfo("nickname"));
         setRealname(getUserInfo("realname"));
         setPhone(getUserInfo("phone"));
-        setPassword("");
+        setPassword(null);
     }
 
     return (
