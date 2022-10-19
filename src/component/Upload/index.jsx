@@ -10,11 +10,11 @@ const getBase64 = (img, callback) => {
 const beforeUpload = (file) => {
   const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
   if (!isJpgOrPng) {
-    message.error('You can only upload JPG/PNG file!');
+    message.error('只允许上传JPG、PNG格式！');
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
-    message.error('Image must smaller than 2MB!');
+    message.error('图片必须小于2MB！');
   }
   return isJpgOrPng && isLt2M;
 };
@@ -30,9 +30,8 @@ const UploadPic = (props) => {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, (url) => {
         setLoading(false);
-        setImageUrl(url);
       });
-      props.setImage(info.file.response.data);
+      props.setImageUrl(info.file.response.data);
     }
   };
   const uploadButton = (
@@ -58,9 +57,9 @@ const UploadPic = (props) => {
       onChange={handleChange}
       headers={{ token: localStorage.getItem("token") }}
     >
-      {imageUrl ? (
+      {props.imageUrl ? (
         <img
-          src={imageUrl}
+          src={props.imageUrl}
           alt="avatar"
           style={{
             width: '100%',

@@ -3,7 +3,7 @@ import Search from "../../component/Search";
 import { getUserInfo } from "../../utils/func";
 import './setuserinfo.css'
 import imgurl from './../../img/1.jpg'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { http } from "../../utils/http";
 import { openNotification } from "../../utils/notification";
 import Upload from "./../../component/Upload";
@@ -27,7 +27,7 @@ export default () => {
             realname: realname,
             password: password,
             phone: phone,
-            // avatar_uri: avatarUri
+            avatar_uri: avatarUri
         }
         var res = await http.put("/account/" + getUserInfo("id"), data);
         if (res == null || res.code == 2) {
@@ -44,6 +44,7 @@ export default () => {
         setRealname(getUserInfo("realname"));
         setPhone(getUserInfo("phone"));
         setPassword(null);
+        setUri(getUserInfo("avatar_uri"));
     }
 
     return (
@@ -93,7 +94,7 @@ export default () => {
                     <button className="btn" onClick={handleReset}>重置</button>
                 </div>
                 <div className="right">
-                    <Upload setImage={setUri}/>
+                    <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/" + avatarUri}/>
                     {/* <img src={userimg} className="userImg" onClick={uploadPic}></img> */}
                     <div className="imgTitle">我的头像</div>
                 </div>

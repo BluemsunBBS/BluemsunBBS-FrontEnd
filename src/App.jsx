@@ -18,6 +18,19 @@ function App() {
     async function fetchData() {
       if (!localStorage.getItem("token")) return;
       var res = await http.get("/account/" + getUserInfo("id"));
+      // var avatarUri = getUserInfo("avatar_uri");
+      // if (res.data.avatar_uri != avatarUri || !localStorage.getItem("imgBase64")) {
+      //   let resImg = await http.get("/images/" + res.data.avatar_uri);
+      //   let blob = new Blob([resImg], { type: "image" });
+      //   const getBase64 = (img, callback) => {
+      //     const reader = new FileReader();
+      //     reader.addEventListener('load', () => callback(reader.result));
+      //     reader.readAsDataURL(img);
+      //   };
+      //   getBase64(blob, (url) => {
+      //     localStorage.setItem("imgBase64", url);
+      //   })
+      // }
       localStorage.setItem("data", JSON.stringify(res.data));
     }
     fetchData();

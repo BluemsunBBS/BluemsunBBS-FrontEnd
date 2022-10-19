@@ -1,22 +1,24 @@
 import imgurl from "./../../img/1.jpg";
 import logo from './../../img/logo.jpg'
-import { Menu } from "antd";
+import { Button, Menu } from "antd";
 import './Nav.css';
+import { Content } from "antd/lib/layout/layout";
+import { getUserInfo } from "../../utils/func";
 
 export default function Nav(props) {
-    var url = imgurl;
+    var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
     var bbsurl = logo;
-    var nickname = '陌生人';
+    var nickname = getUserInfo("nickname");
 
-    if(props.nickname !== null && props.nickname !== undefined){
-        nickname = props.nickname;
+    if (!img) {
+        img = imgurl;
     }
 
     const logined = [
         {
             label: (
-                <div>
-                    <img src={url} className="photo"></img>
+                <div style={{minWidth: 170}}>
+                    <img src={img} className="photo"></img>
                     <span className="hello">你好，{nickname}</span>
                 </div>
             ),
@@ -36,11 +38,33 @@ export default function Nav(props) {
         }
     ];
 
+    const guest = [
+        {
+            label: (
+                <div style={{width: 100, height: 60}}>
+                    <Button type="primary" className="login">登录 | 注册</Button>
+                </div>
+            ),
+            key: 'login'
+        }
+    ];
+
     var handleClick = e => {
         if (e.key == "logout") {
             localStorage.removeItem("token");
             localStorage.removeItem("data");
             window.location.href = "/login";
+        }
+        if (e.key == "login") {
+            window.location.href = "/login";
+        }
+    }
+
+    var item = () => {
+        if (localStorage.getItem("token")) {
+            return logined;
+        } else {
+            return guest;
         }
     }
 
@@ -52,7 +76,7 @@ export default function Nav(props) {
             {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}
             <span className="blockBox">
-                <Menu mode="horizontal" onClick={handleClick} items={logined} style={{minWidth: 200}} />
+                <Menu mode="horizontal" onClick={handleClick} items={item()} style={{minWidth: 0, flex: "auto"}} />
             </span>
             
         </div>
