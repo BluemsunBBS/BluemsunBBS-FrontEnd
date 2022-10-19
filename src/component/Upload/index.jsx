@@ -55,7 +55,7 @@ const UploadPic = () => {
       action="http://bbs.wyy.ink:8080/file/upload"
       beforeUpload={beforeUpload}
       onChange={handleChange}
-      headers={localStorage.getItem("token")}
+      headers={{token: localStorage.getItem("token")}}
     >
       {imageUrl ? (
         <img
