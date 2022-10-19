@@ -4,6 +4,7 @@ import { getUserInfo } from "../../utils/func";
 import './setuserinfo.css'
 import imgurl from './../../img/1.jpg'
 
+
 export default () => {
     var userimg = imgurl;
     return (
