@@ -38,6 +38,7 @@
     height: 40px;
     width: 360px;
     float: right;
+    color: rgb(132, 130, 130);
 }
 .left>.inputBox>.text1{
     line-height: 40px;
@@ -64,6 +65,7 @@
     color: #7952b3;
 }
 .setUserInfoBox>.left>.btn{
+    font-size: large;
     width: 100px;
     height: 40px;
     background-color: #7952b3;
@@ -74,5 +76,6 @@
     transform: translateX(40px);
 }
 .setUserInfoBox>.left>.btn:hover{
-    background-color: #fff;
+    background-color: #a070e8;
+    transition: all 0.2s;
 }
