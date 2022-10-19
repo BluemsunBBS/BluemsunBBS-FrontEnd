@@ -51,6 +51,7 @@
     background-color: #fff;
     border: 1px solid gray;
     border-radius: 4px;
+    cursor: pointer;
 }
 .ba:hover{
     background-color: rgb(234, 232, 232);
@@ -87,6 +88,7 @@
     height: 100px;
 }
 .hotPic{
+    cursor: pointer;
     width: 100px;
     height: 100px;
     border-radius: 10px;
@@ -96,6 +98,7 @@
     display: inline-block;
 }
 .hot-text,.hot-text1{
+    cursor: pointer;
     padding-left: 10px;
     width: 100px;
     height: 40px;

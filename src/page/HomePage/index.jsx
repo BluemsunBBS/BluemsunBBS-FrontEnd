@@ -96,14 +96,14 @@ function HomePage() {
               <div className='hotBlockBox'>
                 <img src={url} className="hotPic"></img>
                 <span className='hot-text-box'>
-                  <div className='hot-text'>冯国忠吧</div>
+                  <div className='hot-text1'>冯国忠吧</div>
                   <div className='hot-text'>1000篇文章</div>
                 </span>
               </div>
               <div className='hotBlockBox'>
                 <img src={url} className="hotPic"></img>
                 <span className='hot-text-box'>
-                  <div className='hot-text'>冯国忠吧</div>
+                  <div className='hot-text1'>冯国忠吧</div>
                   <div className='hot-text'>1000篇文章</div>
                 </span>
               </div>
