@@ -4,11 +4,12 @@ import {getUserInfo} from './../../utils/func.js'
 import './../../utils/func.js'
 
 function LoginPage() {
-  var nickname = getUserInfo("nickname");
-  console.log(nickname);
+  if (localStorage.getItem("token") != null) {
+    window.location.href = "/";
+  }
   return (
     <div>
-      <Nav nickname={nickname}/>
+      <Nav/>
       <br/><br/>
       <Log/>
     </div>
