@@ -3,8 +3,6 @@ import {
     encode as base64_encode
 } from 'base-64';
 
-const t = localStorage.getItem("token");
-
 function UrlDecode(zipStr) {
     var uzipStr = '';
     for (var i = 0; i < zipStr.length; i += 1) {

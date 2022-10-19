@@ -6,7 +6,7 @@ import {
 
 export function getUserInfo(arg) {
     var t = localStorage.getItem("token");
-    if (t == 'undefined') {
+    if (t == null) {
         return null;
     }
     var obj = setToken(t);
