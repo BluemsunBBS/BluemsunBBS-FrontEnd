@@ -17,7 +17,7 @@ export default () => {
 
     var [nickname, setNickname] = useState(getUserInfo("nickname"));
     var [realname, setRealname] = useState(getUserInfo("realname"));
-    var [password, setPassword] = useState(getUserInfo("password"));
+    var [password, setPassword] = useState("");
     var [phone, setPhone] = useState(getUserInfo("phone"));
 
     var handleSubmit = async () => {
@@ -32,7 +32,16 @@ export default () => {
             openNotification("error", "更新失败", "用户信息设置失败，请检查后重试");
         } else if (res.code == 0) {
             openNotification("success", "更新成功", res.data);
+            var res = await http.get("/account/" + getUserInfo("id"));
+            localStorage.setItem("data", JSON.stringify(res.data));
         }
+    }
+
+    var handleReset = () => {
+        setNickname(getUserInfo("nickname"));
+        setRealname(getUserInfo("realname"));
+        setPhone(getUserInfo("phone"));
+        setPassword("");
     }
 
     return (
@@ -79,7 +88,7 @@ export default () => {
                         ></input>
                     </div>
                     <button className="btn" onClick={handleSubmit}>提交</button>
-                    <button className="btn">重置</button>
+                    <button className="btn" onClick={handleReset}>重置</button>
                 </div>
                 <div className="right">
                     <img src={userimg} className="userImg"></img>
