@@ -40,7 +40,6 @@ export function setToken(t) {
     var decodeparam = JSON.parse(base64_decode(param[1]))['sub'];
     var deparam = UrlDecode(decodeparam);
     var obj = JSON.parse(deparam);
-    obj = JSON.stringify(obj);
     console.log(obj);
     return (obj);
 }
