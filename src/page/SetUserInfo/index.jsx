@@ -6,7 +6,7 @@ import imgurl from './../../img/1.jpg'
 import { useState } from "react";
 import { http } from "../../utils/http";
 import { openNotification } from "../../utils/notification";
-
+import Upload from "./../../component/Upload";
 
 export default () => {
     var userimg = imgurl;
@@ -44,10 +44,6 @@ export default () => {
         setRealname(getUserInfo("realname"));
         setPhone(getUserInfo("phone"));
         setPassword("");
-    }
-
-    var uploadPic = () =>{
-        
     }
 
     return (
@@ -97,7 +93,8 @@ export default () => {
                     <button className="btn" onClick={handleReset}>重置</button>
                 </div>
                 <div className="right">
-                    <img src={userimg} className="userImg" onClick={uploadPic}></img>
+                    <Upload/>
+                    {/* <img src={userimg} className="userImg" onClick={uploadPic}></img> */}
                     <div className="imgTitle">我的头像</div>
                 </div>
 
