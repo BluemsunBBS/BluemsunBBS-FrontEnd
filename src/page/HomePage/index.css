@@ -67,7 +67,7 @@
 .hotBox{
     border: 2px solid rgb(234, 232, 232);
 }
-.hot{
+.hot-region{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -107,9 +107,18 @@
 .hot-text1{
     font-weight: bold;
 }
-.diyShow{
+/* 下半部分 */
+.hot-article{
     background-color: #f0efef;
     width: 780px;
     height: 400px;
-    margin-top: 20px;
+    margin-top: 10px;
+    border: 2px solid rgb(234, 232, 232);
 }
+.hot-article-block{
+    background-color: #fff;
+    width: 720px;
+    height: 100px;
+    margin: 10px auto;
+}
+.hot-text-box1

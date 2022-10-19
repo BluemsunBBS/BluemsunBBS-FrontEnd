@@ -42,8 +42,8 @@ function HomePage() {
           {/* 上半部分 */}
           
           <div className='hotBox'>
-            <div className='hotTitle'>热门贴</div>
-            <div className='hot'>
+            <div className='hotTitle'>热门贴吧</div>
+            <div className='hot-region'>
               <div className='hotBlockBox'>
                 <img src={url} className="hotPic"></img>
                 <span className='hot-text-box'>
@@ -111,7 +111,15 @@ function HomePage() {
             
           </div>
           {/* 下半部分 */}
-          <div className='diyShow'></div>
+          <div className='hot-article'>
+            <div className='hotTitle'>热门文章</div>
+            <div className='hot-article-block'>
+              <img src={url} className='hotPic'/>
+              <span className='hot-text-box1'>
+                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
