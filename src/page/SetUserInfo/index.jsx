@@ -27,7 +27,7 @@ export default () => {
             realname: realname,
             password: password,
             phone: phone,
-            avatar_uri:avatarUri
+            // avatar_uri: avatarUri
         }
         var res = await http.put("/account/" + getUserInfo("id"), data);
         if (res == null || res.code == 2) {
@@ -93,7 +93,7 @@ export default () => {
                     <button className="btn" onClick={handleReset}>重置</button>
                 </div>
                 <div className="right">
-                    <Upload/>
+                    <Upload setImage={setUri}/>
                     {/* <img src={userimg} className="userImg" onClick={uploadPic}></img> */}
                     <div className="imgTitle">我的头像</div>
                 </div>

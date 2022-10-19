@@ -12,7 +12,7 @@ export default function Nav(props) {
         nickname = props.nickname;
     }
 
-    const items = [
+    const logined = [
         {
             label: (
                 <div>
@@ -26,11 +26,23 @@ export default function Nav(props) {
                     label: (
                         <a href="/setUserInfo">编辑个人资料</a>
                     ),
-                    key: "userInfo"
+                    key: "setUserInfo"
+                },
+                {
+                    label: "退出登录",
+                    key: "logout"
                 }
             ]
         }
     ];
+
+    var handleClick = e => {
+        if (e.key == "logout") {
+            localStorage.removeItem("token");
+            localStorage.removeItem("data");
+            window.location.href = "/login";
+        }
+    }
 
     return (
         <div className="navContainer">
@@ -40,7 +52,7 @@ export default function Nav(props) {
             {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}
             <span className="blockBox">
-                <Menu mode="horizontal" items={items} style={{minWidth: 200}} />
+                <Menu mode="horizontal" onClick={handleClick} items={logined} style={{minWidth: 200}} />
             </span>
             
         </div>

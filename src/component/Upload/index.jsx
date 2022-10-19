@@ -18,7 +18,7 @@ const beforeUpload = (file) => {
   }
   return isJpgOrPng && isLt2M;
 };
-const UploadPic = () => {
+const UploadPic = (props) => {
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState();
   const handleChange = (info) => {
@@ -32,6 +32,7 @@ const UploadPic = () => {
         setLoading(false);
         setImageUrl(url);
       });
+      props.setImage(info.file.response.data);
     }
   };
   const uploadButton = (
@@ -55,7 +56,7 @@ const UploadPic = () => {
       action="http://bbs.wyy.ink:8080/file/upload"
       beforeUpload={beforeUpload}
       onChange={handleChange}
-      headers={{token: localStorage.getItem("token")}}
+      headers={{ token: localStorage.getItem("token") }}
     >
       {imageUrl ? (
         <img
