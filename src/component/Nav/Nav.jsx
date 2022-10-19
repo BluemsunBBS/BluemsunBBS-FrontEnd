@@ -3,6 +3,7 @@ import { Button, Menu } from "antd";
 import './Nav.css';
 // import { Content } from "antd/lib/layout/layout";
 import { getUserInfo } from "../../utils/func";
+import { BellFilled } from '@ant-design/icons';
 
 export default function Nav(props) {
     var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
@@ -63,6 +64,16 @@ export default function Nav(props) {
         }
     }
 
+    function NotificationBell() {
+        if (localStorage.getItem("token")) {
+            return (
+                <div className='blockBox' style={{marginRight: '20px'}}>
+                    <BellFilled className='notification' style={{fontSize: '25px', color: '#f0f0f0', lineHeight: '70px'}}/>
+                </div>
+            )
+        }
+    }
+
     return (
         <div className="navContainer">
             <img src={bbsurl} className="logo"/>
@@ -70,9 +81,10 @@ export default function Nav(props) {
             
             {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}
-            <span className="blockBox">
+            <div className="blockBox">
                 <Menu mode="horizontal" onClick={handleClick} items={item()} style={{minWidth: 0, flex: "auto"}} />
-            </span>
+            </div>
+            <NotificationBell/>
             
         </div>
     )

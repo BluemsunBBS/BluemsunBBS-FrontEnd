@@ -67,3 +67,8 @@
 .ant-menu-root {
     background-color: #7952b3 !important;
 }
+.notification {
+    font-size: 22px;
+    color: #f0f0f0;
+    line-height: 70px;
+}
