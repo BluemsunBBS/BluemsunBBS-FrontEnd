@@ -16,7 +16,7 @@ export default function Nav(props) {
         {
             label: (
                 <div>
-                    <img src={url} className="photo" onClick={()=>{window.location.href="/setUserInfo"}}></img>
+                    <img src={url} className="photo"></img>
                     <span className="hello">你好，{nickname}</span>
                 </div>
             ),
@@ -40,7 +40,7 @@ export default function Nav(props) {
             {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}
             <span className="blockBox">
-                <Menu mode="horizontal" items={items} />
+                <Menu mode="horizontal" items={items} style={{minWidth: 200}} />
             </span>
             
         </div>
