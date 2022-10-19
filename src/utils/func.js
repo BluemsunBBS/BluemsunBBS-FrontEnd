@@ -6,6 +6,9 @@ export function getUserInfo(arg) {
     if (localStorage.getItem("data")) {
         var data = localStorage.getItem("data");
         data = JSON.parse(data);
+        if (!data[arg] && arg == "avatar_uri") {
+            return "file.jpg";
+        }
         return data[arg];
     }
     var t = localStorage.getItem("token");

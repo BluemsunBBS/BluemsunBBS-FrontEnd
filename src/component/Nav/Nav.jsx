@@ -1,4 +1,4 @@
-import imgurl from "./../../img/1.jpg";
+import imgurl from "./../../img/file.jpg";
 import logo from './../../img/logo.jpg'
 import { Button, Menu } from "antd";
 import './Nav.css';
@@ -9,10 +9,6 @@ export default function Nav(props) {
     var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
     var bbsurl = logo;
     var nickname = getUserInfo("nickname");
-
-    if (!img) {
-        img = imgurl;
-    }
 
     const logined = [
         {
