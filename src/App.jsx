@@ -5,6 +5,7 @@ import LoginPage from './page/LoginPage';
 import NotfoundPage from "./page/NotfoundPage";
 import HomePage from './page/HomePage';
 import SetUserInfo from './page/SetUserInfo'
+import RegionPage from './page/RegionPage'
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="login" element={<LoginPage/>} />
           <Route path="home" element={<HomePage/>} />
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
+          <Route path="region" element={<RegionPage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
