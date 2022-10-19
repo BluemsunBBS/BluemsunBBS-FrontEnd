@@ -3,7 +3,7 @@ import Search from './../../component/Search';
 import Carousel from '../../component/Carou';
 import './index.css'
 import pic from './../../img/1.jpg'
-import {getUserInfo} from './../../utils/func.js'
+import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 
 function HomePage() {
@@ -13,11 +13,11 @@ function HomePage() {
   return (
     <div>
       {/* 导航栏 */}
-      <Nav nickname={nickname}/>
+      <Nav nickname={nickname} />
       {/* 搜索框 */}
-      <Search/>
+      <Search />
       {/* 轮播图 */}
-      <Carousel/>
+      <Carousel />
       {/* 中间的介绍部分 */}
       <div className='centerBox'>
         {/* 左侧部分 */}
@@ -39,9 +39,79 @@ function HomePage() {
         </div>
         {/* 右侧部分 */}
         <div className='rightBox'>
-          <div className='hot'>
+          {/* 上半部分 */}
+          
+          <div className='hotBox'>
             <div className='hotTitle'>热门贴</div>
+            <div className='hot'>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+              <div className='hotBlockBox'>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text'>冯国忠吧</div>
+                  <div className='hot-text'>1000篇文章</div>
+                </span>
+              </div>
+            </div>
+            
           </div>
+          {/* 下半部分 */}
+          <div className='diyShow'></div>
         </div>
       </div>
     </div>
