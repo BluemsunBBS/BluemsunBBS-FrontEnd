@@ -18,8 +18,9 @@
     outline: 0 !important;
 }
 .ant-radio-button-wrapper-checked{
-    /* border-color: #7952b3 !important;
-    border-left-color: #7952b3 !important; */
+    background-color: #7952b3;
+    border-color: #7952b3 !important;
+    /* border-left-color: #7952b3 !important; */
     box-shadow: none !important;
     outline: 0 !important;
     color: #7952b3 !important;

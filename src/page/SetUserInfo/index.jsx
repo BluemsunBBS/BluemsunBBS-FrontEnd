@@ -1,9 +1,12 @@
 import Nav from "../../component/Nav/Nav";
 import Search from "../../component/Search";
 import { getUserInfo } from "../../utils/func";
+import './setuserinfo.css'
 
 import { BetaSchemaForm } from '@ant-design/pro-components';
 import { Input } from 'antd';
+
+
 const valueEnum = {
     all: { text: '全部', status: 'Default' },
     open: {
@@ -22,8 +25,22 @@ const valueEnum = {
 };
 const columns = [
     {
-        title: '标题',
-        dataIndex: 'title',
+        title: '用户名',
+        dataIndex: 'username',
+        initialValue: '必填',
+        formItemProps: {
+            rules: [
+                {
+                    required: true,
+                    message: '此项为必填项',
+                },
+            ],
+        },
+        width: 'm',
+    },
+    {
+        title: '昵称',
+        dataIndex: 'nickname',
         initialValue: '必填',
         formItemProps: {
             rules: [
@@ -78,24 +95,24 @@ const columns = [
             }
         },
     },
-    {
-        valueType: 'dependency',
-        name: ['title'],
-        columns: ({ title }) => {
-            return title !== 'hidden'
-                ? [
-                    {
-                        title: 'title为hidden时隐藏',
-                        dataIndex: 'hidden',
-                        valueType: 'date',
-                        renderFormItem: () => {
-                            return <Input />;
-                        },
-                    },
-                ]
-                : [];
-        },
-    },
+    // {
+    //     valueType: 'dependency',
+    //     name: ['title'],
+    //     columns: ({ title }) => {
+    //         return title !== 'hidden'
+    //             ? [
+    //                 {
+    //                     title: 'title为hidden时隐藏',
+    //                     dataIndex: 'hidden',
+    //                     valueType: 'date',
+    //                     renderFormItem: () => {
+    //                         return <Input />;
+    //                     },
+    //                 },
+    //             ]
+    //             : [];
+    //     },
+    // },
     {
         title: '创建时间',
         key: 'showTime',
@@ -108,7 +125,7 @@ const columns = [
 ];
 export default () => {
     return (
-        <div>
+        <div className="setUserInfoBox">
             <Nav nickname={getUserInfo("nickname")}/>
             <Search/>
             <BetaSchemaForm shouldUpdate={false} layoutType="Form" onFinish={async (values) => {

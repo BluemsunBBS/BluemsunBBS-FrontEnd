@@ -9,6 +9,7 @@ function Nav(props) {
     if(props.nickname !== null&&props.nickname !== undefined){
         nickname = props.nickname;
     }
+    console.log(nickname);
     return (
         <div className="navContainer">
             <img src={bbsurl} className="logo"/>
