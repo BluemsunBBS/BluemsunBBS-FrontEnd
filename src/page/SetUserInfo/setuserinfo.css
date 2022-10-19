@@ -1,9 +1,78 @@
-.setUserInfoBox>.ant-pro{
-    width: 600px;
-    padding: 20px;
-    margin-top: ;
-    margin: 10px auto;
+.setUserInfoBox{
+    width: 800px;
+    height: 420px;
     border: 1px solid #7952b3;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin: 10px auto;
+    text-align: center;
 }
-   
+.setUserInfoBox>.userTitle{
+    font-size: large;
+    /* font-weight: bold; */
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    margin: 20px auto;
+    text-align: center;
+    color: #7952b3;
+}
+/* 左侧信息 */
+.left{
+    display: inline-block;
+    width: 500px;
+    height: 600px;
+    vertical-align: top;
+}
+.left>.inputBox{
+    border: none;
+    margin-top: 15px;
+    margin-left: 0;
+    width: 500px;
+}
+.left>.inputBox>.input{
+    outline: none;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    padding-left: 10px;
+    height: 40px;
+    width: 360px;
+    float: right;
+}
+.left>.inputBox>.text1{
+    line-height: 40px;
+    font-size:medium;
+}
+/* 右侧头像部分 */
+.right{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+}
+.right>.userImg{
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+.right>.imgTitle{
+    margin-top: 20px;
+    font-size: large;
+    font-weight: bold;
+    color: #7952b3;
+}
+.setUserInfoBox>.left>.btn{
+    width: 100px;
+    height: 40px;
+    background-color: #7952b3;
+    border: 0;
+    color: #fff;
+    border-radius: 4px;
+    margin: 40px 20px;
+    transform: translateX(40px);
+}
+.setUserInfoBox>.left>.btn:hover{
+    background-color: #fff;
+}

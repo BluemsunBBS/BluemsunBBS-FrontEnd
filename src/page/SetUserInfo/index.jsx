@@ -2,135 +2,44 @@ import Nav from "../../component/Nav/Nav";
 import Search from "../../component/Search";
 import { getUserInfo } from "../../utils/func";
 import './setuserinfo.css'
+import imgurl from './../../img/1.jpg'
 
-import { BetaSchemaForm } from '@ant-design/pro-components';
-import { Input } from 'antd';
-
-
-const valueEnum = {
-    all: { text: '全部', status: 'Default' },
-    open: {
-        text: '未解决',
-        status: 'Error',
-    },
-    closed: {
-        text: '已解决',
-        status: 'Success',
-        disabled: true,
-    },
-    processing: {
-        text: '解决中',
-        status: 'Processing',
-    },
-};
-const columns = [
-    {
-        title: '用户名',
-        dataIndex: 'username',
-        initialValue: '必填',
-        formItemProps: {
-            rules: [
-                {
-                    required: true,
-                    message: '此项为必填项',
-                },
-            ],
-        },
-        width: 'm',
-    },
-    {
-        title: '昵称',
-        dataIndex: 'nickname',
-        initialValue: '必填',
-        formItemProps: {
-            rules: [
-                {
-                    required: true,
-                    message: '此项为必填项',
-                },
-            ],
-        },
-        width: 'm',
-    },
-    {
-        title: '状态',
-        dataIndex: 'state',
-        valueType: 'select',
-        valueEnum,
-        width: 'm',
-        tooltip: '当title为disabled时状态无法选择',
-        dependencies: ['title'],
-        fieldProps: (form) => {
-            if (form.getFieldValue('title') === 'disabled') {
-                return {
-                    disabled: true,
-                    placeholder: 'disabled',
-                };
-            }
-            else {
-                return {
-                    placeholder: 'normal',
-                };
-            }
-        },
-    },
-    {
-        title: '标签',
-        dataIndex: 'labels',
-        width: 'm',
-        tooltip: '当title为必填时此项将为必填',
-        dependencies: ['title'],
-        formItemProps(form) {
-            if (form.getFieldValue('title') === '必填') {
-                return {
-                    rules: [
-                        {
-                            required: true,
-                        },
-                    ],
-                };
-            }
-            else {
-                return {};
-            }
-        },
-    },
-    // {
-    //     valueType: 'dependency',
-    //     name: ['title'],
-    //     columns: ({ title }) => {
-    //         return title !== 'hidden'
-    //             ? [
-    //                 {
-    //                     title: 'title为hidden时隐藏',
-    //                     dataIndex: 'hidden',
-    //                     valueType: 'date',
-    //                     renderFormItem: () => {
-    //                         return <Input />;
-    //                     },
-    //                 },
-    //             ]
-    //             : [];
-    //     },
-    // },
-    {
-        title: '创建时间',
-        key: 'showTime',
-        dataIndex: 'createName',
-        valueType: 'date',
-    },
-    {
-        valueType: 'divider',
-    },
-];
 export default () => {
+    var userimg = imgurl;
     return (
-        <div className="setUserInfoBox">
+        <div>
             <Nav nickname={getUserInfo("nickname")}/>
             <Search/>
-            <BetaSchemaForm shouldUpdate={false} layoutType="Form" onFinish={async (values) => {
-            console.log(values);
-        }} columns={columns}/>
+            <div className="setUserInfoBox">
+                <div className="userTitle">设置用户信息</div>
+                <div className="left">
+                    <div className="inputBox">
+                        <span className="text1">昵称</span>
+                        <input type="text" className="input" value={getUserInfo("nickname")}></input>
+                    </div>
+                    <div className="inputBox">
+                        <span className="text1">真实姓名</span>
+                        <input type="text" className="input" value={getUserInfo("realname")}></input>
+                    </div>
+                    <div className="inputBox">
+                        <span className="text1">密码</span>
+                        <input type="password" className="input" value={getUserInfo("password")}></input>
+                    </div>
+                    <div className="inputBox">
+                        <span className="text1">手机号</span>
+                        <input type="text" className="input" value={getUserInfo("phone")}></input>
+                    </div>
+                    <button className="btn">提交</button>
+                    <button className="btn">重置</button>
+                </div>
+                <div className="right">
+                 <img src={userimg} className="userImg"></img>
+                 <div className="imgTitle">我的头像</div>
+                </div>
+                
+                
+                
+            </div>
         </div>
     )
 

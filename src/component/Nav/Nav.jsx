@@ -3,8 +3,8 @@ import logo from './../../img/logo.jpg'
 import './Nav.css';
 
 function Nav(props) {
-    const url = imgurl;
-    const bbsurl = logo;
+    var url = imgurl;
+    var bbsurl = logo;
     var nickname = '陌生人';
     if(props.nickname !== null&&props.nickname !== undefined){
         nickname = props.nickname;
