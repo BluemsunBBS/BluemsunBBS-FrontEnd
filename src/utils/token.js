@@ -35,6 +35,9 @@ function AsciiToString(asccode){
     return String.fromCharCode(asccode); 
 }
 export function setToken(t) {
+    if (t == null) {
+        return null;
+    }
     var param = t.split(".");
     var decodeparam = JSON.parse(base64_decode(param[1]))['sub'];
     var deparam = UrlDecode(decodeparam);

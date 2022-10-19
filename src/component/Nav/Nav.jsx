@@ -6,7 +6,7 @@ function Nav(props) {
     var url = imgurl;
     var bbsurl = logo;
     var nickname = '陌生人';
-    if(props.nickname !== null&&props.nickname !== undefined){
+    if(props.nickname !== null && props.nickname !== undefined){
         nickname = props.nickname;
     }
     console.log(nickname);
