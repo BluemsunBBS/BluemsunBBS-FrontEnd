@@ -1,21 +1,20 @@
-import imgurl from "./../../img/file.jpg";
 import logo from './../../img/logo.jpg'
 import { Button, Menu } from "antd";
 import './Nav.css';
-import { Content } from "antd/lib/layout/layout";
+// import { Content } from "antd/lib/layout/layout";
 import { getUserInfo } from "../../utils/func";
 
 export default function Nav(props) {
     var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
     var bbsurl = logo;
-    var nickname = getUserInfo("nickname");
+    // var nickname = getUserInfo("nickname");
 
     const logined = [
         {
             label: (
-                <div style={{minWidth: 170}}>
+                <div style={{width: 40}}>
                     <img src={img} className="photo"></img>
-                    <span className="hello">你好，{nickname}</span>
+                    {/* <span className="hello">你好，{nickname}</span> */}
                 </div>
             ),
             key: 'menu',
