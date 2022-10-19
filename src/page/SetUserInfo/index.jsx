@@ -19,13 +19,15 @@ export default () => {
     var [realname, setRealname] = useState(getUserInfo("realname"));
     var [password, setPassword] = useState("");
     var [phone, setPhone] = useState(getUserInfo("phone"));
+    var [avatarUri,setUri] = useState(getUserInfo("avatar_uri"));
 
     var handleSubmit = async () => {
         var data = {
             nickname: nickname,
             realname: realname,
             password: password,
-            phone: phone
+            phone: phone,
+            avatar_uri:avatarUri
         }
         var res = await http.put("/account/" + getUserInfo("id"), data);
         if (res == null || res.code == 2) {
@@ -42,6 +44,10 @@ export default () => {
         setRealname(getUserInfo("realname"));
         setPhone(getUserInfo("phone"));
         setPassword("");
+    }
+
+    var uploadPic = () =>{
+        
     }
 
     return (
@@ -91,7 +97,7 @@ export default () => {
                     <button className="btn" onClick={handleReset}>重置</button>
                 </div>
                 <div className="right">
-                    <img src={userimg} className="userImg"></img>
+                    <img src={userimg} className="userImg" onClick={uploadPic}></img>
                     <div className="imgTitle">我的头像</div>
                 </div>
 
