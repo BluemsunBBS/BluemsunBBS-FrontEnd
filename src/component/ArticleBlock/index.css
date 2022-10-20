@@ -1,5 +1,9 @@
 .relatedArticle{
     background-color: red;
     width: 600px;
-    height: 100px;
+}
+.relatedArticle>.articleImg{
+    width: 45px;
+    height: 45px;
+    border-radius: 22.5px;
 }
