@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './index.css';
 
 function Search(){
 
-    const [str, setStr] = useState();
+    const params = useParams();
+
+    const navigate = useNavigate();
+
+    const [str, setStr] = useState(params.searchStr);
+
+    const handleClick = () => {
+        if (str) navigate(`/list/${str}`);
+    }
 
     return(
         <div className="searchContainer">
@@ -14,9 +22,7 @@ function Search(){
                 value={str}
                 onChange={(e)=>{setStr(e.target.value)}}
             ></input>
-            <button className="searchBtn">
-                <Link to={`/list/${str}`}>BBS搜索</Link>
-            </button>
+            <button className="searchBtn" onClick={handleClick}>BBS搜索</button>
         </div>
     )
 }

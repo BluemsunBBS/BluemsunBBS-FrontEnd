@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import { http } from '../../utils/http';
 import url from './../../img/file.jpg'
 import './index.css'
@@ -11,15 +12,25 @@ export default function UserBlock(props) {
         fans: 0
     });
 
-    const getUser = async (userId) => {
-        if (userId == undefined) userId = null;
-        if (userId == null) return;
-        let res = await http.get(`/account/${userId}`);
-        if (res.code != 0) {
-            return;
+    const getUser = async () => {
+        let avatarUri, nickname;
+        let userId, res;
+        if (props.user) {
+            const user = props.user;
+            userId = user.id;
+            avatarUri = "http://bbs.wyy.ink:8080/images/" + user.avatar_uri;
+            nickname = user.nickname;
+        } else {
+            userId = props.userId;
+            if (userId == undefined) userId = null;
+            if (userId == null) return;
+            res = await http.get(`/account/${userId}`);
+            if (res.code != 0) {
+                return;
+            }
+            avatarUri = "http://bbs.wyy.ink:8080/images/" + res.data.avatar_uri;
+            nickname = res.data.nickname;
         }
-        let avatarUri = "http://bbs.wyy.ink:8080/images/" + res.data.avatar_uri;
-        let nickname = res.data.nickname;
         res = await http.get(`/friend/countFans/${userId}`);
         if (res.code != 0) {
             return;
@@ -31,10 +42,20 @@ export default function UserBlock(props) {
         });
     }
 
-    useEffect(()=>{getUser(props.userId)}, [])
+    useEffect(() => {
+        getUser();
+    }, []);
+
+    let navigate = useNavigate();
 
     const handleClick = () => {
-        window.location.href = `/user/${props.userId}`;
+        let userId;
+        if (props.user) {
+            userId = props.user.id;
+        } else {
+            userId = props.userId;
+        }
+        navigate(`/user/${userId}`);
     }
 
     return (

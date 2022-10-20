@@ -7,6 +7,7 @@
     padding-bottom: 10px;
 }
 .relatedArticle>.text1{
+    cursor: pointer;
     font-size: large;
     font-weight: bold;
     margin-left: 20px;

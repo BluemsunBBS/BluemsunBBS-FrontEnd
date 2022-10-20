@@ -6,24 +6,30 @@ import BoardBlock from '../BoardBlock';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { http } from '../../utils/http';
-import { Pagination } from 'antd';
+import { message, Pagination } from 'antd';
 
 function Block(){
     var imgurl = url;
 
     var searchParam = useParams();
+
     const [pager, setPager] = useState({
         page: 1,
-        size: 20
+        size: 10
     });
-    const [data, setData] = useState({
+
+    const APIResult = {
         page: 0,
         size: 0,
         rows: [],
         total: 0
-    })
+    }
 
-    async function fetch(searchParam, pager) {
+    const [articleData, setArticleData] = useState(APIResult);
+    const [userData, setUserData] = useState(APIResult);
+    const [boardData, setBoardData] = useState(APIResult);
+
+    async function fetchArticle(searchParam, pager) {
         let res = await http.get(`/article/list`, {
             params: {
                 page: pager.page,
@@ -31,20 +37,56 @@ function Block(){
                 order: "update_time desc",
                 title: searchParam.searchStr
             }
-        })
+        });
         if (res.code != 0) {
-            return null;
+            message.error(res.msg);
+            setArticleData(null);
+        } else {
+            setArticleData(res.data);
         }
-        return res.data;
+    }
+
+    async function fetchUser(searchParam) {
+        let res = await http.get(`/account/search`, {
+            params: {
+                page: 1,
+                size: 9,
+                key: searchParam.searchStr
+            }
+        });
+        if (res.code != 0) {
+            message.error(res.msg);
+            setUserData(null);
+        } else {
+            setUserData(res.data);
+        }
+    }
+
+    async function fetchBoard(searchParam) {
+        let res = await http.get(`/board/`,{
+            params: {
+                page: 1,
+                size: 9,
+                name: searchParam.searchStr
+            }
+        });
+        if (res.code != 0) {
+            message.error(res.msg);
+            setBoardData(null);
+        } else {
+            setBoardData(res.data);
+        }
     }
 
     useEffect(() => {
-        async function render() {
-            var data = await fetch(searchParam, pager);
-            setData(data);
-        }
-        render();
-    }, [pager])
+        fetchUser(searchParam);
+        fetchBoard(searchParam);
+    }, [searchParam])
+
+    useEffect(() => {
+        fetchArticle(searchParam, pager);
+        console.log("页面切换");
+    }, [pager, searchParam])
 
     const handlePageChange = (page, pageSize) => {
         setPager({
@@ -53,42 +95,69 @@ function Block(){
         });
     }
 
-    const ArticleBlocks = () => {
-        if (data) {
-            return (
-                <>
-                    <div className='relatedTitle'>相关文章</div>
-                    {data.rows.map((article) => (
-                        <ArticleBlock articleId={article.id} />
-                    ))}
-                    <Pagination onChange={handlePageChange} total={data.total} />
-                </>
-            );
-        } else {
-            return (
-                <div>没有匹配的内容</div>
-            )
-        }
-    }
+    // const UserBlocks = () => {
+    //     if (userData && userData.total != 0) {
+    //         return (
+    //             <>
+    //                 {userData.rows.map((user) => (
+    //                     <UserBlock key={user.id} user={user} />
+    //                 ))}
+    //             </>
+    //         );
+    //     } else {
+    //         return (
+    //             <div>找不到匹配的用户</div>
+    //         )
+    //     }
+    // }
+
+    // const ArticleBlocks = () => {
+    //     if (articleData && articleData.total != 0) {
+    //         return (
+    //             <>
+    //                 {articleData.rows.map((article) => (
+    //                     <ArticleBlock key={article.id} articleId={article.id} />
+    //                 ))}
+    //                 <Pagination onChange={handlePageChange} total={articleData.total} />
+    //             </>
+    //         );
+    //     } else {
+    //         return (
+    //             <div>找不到匹配的帖子</div>
+    //         )
+    //     }
+    // }
 
     return(
         <div className='listBox'>
             <div className='title'>为您找到的搜索结果如下</div>
-            <div className='relatedMemberBox'>
-                <div className='relatedTitle'>相关用户</div>
-                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-            </div>
-            <div className='relatedBlockBox'>
-                <div className='relatedTitle'>相关板块</div>
-                <BoardBlock boardId="c29aa968327c473780183347cbee0cf0" />
-            </div>
-            <div className='relatedArticleBox'>
-                {/* <div className='relatedTitle'>相关文章</div>
-                <ArticleBlock/>
-                <ArticleBlock/>
-                <Pagination onChange={handlePageChange} total={pager.total} /> */}
-                <ArticleBlocks />
-            </div>
+            {(userData && userData.total != 0) ? (
+                <div className='relatedMemberBox'>
+                    <div className='relatedTitle'>相关用户</div>
+                    {userData.rows.map((user) => (
+                        <UserBlock key={user.id} user={user} />
+                    ))}
+                </div>
+            ):(<></>)}
+            {(boardData && boardData.total != 0) ? (
+                <div className='relatedBlockBox'>
+                    <div className='relatedTitle'>相关板块</div>
+                    {boardData.rows.map((board) => (
+                        <BoardBlock key={board.id} board={board} />
+                    ))}
+                </div>
+            ):(<></>)}
+            {(articleData && articleData.total != 0) ? (
+                <div className='relatedArticleBox'>
+                    <div className='relatedTitle'>相关文章</div>
+                    {<>
+                        {articleData.rows.map((article) => (
+                            <ArticleBlock key={article.id} article={article} />
+                        ))}
+                        <Pagination showSizeChanger onChange={handlePageChange} total={articleData.total} />
+                    </>}
+                </div>
+            ):(<></>)}
         </div>
     )
 }
