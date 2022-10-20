@@ -2,8 +2,10 @@
     cursor: pointer;
     display: inline-block;
     margin-bottom: 20px;
+    background-color: red;
 }
 .relatedMember>.memberImg{
+    margin-left: 20px;
     vertical-align: top;
     width: 45px;
     height: 45px;
@@ -12,7 +14,7 @@
 .relatedMember>.contentBox{
     text-align: left;
     display: inline-block;
-    width: 100px;
+    width: 200px;
     padding-left: 15px;
 }
 .contentBox>.text1{
