@@ -1,9 +1,16 @@
 .relatedArticle{
-    background-color: red;
     width: 600px;
+    background-color: #fff;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-.relatedArticle>.articleImg{
-    width: 45px;
-    height: 45px;
-    border-radius: 22.5px;
+.relatedArticle>.text1{
+    font-size: large;
+    font-weight: bold;
+    margin-left: 20px;
+}
+.relatedArticle>.text2{
+    margin-left: 20px;
 }
