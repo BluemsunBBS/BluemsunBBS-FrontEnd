@@ -11,10 +11,6 @@ function Block(){
             <div className='relatedMemberBox'>
                 <div className='relatedTitle'>相关用户</div>
                 <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
                 {/* <div className='relatedMember'>
                     <img src={url} className="memberImg"></img>
                     <span className='contentBox'>
@@ -46,10 +42,10 @@ function Block(){
             </div>
             <div className='relatedBlockBox'>
                 <div className='relatedTitle'>相关板块</div>
-                <ArticleBlock/>
             </div>
             <div className='relatedArticleBox'>
                 <div className='relatedTitle'>相关文章</div>
+                <ArticleBlock/>
             </div>
         </div>
     )

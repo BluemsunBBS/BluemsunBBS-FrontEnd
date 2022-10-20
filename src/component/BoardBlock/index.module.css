@@ -5,9 +5,9 @@
 }
 .relatedMember>.memberImg{
     vertical-align: top;
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 20px;
 }
 .relatedMember>.contentBox{
     text-align: left;
@@ -23,5 +23,8 @@
     /*3. 文字用省略号替代超出的部分*/
     text-overflow: ellipsis;
     color: #7952b3;
+}
+.contentBox>.text2{
+    margin-top: 10px;
     font-size: small;
 }

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { http } from '../../utils/http';
 import url from './../../img/file.jpg'
-import './index.css'
+import style from './index.module.css'
 
-export default function UserBlock(props) {
+export default function BoardBlock(props) {
 
     var [board, setBoard] = useState({
         imgUri: url,
@@ -20,29 +20,29 @@ export default function UserBlock(props) {
         }
         let imgUri = "http://bbs.wyy.ink:8080/images/" + res.data.img;
         let name = res.data.name;
-        res = await http.get(`/friend/countFans/${boardId}`);
+        res = await http.get(`/follow/list/${boardId}?page=1&size=0`);
         if (res.code != 0) {
             return;
         }
         setBoard({
             imgUri: imgUri,
             name: name,
-            follows: res.code
+            follows: res.data.total
         });
     }
 
     useEffect(()=>{getUser(props.boardId)}, [])
 
     const handleClick = () => {
-        window.location.href = `/user/${props.boardId}`;
+        window.location.href = `/board/${props.boardId}`;
     }
 
     return (
-        <div className='relatedMember' onClick={handleClick}>
-            <img src={board.avatarUri} className="memberImg"></img>
-            <span className='contentBox'>
-                <div className='text1'>{board.nickname}</div>
-                <div className='text2'>关注：{board.fans}</div>
+        <div className={style.relatedMember} onClick={handleClick}>
+            <img src={board.imgUri} className={style.memberImg}></img>
+            <span className={style.contentBox}>
+                <div className={style.text1}>{board.name}</div>
+                <div className={style.text2}>关注：{board.follows}</div>
             </span>
         </div>
     )
