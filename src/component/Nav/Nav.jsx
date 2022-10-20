@@ -22,7 +22,7 @@ export default function Nav(props) {
             children: [
                 {
                     label: (
-                        <a href="/setUserInfo">编辑个人资料</a>
+                        <a href="/setUserInfo" id="set">编辑个人资料</a>
                     ),
                     key: "setUserInfo"
                 },
@@ -37,7 +37,7 @@ export default function Nav(props) {
     const guest = [
         {
             label: (
-                <div style={{width: 100, height: 60}}>
+                <div style={{width: 100, height: 60}} className="loginBtnBox">
                     <Button type="primary" className="login">登录 | 注册</Button>
                 </div>
             ),
