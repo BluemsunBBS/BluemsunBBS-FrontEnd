@@ -10,10 +10,12 @@ function HomePage() {
   var nickname = getUserInfo("nickname");
   console.log(nickname)
   const url = pic;
+  var userimg = getUserInfo("avatar_uri");
+  userimg = 'http://bbs.wyy.ink:8080/images/'+userimg;
   return (
     <div>
       {/* 导航栏 */}
-      <Nav nickname={nickname} />
+      <Nav/>
       {/* 搜索框 */}
       <Search />
       {/* 轮播图 */}
@@ -23,7 +25,7 @@ function HomePage() {
         {/* 左侧部分 */}
         <div className='leftBox'>
           <div className='myTitle'>我在贴吧</div>
-          <img src={url} className="myPic"></img>
+          <img src={userimg} className="myPic"></img>
           <div className='my1'>我关注的贴吧</div>
           <div className='ba'>东北师范大学吧</div>
           <div className='ba'>蓝旭吧</div>
