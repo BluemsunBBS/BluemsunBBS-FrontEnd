@@ -31,7 +31,7 @@
     padding-top: 10px;
     margin-bottom: 20px;
 }
-.relatedMember{
+/* .relatedMember{
     display: inline-block;
     margin-bottom: 20px;
 }
@@ -46,7 +46,8 @@
     display: inline-block;
     width: 100px;
     padding-left: 20px;
-}
+} */
+
 .contentBox>.text1{
     /*1. 先强制一行内显示文本*/
     white-space: nowrap;  

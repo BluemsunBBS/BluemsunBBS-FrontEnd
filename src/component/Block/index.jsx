@@ -1,5 +1,6 @@
 import './index.css'
 import url from './../../img/1.jpg'
+import UserBlock from '../UserBlock';
 
 function Block(){
     var imgurl = url;
@@ -8,13 +9,7 @@ function Block(){
             <div className='title'>为您找到的搜索结果如下</div>
             <div className='relatedMemberBox'>
                 <div className='relatedTitle'>相关用户</div>
-                <div className='relatedMember'>
-                    <img src={url} className="memberImg"></img>
-                    <span className='contentBox'>
-                        <div className='text1'>昵称</div>
-                        <div className='text2'>粉丝：</div>
-                    </span>
-                </div>
+                <UserBlock />
                 <div className='relatedMember'>
                     <img src={url} className="memberImg"></img>
                     <span className='contentBox'>
