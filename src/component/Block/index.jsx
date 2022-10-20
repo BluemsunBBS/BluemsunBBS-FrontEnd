@@ -4,7 +4,7 @@ import UserBlock from '../UserBlock';
 import ArticleBlock from '../ArticleBlock';
 import BoardBlock from '../BoardBlock';
 
-function Block(){
+function Block(props){
     var imgurl = url;
     return(
         <div className='listBox'>
