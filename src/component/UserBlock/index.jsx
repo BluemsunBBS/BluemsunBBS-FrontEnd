@@ -4,8 +4,6 @@ import './index.css'
 
 export default function UserBlock(props) {
 
-    var userId = props.userId;
-
     var user = {
         avatarUri: url,
         nickname: "用户",
@@ -28,7 +26,7 @@ export default function UserBlock(props) {
         user.fans = res.data;
     }
 
-    getUser(userId);
+    getUser(props.userId);
 
     return (
         <div className='relatedMember'>

@@ -9,7 +9,7 @@ function Block(){
             <div className='title'>为您找到的搜索结果如下</div>
             <div className='relatedMemberBox'>
                 <div className='relatedTitle'>相关用户</div>
-                <UserBlock />
+                <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
                 <div className='relatedMember'>
                     <img src={url} className="memberImg"></img>
                     <span className='contentBox'>
