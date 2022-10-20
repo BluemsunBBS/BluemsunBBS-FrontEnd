@@ -2,6 +2,7 @@ import './index.css'
 import url from './../../img/1.jpg'
 import UserBlock from '../UserBlock';
 import ArticleBlock from '../ArticleBlock';
+import BoardBlock from '../BoardBlock';
 
 function Block(){
     var imgurl = url;
@@ -42,9 +43,11 @@ function Block(){
             </div>
             <div className='relatedBlockBox'>
                 <div className='relatedTitle'>相关板块</div>
+                <BoardBlock boardId="c29aa968327c473780183347cbee0cf0" />
             </div>
             <div className='relatedArticleBox'>
                 <div className='relatedTitle'>相关文章</div>
+                <ArticleBlock/>
                 <ArticleBlock/>
             </div>
         </div>
