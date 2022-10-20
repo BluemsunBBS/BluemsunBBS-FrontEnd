@@ -5,44 +5,44 @@ import './index.css'
 
 export default function UserBlock(props) {
 
-    var [user, setUser] = useState({
-        avatarUri: url,
-        nickname: "板块",
-        fans: 0
+    var [board, setBoard] = useState({
+        imgUri: url,
+        name: "板块",
+        follows: 0
     });
 
-    const getUser = async (userId) => {
-        if (userId == undefined) userId = null;
-        if (userId == null) return;
-        let res = await http.get(`/account/${userId}`);
+    const getUser = async (boardId) => {
+        if (boardId == undefined) boardId = null;
+        if (boardId == null) return;
+        let res = await http.get(`/board/${boardId}`);
         if (res.code != 0) {
             return;
         }
-        let avatarUri = "http://bbs.wyy.ink:8080/images/" + res.data.avatar_uri;
-        let nickname = res.data.nickname;
-        res = await http.get(`/friend/countFans/${userId}`);
+        let imgUri = "http://bbs.wyy.ink:8080/images/" + res.data.img;
+        let name = res.data.name;
+        res = await http.get(`/friend/countFans/${boardId}`);
         if (res.code != 0) {
             return;
         }
-        setUser({
-            avatarUri: avatarUri,
-            nickname: nickname,
-            fans: res.data
+        setBoard({
+            imgUri: imgUri,
+            name: name,
+            follows: res.code
         });
     }
 
-    useEffect(()=>{getUser(props.userId)}, [])
+    useEffect(()=>{getUser(props.boardId)}, [])
 
     const handleClick = () => {
-        window.location.href = `/user/${props.userId}`;
+        window.location.href = `/user/${props.boardId}`;
     }
 
     return (
         <div className='relatedMember' onClick={handleClick}>
-            <img src={user.avatarUri} className="memberImg"></img>
+            <img src={board.avatarUri} className="memberImg"></img>
             <span className='contentBox'>
-                <div className='text1'>{user.nickname}</div>
-                <div className='text2'>粉丝：{user.fans}</div>
+                <div className='text1'>{board.nickname}</div>
+                <div className='text2'>关注：{board.fans}</div>
             </span>
         </div>
     )
