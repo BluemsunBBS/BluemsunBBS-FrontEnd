@@ -3,9 +3,21 @@ import url from './../../img/1.jpg'
 import UserBlock from '../UserBlock';
 import ArticleBlock from '../ArticleBlock';
 import BoardBlock from '../BoardBlock';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import { http } from '../../utils/http';
 
 function Block(props){
     var imgurl = url;
+
+    var searchParam = useParams("searchStr");
+
+    useEffect(() => {
+        async function fetch(searchParam) {
+            // let res = await http.get
+        }
+    })
+
     return(
         <div className='listBox'>
             <div className='title'>为您找到的搜索结果如下</div>

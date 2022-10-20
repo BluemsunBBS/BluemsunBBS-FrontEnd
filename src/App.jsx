@@ -48,7 +48,7 @@ function App() {
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
           <Route path="test" element={<TestPage/>}></Route>
           <Route path="region" element={<RegionPage/>}></Route>
-          <Route path="list" element={<ShowListPage/>}></Route>
+          <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
