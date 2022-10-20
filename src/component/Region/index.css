@@ -1,0 +1,108 @@
+.regionBox{
+    width: 1000px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: pink;
+    /* border: 2px solid #7952b3; */
+    margin: 20px auto;
+}
+/* 吧的介绍 */
+.regionBox>.topBox{
+    width: 1000px;
+    height: 200px;
+    background-color:#f0efef;
+    border: 2px solid rgb(234, 232, 232);
+    /* vertical-align: top; */
+}
+.topBox>.regionImg{
+    width: 160px;
+    height: 160px;
+    margin-left: 120px;
+    margin-top: 20px;
+    vertical-align: top;
+}
+.topBox>.regionTitle{
+    display: inline-block;
+    width: 700px;
+    height: 200px;
+    padding-left: 40px;
+}
+.regionTitle>.text1{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+.regionTitle>.text2{
+    display: inline-block;
+    margin-left: 20px;
+}
+.regionTitle>.text3{
+    margin-top: 20px;
+    font-size: large;
+    /*1. 先强制一行内显示文本*/
+    white-space: nowrap;  
+    /*2. 超出的部分隐藏*/
+    overflow: hidden;
+    /*3. 文字用省略号替代超出的部分*/
+    text-overflow: ellipsis;
+}
+.regionTitle>.text4{
+    margin-top: 40px;
+}
+/* 吧内搜索 */
+.regionBox>.searchBox1{
+    width: 1000px;
+    height: 50px;
+    background-color:#f0efef;
+    line-height: 50px;
+}
+.searchBox1>.block{
+    display: inline-block;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 10px;
+    line-height: 50px;
+    margin-left: 100px;
+    font-size: large;
+}
+.searchBox1>.block:hover,.searchBox1>.block1:hover{
+    transition: all 0.5s;
+    background-color: #dbdbdb;
+}
+.searchBox1>.block1{
+    display: inline-block;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 10px;
+    line-height: 50px;
+    font-size: large;
+}
+.searchBox1>.search{
+    outline: none;
+    height: 30px;
+    border: 1px solid #9c9c9c;
+    padding-left: 10px;
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    margin-left: 300px;
+}
+.searchBox1>.btn1{
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid #9c9c9c;
+    transform: translateY(0.7px);
+    text-align: center;
+    border-left: 0;
+}
+.searchBox1>.btn1:hover{
+    background-color: #7952b3;
+    color: #fff;
+}
