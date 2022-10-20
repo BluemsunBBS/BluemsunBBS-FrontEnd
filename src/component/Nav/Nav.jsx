@@ -13,7 +13,7 @@ export default function Nav(props) {
     const logined = [
         {
             label: (
-                <div style={{width: 40}}>
+                <div style={{width: 40 }}>
                     <img src={img} className="photo"></img>
                     {/* <span className="hello">你好，{nickname}</span> */}
                 </div>
