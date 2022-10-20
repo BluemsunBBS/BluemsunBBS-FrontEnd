@@ -10,7 +10,7 @@ function Block(){
             <div className='relatedMemberBox'>
                 <div className='relatedTitle'>相关用户</div>
                 <UserBlock userId="ac07ae08db814c9c94267f2fd11ece6e" />
-                <div className='relatedMember'>
+                {/* <div className='relatedMember'>
                     <img src={url} className="memberImg"></img>
                     <span className='contentBox'>
                         <div className='text1'>昵称</div>
@@ -37,7 +37,7 @@ function Block(){
                         <div className='text1'>昵称</div>
                         <div className='text2'>粉丝：</div>
                     </span>
-                </div>
+                </div> */}
             </div>
             <div className='relatedBlockBox'>
                 <div className='relatedTitle'>相关板块</div>
