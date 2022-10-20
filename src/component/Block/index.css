@@ -1,0 +1,59 @@
+.listBox{
+    width: 1004px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    border: 2px solid rgb(234, 232, 232);
+    margin: 10px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+.listBox>.title{
+    color: #7952b3;
+    height: 40px;
+    line-height: 40px;
+}
+.listBox>.relatedMemberBox,
+.listBox>.relatedBlockBox,
+.listBox>.relatedArticleBox{
+    width: 800px;
+    background-color:#f0efef;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+}
+.relatedTitle{
+    height: 40px;
+    line-height: 40px;
+    font-size: large;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+.relatedMember{
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.relatedMember>.memberImg{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+
+}
+.relatedMember>.contentBox{
+    text-align: left;
+    display: inline-block;
+    width: 100px;
+    padding-left: 20px;
+}
+.contentBox>.text1{
+    /*1. 先强制一行内显示文本*/
+    white-space: nowrap;  
+    /*2. 超出的部分隐藏*/
+    overflow: hidden;
+    /*3. 文字用省略号替代超出的部分*/
+    text-overflow: ellipsis;
+    color: #7952b3;
+    font-size: large;
+}

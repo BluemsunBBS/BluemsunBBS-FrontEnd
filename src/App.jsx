@@ -12,6 +12,7 @@ import { useEffect } from "react";
 import { http } from "./utils/http";
 import { getUserInfo } from "./utils/func";
 import TestPage from "./page/TestPage";
+import ShowListPage from "./page/ShowListPage";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
           <Route path="test" element={<TestPage/>}></Route>
           <Route path="region" element={<RegionPage/>}></Route>
+          <Route path="list" element={<ShowListPage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
