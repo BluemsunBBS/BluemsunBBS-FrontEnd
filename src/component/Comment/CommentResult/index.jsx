@@ -12,7 +12,9 @@ export default function CommentResult(props) {
                 onSubmit={props.onSubmit}
                 mode="article"
             />
-            <span className={style.titleText}>全部评论 {props.comments.total}</span>
+            {props.comments.total > 0 ? (
+                <span className={style.titleText}>全部评论 {props.comments.total}</span>
+            ) : (<></>)}
             {props.comments && props.comments.total != 0 ? (
                 props.comments.rows.map((comment) => (
                     <CommentBlock

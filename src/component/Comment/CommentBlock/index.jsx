@@ -1,6 +1,6 @@
 import { Avatar, Comment, Tooltip } from "antd";
 import { useState } from "react";
-import { getTimeDiff } from "../../../utils/func";
+import { getTimeDiff, getUserInfo } from "../../../utils/func";
 import CommentEditor from "../CommentEditor";
 import style from "./index.module.css"
 
@@ -31,7 +31,9 @@ export default function CommentBlock(props) {
             <Comment
                 actions={[
                     <span key="comment-nested-reply-to" onClick={handleReply}>回复</span>,
-                    <span key="comment-nested-reply-to" onClick={handleDelete}>删除</span>
+                    props.comment.user_id==getUserInfo("id") ? 
+                    <span key="comment-nested-reply-to" onClick={handleDelete}>删除</span> : 
+                    (<></>)
                 ]}
                 author={<a href={`/user/${props.comment.user.id}`}>
                     {props.comment.user.nickname ? props.comment.user.nickname : props.comment.user.username}
