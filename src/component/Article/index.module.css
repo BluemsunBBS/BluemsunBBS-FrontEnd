@@ -5,8 +5,8 @@
     vertical-align: top;
 }
 .iconBox{
+    position: fixed;
     display: inline-block;
-    background-color: pink;
     text-align: center;
     width: 130px;
     height: 200px;
@@ -24,8 +24,19 @@
     border-radius: 30px;
     text-align: center;
     margin-left: 35px;
+    font-size: xx-large;
+    
+    /* position: fixed; */
+}
+.like{
+    font-size: xx-large;
+    color: #7952b3;
+}
+.like:hover{
+    color: #b49adc;
 }
 .article{
+    margin-left: 130px;
     display: inline-block;
     width: 800px;
     background-color:cornflowerblue;
@@ -37,7 +48,25 @@
 .articleTitle{
     font-size: xx-large;
     font-weight: bolder;
+}
+.authorBox1{
     margin-top: 20px;
+    vertical-align: top;
+}
+.authorImg1{
+    height: 50px;
+    height: 50px;
+    border-radius: 25px;
+    vertical-align: top;
+}
+.authorInfo1{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+}
+.text3{
+    font-size: large;
+    font-weight: bold;
 }
 .authorBox{
     display: inline-block;

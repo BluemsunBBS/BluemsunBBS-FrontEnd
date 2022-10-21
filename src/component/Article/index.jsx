@@ -3,8 +3,11 @@ import Markdown from '../Markdown';
 import imgurl from './../../img/1.jpg'
 import {
     HeartOutlined,
-    MessageOutlined
+    MessageOutlined,
+    HeartFilled,
+    MessageFilled
 } from '@ant-design/icons';
+import { Badge } from 'antd';
 import React from 'react';
 
 function Article(){
@@ -13,14 +16,26 @@ function Article(){
         <div className={style.articleBox}>
             <span className={style.iconBox}>
                 <div className={style.icon}>
-                    <HeartOutlined/>
+                    <Badge count={50} overflowCount={999} offset={[10,0]}>
+                        <HeartOutlined className={style.like}/>
+                    </Badge>
+                    
                 </div>
                 <div className={style.icon}>
-                    <MessageOutlined/>
+                    <Badge count={100} overflowCount={99} offset={[10,0]}>
+                        <MessageOutlined className={style.like}/>
+                    </Badge>
                 </div>
             </span>
             <span className={style.article}>
                 <div className={style.articleTitle}>我是文章的标题</div>
+                <div className={style.authorBox1}>
+                    <img src={url} className={style.authorImg1}></img>
+                    <span className={style.authorInfo1}>
+                        <div className={style.text3}>孟玮炜</div>
+                        <div className={style.text4}>2022年10月21日</div>
+                    </span>
+                </div>
                 <Markdown/>
             </span>
             <span className={style.authorBox}>
