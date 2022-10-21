@@ -1,11 +1,26 @@
 .articleBox{
-    background-color: red;
+    background-color:antiquewhite;
     width: 1200px;
     height: 200px;
+    margin: 10px auto;
 }
 .iconBox{
     display: inline-block;
-    background-color: #fff;
-    width: 200px;
+    background-color: pink;
+    width: 120px;
     height: 200px;
+}
+.article{
+    display: inline-block;
+    width: 800px;
+    height: 200px;
+    margin-left: 10px;
+    background-color:cornflowerblue;
+}
+.author{
+    display: inline-block;
+    background-color:blueviolet;
+    height: 200px;
+    width: 240px;
+    margin-left: 10px;
 }
