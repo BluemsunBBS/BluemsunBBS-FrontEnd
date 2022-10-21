@@ -1,5 +1,5 @@
 .relatedArticle{
-    width: 600px;
+    width: 720px;
     background-color: #fff;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -11,8 +11,12 @@
     font-size: large;
     font-weight: bold;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .relatedArticle>.text2{
     margin-left: 20px;
+}
+.relatedArticle>.text3{
+    margin-left: 40px;
+    margin-right: 40px;
 }
