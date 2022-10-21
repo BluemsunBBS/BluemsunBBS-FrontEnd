@@ -19,7 +19,7 @@ export default () => {
     var [realname, setRealname] = useState(getUserInfo("realname"));
     var [password, setPassword] = useState(null);
     var [phone, setPhone] = useState(getUserInfo("phone"));
-    var [avatarUri,setUri] = useState(getUserInfo("avatar_uri"));
+    var [avatarUri, setUri] = useState(getUserInfo("avatar_uri"));
 
     var handleSubmit = async () => {
         var data = {
@@ -51,57 +51,60 @@ export default () => {
         <div>
             <Nav nickname={getUserInfo("nickname")} />
             <Search />
-            <div className="setUserInfoBox">
-                <div className="userTitle">设置用户信息</div>
-                <div className="left">
-                    <div className="inputBox">
-                        <span className="text1">昵称</span>
-                        <input
-                            type="text"
-                            className="input"
-                            onChange={(e)=>{setNickname(e.target.value)}}
-                            value={nickname}
-                        ></input>
+            <div className="setuserinfobox">
+                <div className="setUserInfoBox">
+                    <div className="userTitle">设置用户信息</div>
+                    <div className="left">
+                        <div className="inputBox">
+                            <span className="text1">昵称</span>
+                            <input
+                                type="text"
+                                className="input"
+                                onChange={(e) => { setNickname(e.target.value) }}
+                                value={nickname}
+                            ></input>
+                        </div>
+                        <div className="inputBox">
+                            <span className="text1">真实姓名</span>
+                            <input
+                                type="text"
+                                className="input"
+                                onChange={(e) => { setRealname(e.target.value) }}
+                                value={realname}
+                            ></input>
+                        </div>
+                        <div className="inputBox">
+                            <span className="text1">密码</span>
+                            <input
+                                type="password"
+                                className="input"
+                                onChange={(e) => { setPassword(e.target.value) }}
+                                value={password}
+                            ></input>
+                        </div>
+                        <div className="inputBox">
+                            <span className="text1">手机号</span>
+                            <input
+                                type="text"
+                                className="input"
+                                onChange={(e) => { setPhone(e.target.value) }}
+                                value={phone}
+                            ></input>
+                        </div>
+                        <button className="btn" onClick={handleSubmit}>提交</button>
+                        <button className="btn" onClick={handleReset}>重置</button>
                     </div>
-                    <div className="inputBox">
-                        <span className="text1">真实姓名</span>
-                        <input
-                            type="text"
-                            className="input"
-                            onChange={(e)=>{setRealname(e.target.value)}}
-                            value={realname}
-                        ></input>
+                    <div className="right">
+                        <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/" + avatarUri} />
+                        {/* <img src={userimg} className="userImg" onClick={uploadPic}></img> */}
+                        <div className="imgTitle">我的头像</div>
                     </div>
-                    <div className="inputBox">
-                        <span className="text1">密码</span>
-                        <input
-                            type="password"
-                            className="input"
-                            onChange={(e)=>{setPassword(e.target.value)}}
-                            value={password}
-                        ></input>
-                    </div>
-                    <div className="inputBox">
-                        <span className="text1">手机号</span>
-                        <input
-                            type="text"
-                            className="input"
-                            onChange={(e)=>{setPhone(e.target.value)}}
-                            value={phone}
-                        ></input>
-                    </div>
-                    <button className="btn" onClick={handleSubmit}>提交</button>
-                    <button className="btn" onClick={handleReset}>重置</button>
+
+
+
                 </div>
-                <div className="right">
-                    <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/" + avatarUri}/>
-                    {/* <img src={userimg} className="userImg" onClick={uploadPic}></img> */}
-                    <div className="imgTitle">我的头像</div>
-                </div>
-
-
-
             </div>
+
         </div>
     )
 

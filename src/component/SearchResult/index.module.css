@@ -1,9 +1,10 @@
 .listBox{
-    width: 1004px;
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 20px;
-    border: 2px solid rgb(234, 232, 232);
-    margin: 10px auto;
+    /* border: 2px solid rgb(234, 232, 232); */
+    background-color: rgb(245,245,245);
+    margin: 0 auto;
     border-radius: 10px;
     text-align: center;
 }
@@ -11,15 +12,20 @@
     color: #7952b3;
     height: 40px;
     line-height: 40px;
+    font-size: large;
+    margin-bottom: 10px;
 }
 .listBox>.relatedMemberBox,
 .listBox>.relatedBlockBox,
 .listBox>.relatedArticleBox{
     width: 800px;
-    background-color:#f0efef;
+    /* background-color:#e0dfdf; */
+    background-color: #fff;
+    border: 2px solid rgb(234, 232, 232);
+    border-radius: 10px;
     margin: 0 auto;
     padding-bottom: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: left;
 }
 .relatedTitle{
