@@ -27,6 +27,12 @@ function Article() {
     const [user, setUser] = useState({
         nickname: "昵称",
     });
+    const [comments, setComments] = useState({
+        page: 0,
+        size: 0,
+        rows: [],
+        total: 0
+    })
     const [follow, setFollow] = useState(false);
     const [fans, setFans] = useState(0);
 
@@ -61,8 +67,23 @@ function Article() {
         }
     }
 
+    async function fetchComments(articleId) {
+        let res = await http.get(`/reply/list/${articleId}`, {
+            params: {
+                page: 1,
+                size: 10
+            }
+        });
+        if (res.code != 0) {
+            message.error(res.msg);
+            return;
+        }
+        setComments(res.data);
+    }
+
     useEffect(() => {
         fetchArticle(params.id);
+        fetchComments(params.id);
     }, [params])
 
     const handleFollow = (state) => {
@@ -102,6 +123,40 @@ function Article() {
             }
             setArticle(data);
         }
+    }
+
+    const handleReply = (comment) => {
+        if (comment.delete) {
+            async function deleteComment() {
+                let res = await http.delete(`/reply/${comment.replyId}`);
+                if (res.code != 0) {
+                    message.error(res.msg);
+                    return;
+                }
+                if (comment.mode == "article") {
+                    var newArticle = { ...article }
+                    newArticle.reply--;
+                    setArticle(newArticle);
+                }
+                fetchComments(params.id);
+            }
+            deleteComment();
+            return;
+        }
+        async function submitComment() {
+            let res = await http.post("/reply/", comment);
+            if (res.code != 0) {
+                message.error(res.msg);
+                return;
+            }
+            if (comment.article_id) {
+                var newArticle = { ...article }
+                newArticle.reply++;
+                setArticle(newArticle);
+            }
+            fetchComments(params.id);
+        }
+        submitComment();
     }
 
     return (
@@ -166,7 +221,11 @@ function Article() {
                 </span>
 
                 <span className={style.commentBox}>
-                    <CommentResult />
+                    <CommentResult
+                        comments={comments}
+                        article={article}
+                        onSubmit={handleReply}
+                    />
                 </span>
 
             </div>

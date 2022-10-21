@@ -19,7 +19,16 @@ function SearchResult(){
         size: 10
     });
 
-    
+    const APIResult = {
+        page: 0,
+        size: 0,
+        rows: [],
+        total: 0
+    }
+
+    const [articleData, setArticleData] = useState(APIResult);
+    const [userData, setUserData] = useState(APIResult);
+    const [boardData, setBoardData] = useState(APIResult);
 
     async function fetchArticle(searchParam, pager) {
         let res = await http.get(`/article/list`, {

@@ -48,7 +48,7 @@ export function getTimeDiff(firstTime) {
     if (dayDiff < 1) {
         if (Math.floor(dateDiff / (3600*1000)) < 1) {
             if (Math.floor(dateDiff / (60*1000)) < 1) {
-                return Math.floor(dateDiff / 1000) + "秒";
+                return "刚刚";
             } else {
                 return Math.floor(dateDiff / 1000 / 60) + "分钟";
             }
