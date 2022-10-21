@@ -1,3 +1,51 @@
 .bytemd{
-    height: calc(100vh) !important;
+    height: calc(94vh) !important;
+}
+.mdBox{
+    width: 100%;
+    height: calc(6vh);
+    background-color: #7952b3;
+}
+.mdBox>.text1{
+    color: #fff;
+    font-size: large;
+    margin-left: 300px;
+}
+.mdBox-input{
+    width: 600px;
+    height: calc(4vh);
+    border-radius: 20px;
+    border: 0;
+    margin-top: calc(1vh);
+    outline: none;
+    padding-left: 20px;
+    color: #7952b3;
+    font-size: large;
+    margin-left: 20px;
+}
+.mdBox-btn1,.mdBox-btn2{
+    cursor: pointer;
+    background-color: #7952b3;
+    height: calc(4vh);
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    margin-right: 10px;
+    vertical-align:top;
+    margin-top: calc(1vh);
+    padding: 0 15px;
+    font-size: large;
+}
+.mdBox-btn1{
+    margin-left: 320px;
+}
+.mdBox-btn1:hover,.mdBox-btn2:hover{
+    background-color: #fff;
+    color: #7952b3;
+}
+.ant-modal-footer>.ant-btn-default:hover{
+    color: #7952b3;
+    border: 1px solid #7952b3 !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
