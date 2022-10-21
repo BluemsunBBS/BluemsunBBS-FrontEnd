@@ -1,8 +1,12 @@
 import gfm from '@bytemd/plugin-gfm'
+import highlight from '@bytemd/plugin-highlight'
+import math from '@bytemd/plugin-math'
 import { Editor, Viewer } from '@bytemd/react'
+import { useState } from 'react'
+import './index.css'
 
 const plugins = [
-  gfm(),
+  gfm(),highlight(),math()
   // Add more plugins here
 ]
 
