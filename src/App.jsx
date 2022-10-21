@@ -52,7 +52,7 @@ function App() {
           <Route path="test" element={<TestPage/>}></Route>
           <Route path="region/:id" element={<RegionPage/>}></Route>
           <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
-          <Route path="article" element={<ArticlePage/>}></Route>
+          <Route path="article/:id" element={<ArticlePage/>}></Route>
           <Route path="notification" element={<Notification />}></Route>
           <Route path="write" element={<AddArticlePage/>}></Route>
         </Route>
