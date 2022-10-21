@@ -1,14 +1,7 @@
 import style from "./index.module.css"
+import NoMessage from "../NoMessage"
 
 export default function LikeNotification() {
-
-    const NoMessage = () => {
-        return (
-            <div className={style.noMessageBox}>
-
-            </div>
-        )
-    }
 
     return (
         <div>

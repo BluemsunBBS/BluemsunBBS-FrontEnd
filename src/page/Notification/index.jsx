@@ -1,6 +1,6 @@
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
-import LikeNotification from "../../component/LikeNotification";
+import LikeNotification from "../../component/NotificationContent/LikeNotification";
 import Nav from "../../component/Nav/Nav";
 import style from "./index.module.css"
 
