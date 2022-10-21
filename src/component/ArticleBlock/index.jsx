@@ -1,6 +1,5 @@
 import style from './index.module.css'
 import url from './../../img/1.jpg'
-import ArticleIcon from './../ArticleIcon'
 import { http } from '../../utils/http';
 import { message, Skeleton, Space } from 'antd';
 import { useNavigate } from 'react-router';
@@ -10,7 +9,6 @@ import { Link } from 'react-router-dom';
 import { EyeOutlined, HeartFilled, HeartOutlined, MessageOutlined } from '@ant-design/icons';
 
 function ArticleBlock(props){
-    var imgurl = url;
 
     var [article, setArticle] = useState({
         id: "",
@@ -130,6 +128,7 @@ function ArticleBlock(props){
         <div className={style.relatedArticle}>
             <Skeleton loading={loading} active={true} round={true}>
                 <div className={style.text2}>
+                    {(article.top != 0) ? (<span>置顶 | </span>) : ("")}
                     <Link to={`/user/${props.article.user_id}`}>
                         {article.author}
                     </Link> | <span onClick={handleClick}>

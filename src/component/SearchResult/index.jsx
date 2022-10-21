@@ -7,6 +7,7 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { http } from '../../utils/http';
 import { message, Pagination } from 'antd';
+import { ArticleResult } from '../ArticleResult';
 
 function SearchResult(){
     var imgurl = url;
@@ -147,21 +148,14 @@ function SearchResult(){
                     ))}
                 </div>
             ):(<></>)}
-            {(articleData && articleData.total != 0) ? (
-                <div className={style.relatedArticleBox}>
-                    <div className={style.relatedTitle}>相关文章</div>
-                    {articleData.rows.map((article) => (
-                        <ArticleBlock key={article.id} article={article} />
-                    ))}
-                    <div className={style.pagination}>
-                        <Pagination
-                            showSizeChanger
-                            onChange={handlePageChange}
-                            total={articleData.total}
-                        />
-                    </div>
-                </div>
-            ):(<></>)}
+            <div className={style.relatedArticleBox}>
+                <div className={style.relatedTitle}>相关文章</div>
+                <ArticleResult 
+                    articleData={articleData} 
+                    handlePageChange={handlePageChange}
+                    pager={true}
+                />
+            </div>
         </div>
     )
 }

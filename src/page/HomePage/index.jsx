@@ -5,17 +5,54 @@ import './index.css'
 import pic from './../../img/1.jpg'
 import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
+import { ArticleResult } from '../../component/ArticleResult';
+import { useEffect, useState } from 'react';
+import { http } from '../../utils/http';
 
 function HomePage() {
   var nickname = getUserInfo("nickname");
   console.log(nickname)
   const url = pic;
   var userimg = getUserInfo("avatar_uri");
-  userimg = 'http://bbs.wyy.ink:8080/images/'+userimg;
+  userimg = 'http://bbs.wyy.ink:8080/images/' + userimg;
+
+  const APIResult = {
+    page: 0,
+    size: 0,
+    rows: [],
+    total: 0
+  }
+
+  const [articleData, setArticleData] = useState(APIResult);
+
+  async function fetchArticle(searchParam, pager) {
+    let res = await http.get(`/article/list`, {
+      params: {
+        page: pager.page,
+        size: pager.size,
+        order: "visits desc",
+        title: searchParam.searchStr
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+      setArticleData(null);
+    } else {
+      setArticleData(res.data);
+    }
+  }
+
+  useEffect(() => {
+    fetchArticle({searchStr: ""}, {
+      page: 1,
+      size: 10
+    });
+  }, [])
+
   return (
     <div>
       {/* 导航栏 */}
-      <Nav/>
+      <Nav />
       {/* 搜索框 */}
       <Search />
       {/* 轮播图 */}
@@ -42,7 +79,6 @@ function HomePage() {
         {/* 右侧部分 */}
         <div className='rightBox'>
           {/* 上半部分 */}
-          
           <div className='hotBox'>
             <div className='hotTitle'>热门贴吧</div>
             <div className='hot-region'>
@@ -110,13 +146,17 @@ function HomePage() {
                 </span>
               </div>
             </div>
-            
+
           </div>
           {/* 下半部分 */}
           <div className='hot-article'>
             <div className='hotTitle'>热门文章</div>
-            <div className='hot-article-block'>
-              <img src={url} className='hotPic1'/>
+            <ArticleResult
+              articleData={articleData}
+              pager={false}
+            />
+            {/* <div className='hot-article-block'>
+              <img src={url} className='hotPic1' />
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
                 <div className='hot-text3'>不早了，洗洗睡吧</div>
@@ -124,7 +164,7 @@ function HomePage() {
               </span>
             </div>
             <div className='hot-article-block'>
-              <img src={url} className='hotPic1'/>
+              <img src={url} className='hotPic1' />
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
                 <div className='hot-text3'>不早了，洗洗睡吧</div>
@@ -132,7 +172,7 @@ function HomePage() {
               </span>
             </div>
             <div className='hot-article-block'>
-              <img src={url} className='hotPic1'/>
+              <img src={url} className='hotPic1' />
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
                 <div className='hot-text3'>不早了，洗洗睡吧</div>
@@ -140,7 +180,7 @@ function HomePage() {
               </span>
             </div>
             <div className='hot-article-block'>
-              <img src={url} className='hotPic1'/>
+              <img src={url} className='hotPic1' />
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
                 <div className='hot-text3'>不早了，洗洗睡吧</div>
@@ -148,13 +188,13 @@ function HomePage() {
               </span>
             </div>
             <div className='hot-article-block'>
-              <img src={url} className='hotPic1'/>
+              <img src={url} className='hotPic1' />
               <span className='hot-text-box1'>
                 <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
                 <div className='hot-text3'>不早了，洗洗睡吧</div>
                 <div className='hot-text4'>吴越洋最新发布</div>
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
