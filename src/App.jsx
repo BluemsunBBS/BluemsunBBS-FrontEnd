@@ -15,6 +15,7 @@ import { getUserInfo } from "./utils/func";
 import TestPage from "./page/TestPage";
 import ShowListPage from "./page/ShowListPage";
 import Notification from "./page/Notification";
+import AddArticlePage from './page/AddArticlePage';
 
 function App() {
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
           <Route path="article" element={<ArticlePage/>}></Route>
           <Route path="notification" element={<Notification />}></Route>
+          <Route path="write" element={<AddArticlePage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
