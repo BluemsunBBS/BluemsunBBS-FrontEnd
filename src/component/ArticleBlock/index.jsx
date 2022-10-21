@@ -2,11 +2,12 @@ import style from './index.module.css'
 import url from './../../img/1.jpg'
 import ArticleIcon from './../ArticleIcon'
 import { http } from '../../utils/http';
-import { message, Skeleton } from 'antd';
+import { message, Skeleton, Space } from 'antd';
 import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react';
 import { getTimeDiff } from '../../utils/func';
 import { Link } from 'react-router-dom';
+import { EyeOutlined, HeartOutlined, MessageOutlined } from '@ant-design/icons';
 
 function ArticleBlock(props){
     var imgurl = url;
@@ -86,7 +87,14 @@ function ArticleBlock(props){
                 </div>
                 <div className={style.text1} onClick={handleClick}>{article.title}</div>
                 <p className={style.text3} onClick={handleClick}>{article.summary}</p>
-                <ArticleIcon/>
+                <Space className={style.text3}>
+                    <EyeOutlined className={style.visit} />{article.visits}
+                    <Space className={style.like}>
+                        <HeartOutlined />
+                        {article.like == 0 ? "点赞" : article.like}
+                    </Space>
+                    <MessageOutlined className={style.reply} />{article.reply}
+                </Space>
             </Skeleton>
         </div>
     )
