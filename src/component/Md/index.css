@@ -43,3 +43,9 @@
     background-color: #fff;
     color: #7952b3;
 }
+.ant-modal-footer>.ant-btn-default:hover{
+    color: #7952b3;
+    border: 1px solid #7952b3 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
