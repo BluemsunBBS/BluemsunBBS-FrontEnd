@@ -4,15 +4,15 @@
     /* min-height: 130px; */
     padding: 10px;
     margin: 20px auto;
+    
 }
 .text1 {
-    width: 600px;
-    margin-left: 100px;
-    margin-top: 10px;
-    background-color: pink;
+    font-size: large;
+    width: 620px;
+    margin: 10px auto;
 }
 .text2{
     margin-top: 10px;
-    margin-left: 100px;
+    margin-left: 80px;
     color: rgb(100,100,100);
 }
