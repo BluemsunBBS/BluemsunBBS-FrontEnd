@@ -1,6 +1,6 @@
 .centerBox{
     width: 100%;
-    background-color: #e4e6eb;
+    background-color: rgb(245,245,245);
     overflow: hidden;
 }
 .articleBox{
@@ -52,10 +52,12 @@
 .articleTitle{
     font-size: xx-large;
     font-weight: bolder;
+    margin-top: 20px;
 }
 .authorBox1{
     margin-top: 20px;
     vertical-align: top;
+    margin-bottom: 20px;
 }
 .authorImg1{
     height: 50px;
