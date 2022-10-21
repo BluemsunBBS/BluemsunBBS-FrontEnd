@@ -1,5 +1,6 @@
 import { Menu } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import LikeNotification from "../../component/LikeNotification";
 import Nav from "../../component/Nav/Nav";
 import style from "./index.module.css"
 
@@ -28,16 +29,40 @@ const items = [
 
 export default function Notification() {
 
-    const [current, setCurrent] = useState('mail');
+    const [current, setCurrent] = useState('reply');
     const handleClick = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
     };
 
+    function NotificationContent() {
+        switch (current) {
+            case "reply":
+                return "reply";
+            case "like":
+                return <LikeNotification />;
+            case "follow":
+                return "follow";
+            case "im":
+                return "im";
+            case "system":
+                return "system";
+        }
+    }
+
     return (
-        <>
+        <div className={style.root}>
             <Nav />
-            <Menu className={style.menu} mode="horizontal" onClick={handleClick} selectedKeys={[current]} items={items} />
-        </>
+            <Menu 
+                className={style.menu}
+                mode="horizontal"
+                onClick={handleClick}
+                selectedKeys={[current]}
+                items={items}
+            />
+            <div className={style.notificationContent}>
+                <NotificationContent />
+            </div>
+        </div>
     )
 }
