@@ -6,6 +6,7 @@ import { message, Skeleton } from 'antd';
 import { useNavigate } from 'react-router';
 import { useState, useEffect } from 'react';
 import { getTimeDiff } from '../../utils/func';
+import { Link } from 'react-router-dom';
 
 function ArticleBlock(props){
     var imgurl = url;
@@ -42,12 +43,12 @@ function ArticleBlock(props){
             else timeDiff = "很久以前";
             setArticle({
                 title: article.title,
-                author: article.nickname,
+                author: (article.nickname ? article.nickname : "匿名用户"),
                 update_time: timeDiff,
                 like: article.like,
                 reply: article.reply,
                 visits: article.visits,
-                summary: article.text.substr(0, 300) + 
+                summary: article.text.substr(0, 200) + 
                 (article.text.length > 200 ? "..." : ""),
                 top: article.top
             })
@@ -76,9 +77,15 @@ function ArticleBlock(props){
     return(
         <div className={style.relatedArticle}>
             <Skeleton loading={loading} active={true} round={true}>
-                <div className={style.text2}>{article.author} | {article.update_time}</div>
+                <div className={style.text2}>
+                    <Link to={`/user/${props.article.user_id}`}>
+                        {article.author}
+                    </Link> | <span onClick={handleClick}>
+                        {article.update_time}
+                    </span>
+                </div>
                 <div className={style.text1} onClick={handleClick}>{article.title}</div>
-                <p className={style.text3}>{article.summary}</p>
+                <p className={style.text3} onClick={handleClick}>{article.summary}</p>
                 <ArticleIcon/>
             </Skeleton>
         </div>
