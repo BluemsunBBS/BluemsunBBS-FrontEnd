@@ -1,0 +1,11 @@
+.articleBox{
+    background-color: red;
+    width: 1200px;
+    height: 200px;
+}
+.iconBox{
+    display: inline-block;
+    background-color: #fff;
+    width: 200px;
+    height: 200px;
+}
