@@ -1,17 +1,40 @@
 import style from './index.module.css'
 import Markdown from '../Markdown';
 import imgurl from './../../img/1.jpg'
+import { http } from '../../utils/http'
 import {
     HeartOutlined,
     MessageOutlined,
     HeartFilled,
     MessageFilled
 } from '@ant-design/icons';
-import { Badge } from 'antd';
-import React from 'react';
+import { Badge, message } from 'antd';
+import React, { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router';
 
 function Article() {
     var url = imgurl;
+
+    const params = useParams();
+
+    const navigate = useNavigate();
+
+    async function fetchArticle(articleId) {
+        let res = await http.get(`/article/${articleId}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+            setTimeout(() => {
+                navigate(-1);
+            }, 500);
+            return;
+        }
+        
+    }
+
+    useEffect(() => {
+
+    }, [params])
+
     return (
         <div className={style.centerBox}>
             <div className={style.articleBox}>

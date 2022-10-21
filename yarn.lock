@@ -468,6 +468,13 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@bytemd/plugin-gemoji@^1.17.2":
+  version "1.17.2"
+  resolved "https://registry.npmmirror.com/@bytemd/plugin-gemoji/-/plugin-gemoji-1.17.2.tgz#80b9220fbb486dc5e32e6e0ac7a509f8831facb3"
+  integrity sha512-Czfx0+cbRlPm0/9I+fONimF6/5zyedGMNPTR3Ec2Li/cD3KJ/sCE7znx3A53C2phwjm8GiDtFfPgzPpLvTqacw==
+  dependencies:
+    remark-gemoji "^7.0.1"
+
 "@bytemd/plugin-gfm@^1.17.4":
   version "1.17.4"
   resolved "https://registry.npmmirror.com/@bytemd/plugin-gfm/-/plugin-gfm-1.17.4.tgz#069646b9cf1fb4cd6e381574fe03c4ad9b5882ce"
@@ -1293,6 +1300,11 @@ function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmmirror.com/function-bind/-/function-bind-1.1.1.tgz"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
+
+gemoji@^7.0.0:
+  version "7.1.0"
+  resolved "https://registry.npmmirror.com/gemoji/-/gemoji-7.1.0.tgz#165403777681a9690d649aabd104da037bdd7739"
+  integrity sha512-wI0YWDIfQraQMDs0yXAVQiVBZeMm/rIYssf8LZlMDdssKF19YqJKOHkv4zvwtVQTBJ0LNmErv1S+DqlVUudz8g==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
@@ -2726,6 +2738,16 @@ rehype-stringify@^9.0.3:
     "@types/hast" "^2.0.0"
     hast-util-to-html "^8.0.0"
     unified "^10.0.0"
+
+remark-gemoji@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.npmmirror.com/remark-gemoji/-/remark-gemoji-7.0.1.tgz#42488adb9a0731dc82cdcde45f8e7bd61d795303"
+  integrity sha512-vhjuntkvYxRgM4Um6L5N7B3SrNu3eX6jNqpqAywpAvSYPbmDPNL3I5E6zWm+KPCyh3OpKRc5OPnz7SifggzePw==
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    gemoji "^7.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
 
 remark-gfm@^3.0.1:
   version "3.0.1"

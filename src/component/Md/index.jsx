@@ -4,6 +4,9 @@ import math from '@bytemd/plugin-math'
 import { Editor, Viewer } from '@bytemd/react'
 import { useState } from 'react'
 import './index.css'
+import zhHans from "bytemd/lib/locales/zh_Hans.json";
+import 'bytemd/dist/index.css'
+import "highlight.js/styles/vs.css";
 
 const plugins = [
   gfm(),highlight(),math()
@@ -11,16 +14,20 @@ const plugins = [
 ]
 
 function Md(){
-  const [value, setValue] = useState('')
-
+  const [value, setValue] = useState('');
   return (
-    <Editor
-      value={value}
-      plugins={plugins}
-      onChange={(v) => {
-        setValue(v)
-      }}
+    <div className="page-wrap">
+      <Editor
+        // 语言
+      	locale={zhHans}
+      	// 内部的值
+      	value={value}
+      	// 插件
+      	plugins={plugins}
+      	// 动态修改值
+      	onChange={v => setValue(v)}
     />
+    </div>
   )
 }
 export default Md;
