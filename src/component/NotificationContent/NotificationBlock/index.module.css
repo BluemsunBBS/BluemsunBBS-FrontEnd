@@ -1,0 +1,11 @@
+.notificationBox {
+    background-color: #fff;
+    width: 600px;
+    min-height: 130px;
+    padding: 10px;
+}
+
+.text1 {
+    margin-top: 20px;
+    margin-left: 20px;
+}
