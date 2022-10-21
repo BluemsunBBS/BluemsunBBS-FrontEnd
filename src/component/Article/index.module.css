@@ -1,7 +1,11 @@
+.centerBox{
+    width: 100%;
+    background-color: #e4e6eb;
+    overflow: hidden;
+}
 .articleBox{
-    background-color:antiquewhite;
     width: 1200px;
-    margin: 10px auto;
+    margin: 20px auto;
     vertical-align: top;
 }
 .iconBox{
@@ -39,7 +43,7 @@
     margin-left: 130px;
     display: inline-block;
     width: 800px;
-    background-color:cornflowerblue;
+    background-color:#fff;
     vertical-align: top;
     padding-left: 60px;
     padding-right: 40px;
@@ -76,7 +80,7 @@
     vertical-align: top;
 }
 .author{
-    background-color:#f0efef;
+    background-color:#fff;
     width: 260px;
     height: 180px;
 }
