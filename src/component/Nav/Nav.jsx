@@ -4,10 +4,12 @@ import './Nav.css';
 // import { Content } from "antd/lib/layout/layout";
 import { getUserInfo } from "../../utils/func";
 import { BellFilled } from '@ant-design/icons';
+import { useNavigate } from 'react-router';
 
 export default function Nav(props) {
     var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
     var bbsurl = logo;
+    const navigate = useNavigate();
     // var nickname = getUserInfo("nickname");
 
     const logined = [
@@ -21,9 +23,7 @@ export default function Nav(props) {
             key: 'menu',
             children: [
                 {
-                    label: (
-                        <a href="/setUserInfo" id="set">编辑个人资料</a>
-                    ),
+                    label: "编辑个人资料",
                     key: "setUserInfo"
                 },
                 {
@@ -49,10 +49,13 @@ export default function Nav(props) {
         if (e.key == "logout") {
             localStorage.removeItem("token");
             localStorage.removeItem("data");
-            window.location.href = "/login";
+            navigate("/login");
         }
         if (e.key == "login") {
-            window.location.href = "/login";
+            navigate("/login");
+        }
+        if (e.key == "setUserInfo") {
+            navigate("/setUserInfo");
         }
     }
 
@@ -77,7 +80,7 @@ export default function Nav(props) {
     return (
         <div className="navContainer">
             <img src={bbsurl} className="logo"/>
-            <span className='bbsTitle' onClick={()=>{window.location.href="/home"}}>BluemsunBBS</span>
+            <span className='bbsTitle' onClick={()=>{navigate('/')}}>BluemsunBBS</span>
             
             {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}

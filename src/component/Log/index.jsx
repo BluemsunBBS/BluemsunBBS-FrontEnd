@@ -8,6 +8,7 @@ import './Log.css'
 import '../../utils/http.js'
 import { http } from '../../utils/http.js';
 import { openNotification } from '../../utils/notification';
+import { useNavigate } from 'react-router';
 
 const logourl = logoUrl;
 const bgcurl = bgcUrl;
@@ -32,59 +33,12 @@ const log = {
 
 export default () => {
     const [loginType, setLoginType] = useState('login');
+
+    const navigate = useNavigate();
+
     return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1230px',textAlign:'center',marginLeft:100}}>
       <LoginFormPage backgroundImageUrl={bgcurl} logo={logourl} title="BluemsunBBS" subTitle="全东师最大的技术交流论坛" width='800px'
-          actions={<div style={{
-                // display: 'flex',
-                // width:'2000px',
-                // justifyContent: 'center',
-                // alignItems: 'center',
-                // flexDirection: 'column',
-            }}>
-            {/* <Divider plain>
-              <span style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}>
-                其他登录方式
-              </span>
-            </Divider> }
-            { <Space align="center" size={24}>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                height: 40,
-                width: 40,
-                border: '1px solid #D4D8DD',
-                borderRadius: '50%',
-            }}>
-            <AlipayOutlined style={Object.assign(Object.assign({}, iconStyles), { color: '#1677FF' })}/>
-              </div>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                height: 40,
-                width: 40,
-                border: '1px solid #D4D8DD',
-                borderRadius: '50%',
-            }}>
-                <TaobaoOutlined style={Object.assign(Object.assign({}, iconStyles), { color: '#FF6A10' })}/>
-              </div>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                flexDirection: 'column',
-                height: 40,
-                width: 40,
-                border: '1px solid #D4D8DD',
-                borderRadius: '50%',
-            }}>
-                <WeiboOutlined style={Object.assign(Object.assign({}, iconStyles), { color: '#333333' })}/>
-              </div>
-            </Space> */}
-          </div>}
+          actions={<div style={{}}></div>}
           onFinish={async (arg)=>{
             //注册口
             if(arg.logusername == undefined){
@@ -92,9 +46,9 @@ export default () => {
                 if(res.code == 2){
                     openNotification("error", "注册失败", res.msg);
                 } else {
-                    openNotification("success", "注册成功", "正在转入主页", 1);
+                    openNotification("success", "注册成功", "正在跳转", 1);
                     localStorage.setItem("token",res.data);
-                    setTimeout(()=>{window.location.href = "/";}, 1000);
+                    setTimeout(()=>{navigate(-1);}, 1000);
                 }
             }
             else{
@@ -102,9 +56,9 @@ export default () => {
                 if(res.code == 2){
                     openNotification("error", "登录失败", res.msg);
                 } else {
-                    openNotification("success", "登录成功", "正在转入主页", 1);
+                    openNotification("success", "登录成功", "正在跳转", 1);
                     localStorage.setItem("token",res.data);
-                    setTimeout(()=>{window.location.href = "/";}, 1000);
+                    setTimeout(()=>{navigate(-1);}, 1000);
                 }
             }
           }}
