@@ -1,13 +1,13 @@
 import Nav from "../../component/Nav/Nav";
 import Search from "../../component/Search";
-import Block from "../../component/Block";
+import SearchResult from "../../component/SearchResult";
 
 function ShowListPage(){
     return(
         <div>
             <Nav/>
             <Search/>
-            <Block/>
+            <SearchResult/>
         </div>
     )
 }

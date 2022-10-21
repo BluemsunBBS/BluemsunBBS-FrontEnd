@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { http } from '../../utils/http';
 import { message, Pagination } from 'antd';
 
-function Block(){
+function SearchResult(){
     var imgurl = url;
 
     var searchParam = useParams();
@@ -165,4 +165,4 @@ function Block(){
         </div>
     )
 }
-export default Block;
+export default SearchResult;
