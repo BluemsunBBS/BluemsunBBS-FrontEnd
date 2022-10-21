@@ -6,6 +6,7 @@ import NotfoundPage from "./page/NotfoundPage";
 import HomePage from './page/HomePage';
 import SetUserInfo from './page/SetUserInfo'
 import RegionPage from "./page/RegionPage";
+import ArticlePage from "./page/ArticlePage";
 
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { useEffect } from "react";
@@ -47,8 +48,9 @@ function App() {
           <Route path="home" element={<HomePage/>} />
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
           <Route path="test" element={<TestPage/>}></Route>
-          <Route path="region" element={<RegionPage/>}></Route>
+          <Route path="region/:id" element={<RegionPage/>}></Route>
           <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
+          <Route path="article" element={<ArticlePage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
