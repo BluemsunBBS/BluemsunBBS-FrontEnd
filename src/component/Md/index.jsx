@@ -2,7 +2,7 @@ import gfm from '@bytemd/plugin-gfm'
 import highlight from '@bytemd/plugin-highlight'
 import math from '@bytemd/plugin-math'
 import { Editor, Viewer } from '@bytemd/react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './index.css'
 import zhHans from "bytemd/lib/locales/zh_Hans.json";
 import 'bytemd/dist/index.css'
@@ -16,13 +16,31 @@ const plugins = [
 ]
 
 function Md() {
-  var res = http.get(`/board`,{
-    params: {
-      page: 1,
-      size:10
+  const APIResult = {
+    page: 0,
+    size: 0,
+    rows: [],
+    total: 0
+  }
+
+  const [boardData, setBoardData] = useState(APIResult);
+  async function fetchBoard() {
+    let res = await http.get(`/board/`, {
+      params: {
+        page: 1,
+        size: 10
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+    } else {
+      console.log(res.data.rows)
+      // setBoardData(res.data);
     }
-  });
-  console.log(res);
+  }
+  useEffect(() => { fetchBoard(); }, [])
+
+  // console.log(boardData.rows.map(board));
   const [value, setValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
