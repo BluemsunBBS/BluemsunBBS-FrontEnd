@@ -48,7 +48,25 @@
 .articleTitle{
     font-size: xx-large;
     font-weight: bolder;
+}
+.authorBox1{
     margin-top: 20px;
+    vertical-align: top;
+}
+.authorImg1{
+    height: 50px;
+    height: 50px;
+    border-radius: 25px;
+    vertical-align: top;
+}
+.authorInfo1{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 20px;
+}
+.text3{
+    font-size: large;
+    font-weight: bold;
 }
 .authorBox{
     display: inline-block;

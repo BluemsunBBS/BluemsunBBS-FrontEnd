@@ -29,7 +29,13 @@ function Article(){
             </span>
             <span className={style.article}>
                 <div className={style.articleTitle}>我是文章的标题</div>
-                <img src={url} className={style.authorImg1}></img>
+                <div className={style.authorBox1}>
+                    <img src={url} className={style.authorImg1}></img>
+                    <span className={style.authorInfo1}>
+                        <div className={style.text3}>孟玮炜</div>
+                        <div className={style.text4}>2022年10月21日</div>
+                    </span>
+                </div>
                 <Markdown/>
             </span>
             <span className={style.authorBox}>
