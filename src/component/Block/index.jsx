@@ -1,4 +1,4 @@
-import './index.css'
+import style from './index.module.css'
 import url from './../../img/1.jpg'
 import UserBlock from '../UserBlock';
 import ArticleBlock from '../ArticleBlock';
@@ -129,33 +129,37 @@ function Block(){
     // }
 
     return(
-        <div className='listBox'>
-            <div className='title'>为您找到的搜索结果如下</div>
+        <div className={style.listBox}>
+            <div className={style.title}>为您找到的搜索结果如下</div>
             {(userData && userData.total != 0) ? (
-                <div className='relatedMemberBox'>
-                    <div className='relatedTitle'>相关用户</div>
+                <div className={style.relatedMemberBox}>
+                    <div className={style.relatedTitle}>相关用户</div>
                     {userData.rows.map((user) => (
                         <UserBlock key={user.id} user={user} />
                     ))}
                 </div>
             ):(<></>)}
             {(boardData && boardData.total != 0) ? (
-                <div className='relatedBlockBox'>
-                    <div className='relatedTitle'>相关板块</div>
+                <div className={style.relatedBlockBox}>
+                    <div className={style.relatedTitle}>相关板块</div>
                     {boardData.rows.map((board) => (
                         <BoardBlock key={board.id} board={board} />
                     ))}
                 </div>
             ):(<></>)}
             {(articleData && articleData.total != 0) ? (
-                <div className='relatedArticleBox'>
-                    <div className='relatedTitle'>相关文章</div>
-                    {<>
-                        {articleData.rows.map((article) => (
-                            <ArticleBlock key={article.id} article={article} />
-                        ))}
-                        <Pagination showSizeChanger onChange={handlePageChange} total={articleData.total} />
-                    </>}
+                <div className={style.relatedArticleBox}>
+                    <div className={style.relatedTitle}>相关文章</div>
+                    {articleData.rows.map((article) => (
+                        <ArticleBlock key={article.id} article={article} />
+                    ))}
+                    <div className={style.pagination}>
+                        <Pagination
+                            showSizeChanger
+                            onChange={handlePageChange}
+                            total={articleData.total}
+                        />
+                    </div>
                 </div>
             ):(<></>)}
         </div>

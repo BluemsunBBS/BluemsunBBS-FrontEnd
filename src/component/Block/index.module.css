@@ -59,3 +59,9 @@
     color: #7952b3;
     font-size: large;
 }
+.relatedArticleBox>.pagination{
+    /* background-color: #7952b3; */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
