@@ -9,27 +9,27 @@
     display: inline-block;
     background-color: pink;
     width: 120px;
-    height: 200px;
+    height: 400px;
     vertical-align: top;
 }
 .article{
     display: inline-block;
     width: 800px;
-    height: 200px;
+    height: 400px;
     margin-left: 10px;
     background-color:cornflowerblue;
     vertical-align: top;
     padding-left: 40px;
 }
 .articleTitle{
-    display: block;
     font-size: x-large;
     font-weight: bolder;
+    margin-top: 20px;
 }
 .author{
     display: inline-block;
     background-color:blueviolet;
-    height: 200px;
+    height: 400px;
     width: 240px;
     margin-left: 10px;
     vertical-align: top;
