@@ -8,6 +8,9 @@
     padding-bottom: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(200, 200, 200);
 }
 .relatedArticle:hover{
     transition: background-color 0.3s;
