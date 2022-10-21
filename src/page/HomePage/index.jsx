@@ -50,7 +50,7 @@ function HomePage() {
   }, [])
 
   return (
-    <div>
+    <div className='cbox'>
       {/* 导航栏 */}
       <Nav />
       {/* 搜索框 */}
