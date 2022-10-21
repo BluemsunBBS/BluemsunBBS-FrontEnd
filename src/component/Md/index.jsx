@@ -7,7 +7,8 @@ import './index.css'
 import zhHans from "bytemd/lib/locales/zh_Hans.json";
 import 'bytemd/dist/index.css'
 import "highlight.js/styles/vs.css";
-import { Modal } from 'antd';
+import { Modal, Checkbox, Col, Row } from 'antd';
+import { http } from './../../utils/http'
 
 const plugins = [
   gfm(), highlight(), math()
@@ -15,6 +16,13 @@ const plugins = [
 ]
 
 function Md() {
+  var res = http.get(`/board`,{
+    params: {
+      page: 1,
+      size:10
+    }
+  });
+  console.log(res);
   const [value, setValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const showModal = () => {
@@ -26,6 +34,9 @@ function Md() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+  const onChange = (checkedValues) => {
+    console.log('checked = ', checkedValues);
+  };
   return (
     <div className="page-wrap">
       <div className='mdBox'>
@@ -33,10 +44,31 @@ function Md() {
         <input type="text" className='mdBox-input' value="【无标题】"></input>
         <button className='mdBox-btn1'>存草稿</button>
         <button className='mdBox-btn2' type="primary" onClick={showModal}>发布文章</button>
-        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+        <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
+          <Checkbox.Group
+            style={{
+              width: '100%',
+            }}
+            onChange={onChange}
+          >
+            <Row>
+              <Col span={8}>
+                <Checkbox value="A">A</Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="B">B</Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="C">C</Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="D">D</Checkbox>
+              </Col>
+              <Col span={8}>
+                <Checkbox value="E">E</Checkbox>
+              </Col>
+            </Row>
+          </Checkbox.Group>
         </Modal>
       </div>
       <Editor
@@ -53,3 +85,7 @@ function Md() {
   )
 }
 export default Md;
+
+
+
+
