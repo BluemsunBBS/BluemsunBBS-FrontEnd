@@ -11,6 +11,7 @@ import {
 import { Badge, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
+import CommentResult from '../Comment/CommentResult';
 
 function Article() {
     var url = imgurl;
@@ -123,12 +124,14 @@ function Article() {
                         </Badge>
 
                     </div>
+
                     <div className={style.icon}>
                         <Badge count={article.reply} overflowCount={99} offset={[10, 0]}>
                             <MessageOutlined className={style.like} />
                         </Badge>
                     </div>
                 </span>
+
                 <span className={style.article}>
                     <div className={style.articleTitle}>{article.title}</div>
                     <div className={style.authorBox1}>
@@ -145,6 +148,7 @@ function Article() {
                     </div>
                     <Markdown text={article.text} />
                 </span>
+
                 <span className={style.authorBox}>
                     <div className={style.author}>
                         <img
@@ -160,6 +164,11 @@ function Article() {
                         </button>
                     </div>
                 </span>
+
+                <span className={style.commentBox}>
+                    <CommentResult />
+                </span>
+
             </div>
         </div>
 
