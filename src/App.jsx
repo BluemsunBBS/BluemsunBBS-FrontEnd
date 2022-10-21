@@ -14,6 +14,7 @@ import { http } from "./utils/http";
 import { getUserInfo } from "./utils/func";
 import TestPage from "./page/TestPage";
 import ShowListPage from "./page/ShowListPage";
+import Notification from "./page/Notification";
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
           <Route path="region/:id" element={<RegionPage/>}></Route>
           <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
           <Route path="article" element={<ArticlePage/>}></Route>
+          <Route path="notification" element={<Notification />}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>

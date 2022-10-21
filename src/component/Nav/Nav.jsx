@@ -1,6 +1,6 @@
 import logo from './../../img/logo.jpg'
 import { Button, Menu } from "antd";
-import './Nav.css';
+import style from './Nav.module.css';
 // import { Content } from "antd/lib/layout/layout";
 import { getUserInfo } from "../../utils/func";
 import { BellFilled } from '@ant-design/icons';
@@ -16,8 +16,8 @@ export default function Nav(props) {
         {
             label: (
                 <div style={{width: 40 }}>
-                    <img src={img} className="photo"></img>
-                    {/* <span className="hello">你好，{nickname}</span> */}
+                    <img src={img} className={style.photo}></img>
+                    {/* <span className={style.hello}>你好，{nickname}</span> */}
                 </div>
             ),
             key: 'menu',
@@ -37,8 +37,8 @@ export default function Nav(props) {
     const guest = [
         {
             label: (
-                <div style={{width: 100, height: 60}} className="loginBtnBox">
-                    <Button type="primary" className="login">登录 | 注册</Button>
+                <div style={{width: 100, height: 60}} className={style.loginBtnBox}>
+                    <Button type="primary" className={style.login}>登录 | 注册</Button>
                 </div>
             ),
             key: 'login'
@@ -70,22 +70,22 @@ export default function Nav(props) {
     function NotificationBell() {
         if (localStorage.getItem("token")) {
             return (
-                <div className='blockBox' style={{marginRight: '20px'}}>
-                    <BellFilled className='notification' style={{fontSize: '25px', color: '#f0f0f0', lineHeight: '70px'}}/>
+                <div className={style.blockBox} style={{marginRight: '20px'}}>
+                    <BellFilled className={style.notification} style={{fontSize: '25px', color: '#f0f0f0', lineHeight: '70px'}}/>
                 </div>
             )
         }
     }
 
     return (
-        <div className="navContainer">
-            <img src={bbsurl} className="logo"/>
-            <span className='bbsTitle' onClick={()=>{navigate('/')}}>BluemsunBBS</span>
+        <div className={style.navContainer}>
+            <img src={bbsurl} className={style.logo}/>
+            <span className={style.bbsTitle} onClick={()=>{navigate('/')}}>BluemsunBBS</span>
             
-            {/* <button className="navBtn" id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
-            <button className="navBtn" onClick={()=>{window.location.href="/login"}}>登录</button> */}
-            <div className="blockBox">
-                <Menu mode="horizontal" onClick={handleClick} items={item()} style={{minWidth: 0, flex: "auto"}} />
+            {/* <button className={style.navBtn} id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
+            <button className={style.navBtn} onClick={()=>{window.location.href="/login"}}>登录</button> */}
+            <div className={style.blockBox}>
+                <Menu className={style.menu} mode="horizontal" onClick={handleClick} items={item()} style={{minWidth: 0, flex: "auto"}} />
             </div>
             <NotificationBell/>
             
