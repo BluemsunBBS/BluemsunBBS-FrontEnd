@@ -5,8 +5,8 @@
     vertical-align: top;
 }
 .iconBox{
+    position: fixed;
     display: inline-block;
-    background-color: pink;
     text-align: center;
     width: 130px;
     height: 200px;
@@ -24,8 +24,19 @@
     border-radius: 30px;
     text-align: center;
     margin-left: 35px;
+    font-size: xx-large;
+    
+    /* position: fixed; */
+}
+.like{
+    font-size: xx-large;
+    color: #7952b3;
+}
+.like:hover{
+    color: #b49adc;
 }
 .article{
+    margin-left: 130px;
     display: inline-block;
     width: 800px;
     background-color:cornflowerblue;
