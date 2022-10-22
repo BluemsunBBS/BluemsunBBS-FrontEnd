@@ -75,6 +75,7 @@
     font-weight: bold;
 }
 .authorBox{
+    position: fixed;
     display: inline-block;
     background-color:blueviolet;
     width: 260px;
