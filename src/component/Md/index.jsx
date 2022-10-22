@@ -41,7 +41,10 @@ function Md() {
   useEffect(() => { fetchBoard(); }, [])
 
   // console.log(boardData.rows.map(board));
-  const [value, setValue] = useState('');
+  const [radio, setRadio] = useState({
+    value: "",
+    id: ""
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle,setArticleTitle] = useState('');
   const [articleText,setArticleText] = useState('');
@@ -51,12 +54,11 @@ function Md() {
   const handleOk = () => {
     setIsModalOpen(false);
     var res = http.post(`/article/`,{
-      params:{
         title:articleTitle,
         text:articleText,
-        boardId:value
+        board_id:radio.id
       }
-    });
+    );
   };
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -65,10 +67,13 @@ function Md() {
     setArticleTitle(e.target.value);
   }
   const textChange = (e) =>{
-    setArticleText(e.target.value);
+    setArticleText(e);
   }
   const onChange = (e) => {
-    setValue(e.target.value);
+    setRadio({
+      value: e.target.value,
+      id: e.target.id
+    });
   };
   return (
     <div className="page-wrap">
@@ -78,9 +83,9 @@ function Md() {
         <button className='mdBox-btn1'>存草稿</button>
         <button className='mdBox-btn2' type="primary" onClick={showModal}>发布文章</button>
         <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
-          <Radio.Group onChange={(e)=>onChange(e)} value={value}>
+          <Radio.Group onChange={(e)=>onChange(e)} value={radio.value}>
             {boardData.rows.map((board) => (
-              <Radio value={board.name} name={board.id}>{board.name}</Radio>
+              <Radio key={board.id} value={board.name} id={board.id}>{board.name}</Radio>
             ))}
           </Radio.Group>
         </Modal>

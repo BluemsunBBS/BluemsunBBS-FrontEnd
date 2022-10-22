@@ -37,7 +37,7 @@
     font-size: large;
 }
 .mdBox-btn1{
-    margin-left: calc(25vw);
+    margin-left: calc(20vw);
 }
 .mdBox-btn1:hover,.mdBox-btn2:hover{
     background-color: #fff;
