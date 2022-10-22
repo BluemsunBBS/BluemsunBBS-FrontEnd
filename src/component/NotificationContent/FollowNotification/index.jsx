@@ -31,7 +31,7 @@ export default function LikeNotification() {
         });
         if (res.code != 0) {
             message.error(res.msg);
-            setData(null);
+            setData(APIResult);
         } else {
             setData(res.data);
         }
@@ -43,12 +43,14 @@ export default function LikeNotification() {
 
     return (
         <div>
-            {(data != null && data.total != 0) ? (
-                data.rows.map((notification) => (
-                    <NotificationBlock notification={notification} />
-                ))
-            ) : (
-                <NoMessage />
+            {data.page == 0 ? (<></>) : (
+                (data && data.total != 0) ? (
+                    data.rows.map((notification) => (
+                        <NotificationBlock key={notification.id} notification={notification} />
+                    ))
+                ) : (
+                    <NoMessage />
+                )
             )}
         </div>
     );

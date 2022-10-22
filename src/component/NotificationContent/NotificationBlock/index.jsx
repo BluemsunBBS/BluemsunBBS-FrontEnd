@@ -4,8 +4,6 @@ export default function NotificationBlock(props) {
     const notification = props.notification;
     var html = notification.text;
 
-    console.log(notification);
-
     return (
 
         <div className={style.notificationBox}>
