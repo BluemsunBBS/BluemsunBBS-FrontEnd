@@ -9,7 +9,7 @@ export default function CommentBlock(props) {
     const state = (props.isReply ? props.isReply.state : false);
 
     const handleSubmit = (e) => {
-        setReply(false);
+        props.onReply(props.comment.id, false);
         props.onSubmit(e);
     }
 

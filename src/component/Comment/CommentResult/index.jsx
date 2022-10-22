@@ -36,13 +36,11 @@ export default function CommentResult(props) {
                     break;
                 }
                 let flag = false;
-                if (replies.sonReplies) {
-                    for (let j = 0; j < replies.sonReplies.length; j++) {
-                        if (replies[i].sonReplies[j].id == id) {
-                            replies[i].sonReplies[j].state = true;
-                            flag = true;
-                            break;
-                        }
+                for (let j = 0; j < replies[i].sonReplies.length; j++) {
+                    if (replies[i].sonReplies[j].id == id) {
+                        replies[i].sonReplies[j].state = true;
+                        flag = true;
+                        break;
                     }
                 }
                 if (flag) break;
