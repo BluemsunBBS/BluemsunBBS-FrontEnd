@@ -113,10 +113,8 @@ function Md() {
         //插入图片
         uploadImages={async (files) => {
           var data = new FormData();
-          data.append("file",files);
-          var res = await http.post('/file/upload/', {
-            file: data
-          });
+          data.append("file",files[0]);
+          var res = await http.post('/file/upload/', data);
 
           console.log(res.data);
           return [
