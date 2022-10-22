@@ -63,7 +63,8 @@ function Md() {
         board_id:radio.id
       }
     );
-    if(res.code == 0){
+    if(res.code == '0'){
+      console.log(1);
       openNotification("success", "发布成功", "正在跳转", 1);
       setTimeout(()=>{navigate(`/article/${res.data.id}`);}, 1000);
     }
