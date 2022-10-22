@@ -182,7 +182,9 @@ function Article() {
 
                     <div className={style.icon}>
                         <Badge count={article.reply} overflowCount={99} offset={[10, 0]}>
-                            <MessageOutlined className={style.like} />
+                            <a href='#comment' >
+                                <MessageOutlined className={style.like} />
+                            </a>
                         </Badge>
                     </div>
                 </span>

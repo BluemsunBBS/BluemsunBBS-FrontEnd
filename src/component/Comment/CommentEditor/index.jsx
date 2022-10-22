@@ -5,10 +5,10 @@ import style from "./index.module.css"
 import imgUri from "../../../img/1.jpg"
 import { getUserInfo } from "../../../utils/func";
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
+const Editor = ({ onChange, onSubmit, submitting, value, style }) => (
     <>
         <Form.Item>
-            <TextArea rows={4} onChange={onChange} value={value} />
+            <TextArea style={style} rows={4} onChange={onChange} value={value} />
         </Form.Item>
         <Form.Item>
             <Button htmlType="submit" loading={submitting} onClick={onSubmit} type="primary">
@@ -18,7 +18,13 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
     </>
 );
 
-export default function CommentEditor({ onSubmit, mode="article", articleId, replyId }) {
+export default function CommentEditor(props) {
+
+    const onSubmit = props.onSubmit;
+    var mode = props.mode;
+    if (!mode) mode = "article"
+    const articleId = props.articleId;
+    const replyId = props.replyId;
 
     const [submitting, setSubmitting] = useState(false);
     const [value, setValue] = useState('');
@@ -44,6 +50,7 @@ export default function CommentEditor({ onSubmit, mode="article", articleId, rep
     return (
         <div className={style.editorBox}>
             <Comment
+                style={props.style}
                 avatar={<Avatar src={`http://bbs.wyy.ink:8080/images/${avatar}`} />}
                 content={
                     <Editor

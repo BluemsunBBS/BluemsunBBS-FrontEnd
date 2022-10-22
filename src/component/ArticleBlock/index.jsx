@@ -77,6 +77,16 @@ function ArticleBlock(props){
         navigate(`/article/${articleId}`);
     }
 
+    const handleComment = () => {
+        let articleId;
+        if (props.article) {
+            articleId = props.article.id;
+        } else {
+            return;
+        }
+        navigate(`/article/${articleId}#comment`);
+    }
+
     const handleLike = (state) => {
         if (!localStorage.getItem("token")) {
             navigate("/login");
@@ -154,7 +164,7 @@ function ArticleBlock(props){
                             </span>
                         </Space>
                     )}
-                    <Space className={style.reply}>
+                    <Space className={style.reply} onClick={handleComment}>
                         <MessageOutlined />
                         <span style={{fontSize: '10px'}}>
                             {article.reply == 0 ? "评论" : article.reply}
