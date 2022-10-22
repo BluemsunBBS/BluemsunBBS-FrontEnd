@@ -1,3 +1,6 @@
+img{
+    max-width: 100%;
+}
 .bytemd{
     height: calc(94vh) !important;
 }
