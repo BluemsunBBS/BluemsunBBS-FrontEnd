@@ -77,7 +77,11 @@ export default function Nav(props) {
     function NotificationBell() {
         if (localStorage.getItem("token")) {
             return (
-                <div className={style.blockBox} style={{marginRight: '20px'}}>
+                <div 
+                    className={style.blockBox}
+                    style={{marginRight: '20px', cursor: 'pointer'}}
+                    onClick={()=>{navigate("/notification")}}
+                >
                     <BellFilled className={style.notification} style={{fontSize: '25px', color: '#f0f0f0', lineHeight: '70px'}}/>
                 </div>
             )

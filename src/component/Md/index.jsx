@@ -57,16 +57,19 @@ function Md() {
   };
   const handleOk = () => {
     setIsModalOpen(false);
-    var res = http.post(`/article/`,{
-        title:articleTitle,
-        text:articleText,
-        board_id:radio.id
+    async function submitArticle() {
+      var res = await http.post(`/article/`,{
+          title:articleTitle,
+          text:articleText,
+          board_id:radio.id
+        }
+      );
+      if(res.code == 0){
+        openNotification("success", "发布成功", "正在跳转", 1);
+        setTimeout(()=>{navigate(`/article/${res.data.id}`);}, 1000);
       }
-    );
-    if(res.code == 0){
-      openNotification("success", "发布成功", "正在跳转", 1);
-      setTimeout(()=>{navigate(`/article/${res.data.id}`);}, 1000);
     }
+    submitArticle();
   };
   const handleCancel = () => {
     setIsModalOpen(false);
