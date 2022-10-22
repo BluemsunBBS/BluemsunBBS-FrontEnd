@@ -27,6 +27,10 @@ export default function Nav(props) {
                     key: "setUserInfo"
                 },
                 {
+                    label: "发布文章",
+                    key: "addArticle"
+                },
+                {
                     label: "退出登录",
                     key: "logout"
                 }
