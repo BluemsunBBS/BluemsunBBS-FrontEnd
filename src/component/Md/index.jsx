@@ -7,7 +7,7 @@ import './index.css'
 import zhHans from "bytemd/lib/locales/zh_Hans.json";
 import 'bytemd/dist/index.css'
 import "highlight.js/styles/vs.css";
-import { Modal, Checkbox, Col, Row } from 'antd';
+import { Modal, Checkbox, Col, Row, Radio } from 'antd';
 import { http } from './../../utils/http'
 
 const plugins = [
@@ -25,7 +25,7 @@ function Md() {
 
   const [boardData, setBoardData] = useState(APIResult);
   async function fetchBoard() {
-    let res = await http.get(`/board/`, {
+    var res = await http.get(`/board/`, {
       params: {
         page: 1,
         size: 10
@@ -35,7 +35,7 @@ function Md() {
       message.error(res.msg);
     } else {
       console.log(res.data.rows)
-      // setBoardData(res.data);
+      setBoardData(res.data);
     }
   }
   useEffect(() => { fetchBoard(); }, [])
@@ -43,61 +43,57 @@ function Md() {
   // console.log(boardData.rows.map(board));
   const [value, setValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [articleTitle,setArticleTitle] = useState('');
+  const [articleText,setArticleText] = useState('');
   const showModal = () => {
     setIsModalOpen(true);
   };
   const handleOk = () => {
     setIsModalOpen(false);
+    var res = http.post(`/article/`,{
+      params:{
+        title:articleTitle,
+        text:articleText,
+        boardId:value
+      }
+    });
   };
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const onChange = (checkedValues) => {
-    console.log('checked = ', checkedValues);
+  const titleChange = (e) =>{
+    setArticleTitle(e.target.value);
+  }
+  const textChange = (e) =>{
+    setArticleText(e.target.value);
+  }
+  const onChange = (e) => {
+    setValue(e.target.value);
   };
   return (
     <div className="page-wrap">
       <div className='mdBox'>
         <span className='text1'>文章标题</span>
-        <input type="text" className='mdBox-input' value="【无标题】"></input>
+        <input type="text" className='mdBox-input' onChange={(e)=>titleChange(e)} value={articleTitle}></input>
         <button className='mdBox-btn1'>存草稿</button>
         <button className='mdBox-btn2' type="primary" onClick={showModal}>发布文章</button>
         <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
-          <Checkbox.Group
-            style={{
-              width: '100%',
-            }}
-            onChange={onChange}
-          >
-            <Row>
-              <Col span={8}>
-                <Checkbox value="A">A</Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value="B">B</Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value="C">C</Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value="D">D</Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value="E">E</Checkbox>
-              </Col>
-            </Row>
-          </Checkbox.Group>
+          <Radio.Group onChange={(e)=>onChange(e)} value={value}>
+            {boardData.rows.map((board) => (
+              <Radio value={board.name} name={board.id}>{board.name}</Radio>
+            ))}
+          </Radio.Group>
         </Modal>
       </div>
       <Editor
         // 语言
         locale={zhHans}
         // 内部的值
-        value={value}
+        value={articleText}
         // 插件
         plugins={plugins}
         // 动态修改值
-        onChange={v => setValue(v)}
+        onChange={(e)=>textChange(e)}
       />
     </div>
   )
