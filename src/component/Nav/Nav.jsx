@@ -58,6 +58,9 @@ export default function Nav(props) {
         if (e.key == "login") {
             navigate("/login");
         }
+        if (e.key == "addArticle") {
+            window.open("/write");
+        }
         if (e.key == "setUserInfo") {
             navigate("/setUserInfo");
         }
