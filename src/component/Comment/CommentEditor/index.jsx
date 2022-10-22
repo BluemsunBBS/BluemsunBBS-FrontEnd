@@ -44,6 +44,7 @@ export default function CommentEditor(props) {
         } else {
             newComment.reply_id = replyId;
         }
+        setValue("");
         onSubmit(newComment);
     }
 
