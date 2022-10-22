@@ -27,6 +27,10 @@ export default function Nav(props) {
                     key: "setUserInfo"
                 },
                 {
+                    label: "发布文章",
+                    key: "addArticle"
+                },
+                {
                     label: "退出登录",
                     key: "logout"
                 }
@@ -53,6 +57,9 @@ export default function Nav(props) {
         }
         if (e.key == "login") {
             navigate("/login");
+        }
+        if (e.key == "addArticle") {
+            window.open("/write");
         }
         if (e.key == "setUserInfo") {
             navigate("/setUserInfo");

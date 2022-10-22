@@ -9,6 +9,8 @@ import 'bytemd/dist/index.css'
 import "highlight.js/styles/vs.css";
 import { Modal, Checkbox, Col, Row, Radio } from 'antd';
 import { http } from './../../utils/http'
+import { openNotification } from '../../utils/notification'
+import { useNavigate } from 'react-router'
 
 const plugins = [
   gfm(), highlight(), math()
@@ -22,6 +24,8 @@ function Md() {
     rows: [],
     total: 0
   }
+
+  const navigate = useNavigate();
 
   const [boardData, setBoardData] = useState(APIResult);
   async function fetchBoard() {
@@ -59,6 +63,10 @@ function Md() {
         board_id:radio.id
       }
     );
+    if(res.code == 0){
+      openNotification("success", "发布成功", "正在跳转", 1);
+      setTimeout(()=>{navigate(`/article/${res.data.id}`);}, 1000);
+    }
   };
   const handleCancel = () => {
     setIsModalOpen(false);
