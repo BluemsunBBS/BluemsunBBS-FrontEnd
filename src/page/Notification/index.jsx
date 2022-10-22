@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import LikeNotification from "../../component/NotificationContent/LikeNotification";
 import ReplyNotification from './../../component/NotificationContent/ReplyNotification'
 import FollowNotification from './../../component/NotificationContent/FollowNotification'
+import SystemNotification from './../../component/NotificationContent/SystemNotification'
 import Nav from "../../component/Nav/Nav";
 import style from "./index.module.css"
 
@@ -48,7 +49,7 @@ export default function Notification() {
             case "im":
                 return "im";
             case "system":
-                return "system";
+                return <SystemNotification/>;
         }
     }
 
