@@ -148,14 +148,16 @@ function SearchResult(){
                     ))}
                 </div>
             ):(<></>)}
-            <div className={style.relatedArticleBox}>
-                <div className={style.relatedTitle}>相关文章</div>
-                <ArticleResult 
-                    articleData={articleData} 
-                    handlePageChange={handlePageChange}
-                    pager={true}
-                />
-            </div>
+            {(articleData && articleData.total != 0) ? (
+                <div className={style.relatedArticleBox}>
+                    <div className={style.relatedTitle}>相关文章</div>
+                    <ArticleResult 
+                        articleData={articleData} 
+                        handlePageChange={handlePageChange}
+                        pager={true}
+                    />
+                </div>
+            ) : (<></>)}
         </div>
     )
 }
