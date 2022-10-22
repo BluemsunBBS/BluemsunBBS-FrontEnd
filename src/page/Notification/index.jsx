@@ -1,6 +1,9 @@
 import { Menu } from "antd";
 import { useEffect, useState } from "react";
 import LikeNotification from "../../component/NotificationContent/LikeNotification";
+import ReplyNotification from './../../component/NotificationContent/ReplyNotification'
+import FollowNotification from './../../component/NotificationContent/FollowNotification'
+import SystemNotification from './../../component/NotificationContent/SystemNotification'
 import Nav from "../../component/Nav/Nav";
 import style from "./index.module.css"
 
@@ -38,15 +41,15 @@ export default function Notification() {
     function NotificationContent() {
         switch (current) {
             case "reply":
-                return "reply";
+                return <ReplyNotification/>;
             case "like":
                 return <LikeNotification />;
             case "follow":
-                return "follow";
+                return <FollowNotification/>;
             case "im":
                 return "im";
             case "system":
-                return "system";
+                return <SystemNotification/>;
         }
     }
 
