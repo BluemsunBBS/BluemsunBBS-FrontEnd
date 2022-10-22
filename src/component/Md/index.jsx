@@ -50,23 +50,23 @@ function Md() {
     id: ""
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [articleTitle,setArticleTitle] = useState('');
-  const [articleText,setArticleText] = useState('');
+  const [articleTitle, setArticleTitle] = useState('');
+  const [articleText, setArticleText] = useState('');
   const showModal = () => {
     setIsModalOpen(true);
   };
   const handleOk = () => {
     setIsModalOpen(false);
     async function submitArticle() {
-      var res = await http.post(`/article/`,{
-          title:articleTitle,
-          text:articleText,
-          board_id:radio.id
-        }
+      var res = await http.post(`/article/`, {
+        title: articleTitle,
+        text: articleText,
+        board_id: radio.id
+      }
       );
-      if(res.code == 0){
+      if (res.code == 0) {
         openNotification("success", "发布成功", "正在跳转", 1);
-        setTimeout(()=>{navigate(`/article/${res.data.id}`);}, 1000);
+        setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
       }
     }
     submitArticle();
@@ -74,12 +74,12 @@ function Md() {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const titleChange = (e) =>{
+  const titleChange = (e) => {
     setArticleTitle(e.target.value);
-  }
-  const textChange = (e) =>{
+  };
+  const textChange = (e) => {
     setArticleText(e);
-  }
+  };
   const onChange = (e) => {
     setRadio({
       value: e.target.value,
@@ -90,11 +90,11 @@ function Md() {
     <div className="page-wrap">
       <div className='mdBox'>
         <span className='text1'>文章标题</span>
-        <input type="text" className='mdBox-input' onChange={(e)=>titleChange(e)} value={articleTitle}></input>
+        <input type="text" className='mdBox-input' onChange={(e) => titleChange(e)} value={articleTitle}></input>
         <button className='mdBox-btn1'>存草稿</button>
         <button className='mdBox-btn2' type="primary" onClick={showModal}>发布文章</button>
         <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
-          <Radio.Group onChange={(e)=>onChange(e)} value={radio.value}>
+          <Radio.Group onChange={(e) => onChange(e)} value={radio.value}>
             {boardData.rows.map((board) => (
               <Radio key={board.id} value={board.name} id={board.id}>{board.name}</Radio>
             ))}
@@ -109,7 +109,22 @@ function Md() {
         // 插件
         plugins={plugins}
         // 动态修改值
-        onChange={(e)=>textChange(e)}
+        onChange={(e) => textChange(e)}
+        //插入图片
+        uploadImages={async (files) => {
+          var data = new FormData();
+          data.append("file",files);
+          var res = await http.post('/file/upload/', {
+            file: data
+          });
+
+          console.log(res.data);
+          return [
+            {
+              url: "http://bbs.wyy.ink:8080/images/" + res.data,
+            },
+          ];
+        }}
       />
     </div>
   )

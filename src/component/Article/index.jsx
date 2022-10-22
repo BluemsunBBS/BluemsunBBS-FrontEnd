@@ -71,7 +71,7 @@ function Article() {
         let res = await http.get(`/reply/list/${articleId}`, {
             params: {
                 page: 1,
-                size: 10
+                size: 1000
             }
         });
         if (res.code != 0) {
