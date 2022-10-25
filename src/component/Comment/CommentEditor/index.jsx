@@ -23,8 +23,10 @@ export default function CommentEditor(props) {
     const onSubmit = props.onSubmit;
     var mode = props.mode;
     if (!mode) mode = "article"
-    const articleId = props.articleId;
-    const replyId = props.replyId;
+    var articleId;
+    var replyId;
+    if (mode == 'article') articleId = props.article.id;
+    else replyId = props.reply.reply_id ? props.reply.reply_id : props.reply.id;
 
     const [submitting, setSubmitting] = useState(false);
     const [value, setValue] = useState('');
@@ -36,8 +38,15 @@ export default function CommentEditor(props) {
     };
 
     const handleSubmit = () => {
-        var newComment = {
-            text: value
+        var newComment;
+        if (mode != 'article') {
+            newComment = {
+                text: `${props.reply.user.nickname}||${value}`
+            }
+        } else {
+            newComment = {
+                text: value
+            }
         }
         if (mode == 'article') {
             newComment.article_id = articleId;

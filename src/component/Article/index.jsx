@@ -12,6 +12,7 @@ import { Badge, message } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import CommentResult from '../Comment/CommentResult';
+import imgUri from '../../img/file.jpg'
 
 function Article() {
     var url = imgurl;
@@ -26,6 +27,7 @@ function Article() {
     });
     const [user, setUser] = useState({
         nickname: "昵称",
+        avatar_uri: imgUri
     });
     const [comments, setComments] = useState({
         page: 0,
@@ -51,7 +53,6 @@ function Article() {
         res = await http.get(`/account/${data.user_id}`);
         if (res.code != 0) {
             message.error(res.msg);
-            setUser(null);
         } else {
             setUser(res.data);
         }

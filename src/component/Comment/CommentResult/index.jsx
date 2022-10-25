@@ -52,7 +52,7 @@ export default function CommentResult(props) {
     return (
         <div className={style.commentBox} id="comment">
             <CommentEditor
-                articleId={props.article.id}
+                article={props.article}
                 onSubmit={props.onSubmit}
                 mode="article"
             />

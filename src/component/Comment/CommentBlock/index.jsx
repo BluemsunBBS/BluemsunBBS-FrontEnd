@@ -13,6 +13,15 @@ export default function CommentBlock(props) {
         props.onSubmit(e);
     }
 
+    const content = props.comment.text.split("||");
+    var reply_user, text;
+    if (content.length == 1) {
+        text = content[0];
+    } else {
+        reply_user = content[0];
+        text = content[1];
+    }
+
     const handleDelete = () => {
         props.onSubmit({
             delete: true,
@@ -34,13 +43,17 @@ export default function CommentBlock(props) {
                     <span key="comment-nested-reply-to" onClick={handleDelete}>删除</span> : 
                     (<></>)
                 ]}
-                author={<a href={`/user/${props.comment.user.id}`}>
-                    {props.comment.user.nickname ? props.comment.user.nickname : props.comment.user.username}
-                </a>}
+                author={
+                    <>
+                        <a href={`/user/${props.comment.user.id}`}>
+                            {props.comment.user.nickname ? props.comment.user.nickname : props.comment.user.username}
+                        </a> {reply_user ? ` 回复 ${reply_user}` : ''}
+                    </>
+                }
                 avatar={<Avatar src={`http://bbs.wyy.ink:8080/images/${props.comment.user.avatar_uri}`}/>}
                 content={
                     <p className={style.content}>
-                        {props.comment.text}
+                        {text}
                     </p>
                 }
                 datetime={
@@ -53,9 +66,7 @@ export default function CommentBlock(props) {
                     <CommentEditor
                         style={{width: props.comment.reply_id ? '610px' : '660px'}}
                         onSubmit={handleSubmit}
-                        replyId={props.comment.reply_id ?
-                        props.comment.reply_id :
-                        props.comment.id}
+                        reply={props.comment}
                         mode="reply"
                     />
                 ) : (<></>)}
