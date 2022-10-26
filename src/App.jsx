@@ -16,6 +16,7 @@ import TestPage from "./page/TestPage";
 import ShowListPage from "./page/ShowListPage";
 import Notification from "./page/Notification";
 import AddArticlePage from './page/AddArticlePage';
+import SelfCenter from './page/SelfCenter';
 
 function App() {
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="article/:id" element={<ArticlePage/>}></Route>
           <Route path="notification" element={<Notification />}></Route>
           <Route path="write" element={<AddArticlePage/>}></Route>
+          <Route path="selfcenter" element={<SelfCenter/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
