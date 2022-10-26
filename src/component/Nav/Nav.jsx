@@ -23,6 +23,10 @@ export default function Nav(props) {
             key: 'menu',
             children: [
                 {
+                    label: "个人中心",
+                    key: "selfCenter"
+                },
+                {
                     label: "编辑个人资料",
                     key: "setUserInfo"
                 },
@@ -63,6 +67,9 @@ export default function Nav(props) {
         }
         if (e.key == "setUserInfo") {
             navigate("/setUserInfo");
+        }
+        if (e.key == "selfCenter") {
+            navigate("/selfCenter");
         }
     }
 
