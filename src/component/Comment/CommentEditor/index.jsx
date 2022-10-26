@@ -1,4 +1,4 @@
-import { Avatar, Button, Comment, Form, List } from "antd";
+import { Avatar, Button, Comment, Form, List, message } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useState } from "react";
 import style from "./index.module.css"
@@ -39,6 +39,10 @@ export default function CommentEditor(props) {
 
     const handleSubmit = () => {
         var newComment;
+        if(!value){
+            message.info("评论不能为空！");
+            return;
+        }
         if (mode != 'article') {
             newComment = {
                 text: `${props.reply.user.nickname}||${value}`

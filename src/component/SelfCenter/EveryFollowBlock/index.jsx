@@ -6,7 +6,7 @@ export default function EveryFollowBlock(props) {
     return (
 
         <div className={style.notificationBox}>
-            <div className={style.text1}>{board.id}</div>
+            <div className={style.text1}>{board.name}</div>
         </div>
 
     )
