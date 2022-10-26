@@ -6,6 +6,9 @@ import './index.module.css';
 import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 import FollowBlock from "../../component/SelfCenter/FollowBlock";
+import { LikeTwoTone, SmileTwoTone } from '@ant-design/icons';
+import { Space } from 'antd';
+import React from 'react';
 
 const items = [
     {
@@ -51,7 +54,7 @@ export default function SelfCenter() {
             case "focused":
                 return "我的粉丝";
             case "focus-block":
-                return <FollowBlock/>;
+                return <FollowBlock />;
         }
     }
 
@@ -80,9 +83,16 @@ export default function SelfCenter() {
                     </div>
                 </div>
                 <div className={style.right}>
-                    <div>关于我的</div>
-                    <div>被99人关注</div>
-                    <div>我关注了99人</div>
+                    <div className={style.text2}>关于我的</div>
+                    <div>
+                        <SmileTwoTone twoToneColor="#7952b3" className={style.icon} />
+                        <div className={style.text3}>被99人关注</div>
+                    </div>
+                    <div>
+                        <LikeTwoTone twoToneColor="#7952b3" className={style.icon} />
+                        <div className={style.text3}>我关注了99人</div>
+                    </div>
+
                 </div>
 
             </div>

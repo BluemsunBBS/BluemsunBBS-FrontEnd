@@ -50,7 +50,20 @@
     display: inline-block;
     height: 200px;
     width: calc(20vw);
-    background-color:blueviolet;
+    background-color:#fff;
+}
+.text2{
+    height: calc(6vh);
+    line-height: calc(6vh);
+    background-color: red;
+    font-size: large;
+    font-weight: bold;
+}
+.text3{
+    display: inline-block;
+}
+.icon{
+    display: inline-block;
 }
 
 .menu {
