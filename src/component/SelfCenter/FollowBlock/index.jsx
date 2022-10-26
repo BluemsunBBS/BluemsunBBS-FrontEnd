@@ -42,8 +42,8 @@ export default function FollowBlock() {
     }
 
     useEffect(() => {
-        fetchList(userParams);
-    }, [userParams]);
+        fetchList(userParams,pager);
+    }, [userParams,pager]);
 
     return (
         <div>
