@@ -79,7 +79,11 @@ export default function SelfCenter() {
                         <NotificationContent />
                     </div>
                 </div>
-                <div className={style.right}></div>
+                <div className={style.right}>
+                    <div>关于我的</div>
+                    <div>被99人关注</div>
+                    <div>我关注了99人</div>
+                </div>
 
             </div>
 

@@ -1,7 +1,6 @@
 .box {
     width: calc(76vw);
     margin: 20px auto;
-    background-color:antiquewhite;
 }
 .userBox{
     vertical-align: top;
@@ -45,7 +44,6 @@
     vertical-align: top;
     width: calc(54vw);
     display: inline-block;
-    background-color: pink;
 }
 .right{
     margin-left: calc(2vw);
