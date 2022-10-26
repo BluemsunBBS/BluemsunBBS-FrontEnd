@@ -1,0 +1,18 @@
+.notificationBox {
+    background-color: #fff;
+    width: calc(50vw);
+    /* min-height: 130px; */
+    padding: 10px;
+    margin: 20px auto;
+    
+}
+.text1 {
+    font-size: large;
+    width: 620px;
+    margin: 10px auto;
+}
+.text2{
+    margin-top: 10px;
+    margin-left: 80px;
+    color: rgb(100,100,100);
+}

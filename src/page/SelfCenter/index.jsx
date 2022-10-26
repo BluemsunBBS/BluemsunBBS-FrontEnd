@@ -5,6 +5,7 @@ import style from "./index.module.css";
 import './index.module.css';
 import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
+import FollowBlock from "../../component/SelfCenter/FollowBlock";
 
 const items = [
     {
@@ -44,7 +45,7 @@ export default function SelfCenter() {
             case "focus-user":
                 return "已关注用户";
             case "focus-block":
-                return "已关注版块";
+                return <FollowBlock/>;
         }
     }
 
