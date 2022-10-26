@@ -10,11 +10,13 @@ import { useNavigate, useParams } from 'react-router';
 export default function FollowBlock() {
 
     const userParams = useParams();
+    console.log(userParams);
     // const navigate = useNavigate();
 
     const [pager, setPager] = useState({
         page: 1,
-        size: 10
+        size: 10,
+        userId:userParams.id
     });
 
     const APIResult = {
@@ -27,7 +29,7 @@ export default function FollowBlock() {
     const [data, setData] = useState(APIResult);
 
     async function fetchList(userParams,pager) {
-        let res = await http.get(`/board/`,{
+        let res = await http.get(`/follow/listBoard/${userParams.id}`,{
             params: {
                 page: pager.page,
                 size: pager.size

@@ -21,6 +21,10 @@ const items = [
         key: 'focus-user'
     },
     {
+        label: '我的粉丝',
+        key: 'focused'
+    },
+    {
         label: '已关注版块',
         key: 'focus-block'
     }
@@ -44,6 +48,8 @@ export default function SelfCenter() {
                 return "已发布文章";
             case "focus-user":
                 return "已关注用户";
+            case "focused":
+                return "我的粉丝";
             case "focus-block":
                 return <FollowBlock/>;
         }
