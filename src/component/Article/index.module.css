@@ -60,6 +60,7 @@
     margin-bottom: 20px;
 }
 .authorImg1{
+    cursor: pointer;
     height: 50px;
     height: 50px;
     border-radius: 25px;
@@ -94,6 +95,7 @@
     height: 80px;
     border-radius: 40px;
     vertical-align: top;
+    cursor: pointer;
 }
 .authorInfo{
     display: inline-block;

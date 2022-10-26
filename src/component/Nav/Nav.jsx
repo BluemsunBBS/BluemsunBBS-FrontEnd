@@ -69,7 +69,7 @@ export default function Nav(props) {
             navigate("/setUserInfo");
         }
         if (e.key == "selfCenter") {
-            navigate("/selfCenter");
+            navigate("/user");
         }
     }
 

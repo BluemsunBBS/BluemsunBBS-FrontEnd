@@ -30,7 +30,7 @@ export default function SelfCenter() {
     var userimg = getUserInfo("avatar_uri");
     userimg = 'http://bbs.wyy.ink:8080/images/' + userimg;
 
-    const [current, setCurrent] = useState('published');
+    const [current, setCurrent] = useState('focus-block');
     const handleClick = (e) => {
         console.log('click ', e);
         setCurrent(e.key);

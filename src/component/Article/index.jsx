@@ -160,6 +160,17 @@ function Article() {
         submitComment();
     }
 
+    const handleClick = () =>{
+        console.log(user);
+        let userId;
+        if(user){
+            userId = user.id;
+        }else{
+            return;
+        }
+        navigate(`/user/${userId}`);
+    }
+
     return (
         <div className={style.centerBox}>
             <div className={style.articleBox}>
@@ -195,7 +206,8 @@ function Article() {
                     <div className={style.authorBox1}>
                         <img
                             src={`http://bbs.wyy.ink:8080/images/${user.avatar_uri}`}
-                            className={style.authorImg1}>
+                            className={style.authorImg1}
+                            onClick={handleClick}>
                         </img>
                         <span className={style.authorInfo1}>
                             <div className={style.text3}>
