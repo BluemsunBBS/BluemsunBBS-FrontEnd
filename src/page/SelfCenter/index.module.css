@@ -21,6 +21,7 @@
     display: inline-block;
 }
 .text1{
+    margin-top: calc(1vw);
     font-size: x-large;
     font-weight: bold;
     margin-bottom: calc(1vw);
@@ -29,11 +30,16 @@
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 10px;
-    border: 2px solid #7952b3;
+    border: 1.5px solid #7952b3;
     background-color: #fff;
     color: #7952b3;
     font-size: large;
     border-radius: 6px;
+    cursor: pointer;
+}
+.btn1:hover{
+    background-color: #7952b3;
+    color: #fff;
 }
 .left{
     vertical-align: top;
