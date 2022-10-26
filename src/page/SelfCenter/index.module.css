@@ -1,5 +1,5 @@
 .box {
-    width: calc(75vw);
+    width: calc(76vw);
     margin: 20px auto;
     background-color:antiquewhite;
 }
@@ -17,7 +17,7 @@
 .userContent{
     vertical-align: top;
     margin-top: calc(2vw);
-    width: calc(38vw);
+    width: calc(42vw);
     display: inline-block;
 }
 .text1{
@@ -43,12 +43,12 @@
 }
 .left{
     vertical-align: top;
-    width: calc(50vw);
+    width: calc(54vw);
     display: inline-block;
     background-color: pink;
 }
 .right{
-    margin-left: calc(5vw);
+    margin-left: calc(2vw);
     display: inline-block;
     height: 200px;
     width: calc(20vw);
