@@ -28,7 +28,7 @@ export default function FollowPerson() {
 
     const [data, setData] = useState(APIResult);
     async function fetchList(userParams,pager) {
-        let res = await http.get(`/friend/followList/${userParams.id}`,{
+        let res = await http.get(`/friend/fansList/${userParams.id}`,{
             params: {
                 page: pager.page,
                 size: pager.size
