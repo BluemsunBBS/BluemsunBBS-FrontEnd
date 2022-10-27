@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router';
 
 export default function Nav(props) {
     var img = "http://bbs.wyy.ink:8080/images/" + getUserInfo("avatar_uri");
+    var userid = getUserInfo("id");
     var bbsurl = logo;
     const navigate = useNavigate();
-    // var nickname = getUserInfo("nickname");
 
     const logined = [
         {
@@ -69,7 +69,7 @@ export default function Nav(props) {
             navigate("/setUserInfo");
         }
         if (e.key == "selfCenter") {
-            navigate("/user");
+            navigate("/user/"+userid);
         }
     }
 
