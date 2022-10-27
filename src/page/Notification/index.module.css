@@ -7,6 +7,7 @@
 }
 
 .root {
+    min-height: 100vh;
     background-color: rgb(245, 245, 245);
     width: 100%;
     padding-bottom: 10px;
