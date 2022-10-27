@@ -7,6 +7,7 @@ import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 import FollowBlock from "../../component/SelfCenter/FollowBlock";
 import FollowPerson from "../../component/SelfCenter/FollowPerson";
+import Fans from "../../component/SelfCenter/Fans";
 import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Space } from 'antd';
 import React from 'react';
@@ -113,9 +114,9 @@ export default function SelfCenter() {
             case "published":
                 return "已发布文章";
             case "focus-user":
-                return "已关注用户";
+                return <FollowPerson/>;
             case "focused":
-                return <FollowPerson />;
+                return <Fans />;
             case "focus-block":
                 return <FollowBlock />;
         }

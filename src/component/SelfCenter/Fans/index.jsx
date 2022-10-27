@@ -1,13 +1,13 @@
 import NoMessage from "../NoMessage"
 import { useEffect, useState } from "react";
 import { message, notification } from "antd";
-import EveryFollowPerson from "../EveryFollowPerson";
+import EveryFans from "../EveryFans";
 import { http } from "../../../utils/http";
 // import { getUserInfo } from './../../utils/func.js'
 // import './../../utils/func.js'
 import { useNavigate, useParams } from 'react-router';
 
-export default function FollowPerson() {
+export default function Fans() {
 
     const userParams = useParams();
     console.log(userParams);
@@ -28,7 +28,7 @@ export default function FollowPerson() {
 
     const [data, setData] = useState(APIResult);
     async function fetchList(userParams,pager) {
-        let res = await http.get(`/friend/followList/${userParams.id}`,{
+        let res = await http.get(`/friend/fansList/${userParams.id}`,{
             params: {
                 page: pager.page,
                 size: pager.size
@@ -50,7 +50,7 @@ export default function FollowPerson() {
             {data.page == 0 ? (<></>) : (
                 (data && data.total != 0) ? (
                     data.rows.map((board) => (
-                        <EveryFollowPerson key={board.id} board={board} />
+                        <EveryFans key={board.id} board={board} />
                     ))
                 ) : (
                     <NoMessage />
