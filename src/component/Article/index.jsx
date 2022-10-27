@@ -210,7 +210,7 @@ function Article() {
                             onClick={handleClick}>
                         </img>
                         <span className={style.authorInfo1}>
-                            <div className={style.text3}>
+                            <div className={style.text3} onClick={handleClick}>
                                 {user.nickname == null ? user.username : user.nickname}
                             </div>
                             <div className={style.text4}>{article.update_time}</div>
