@@ -12,6 +12,7 @@ import { Space } from 'antd';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router';
 import { http } from '../../utils/http'
+import { Badge, message } from 'antd';
 
 const items = [
     {
@@ -44,8 +45,9 @@ export default function SelfCenter() {
         avatar_uri: ''
     });
     const [current, setCurrent] = useState('focus-block');
-    const [follow,setFollow] = useState(0);
-    const [fans,setFans] = useState(0);
+    const [follow, setFollow] = useState(0);
+    const [fans, setFans] = useState(0);
+    const [followed, setFollowed] = useState(false);
     useEffect(() => {
         fetchUser(userParams);
         fetchFollow(userParams);
@@ -80,11 +82,29 @@ export default function SelfCenter() {
             setFans(res.data);
         }
     }
-    
+
     const handleClick = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
     };
+    const handleFollow = (state) => {
+        async function fetchFollowed() {
+            let res;
+            if (state) res = await http.post(`/friend/${user.id}`);
+            else res = await http.delete(`/friend/${user.id}`);
+            if (res.code != 0) {
+                message.error(res.msg);
+                setFollowed(!state);
+            } else {
+                setFollowed(state);
+            }
+            res = await http.get(`/friend/countFans/${user.id}`);
+            if (res.code == 0) {
+                setFans(res.data);
+            }
+        }
+        fetchFollowed();
+    }
 
     function NotificationContent() {
         switch (current) {
@@ -95,7 +115,7 @@ export default function SelfCenter() {
             case "focus-user":
                 return "已关注用户";
             case "focused":
-                return <FollowPerson/>;
+                return <FollowPerson />;
             case "focus-block":
                 return <FollowBlock />;
         }
@@ -111,7 +131,10 @@ export default function SelfCenter() {
                             className={style.userImg}></img>
                         <span className={style.userContent}>
                             <div className={style.text1}>{user.nickname}</div>
-                            <button className={style.btn1}>关注</button>
+                            <button className={style.btn1}
+                                onClick={() => handleFollow(!followed)}>
+                                {(!followed) ? ("关 注") : ("取消关注")}
+                            </button>
                             <button className={style.btn1}>私信</button>
                         </span>
                     </div>
