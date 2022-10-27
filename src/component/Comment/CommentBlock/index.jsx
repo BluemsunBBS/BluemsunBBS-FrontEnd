@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import { getTimeDiff, getUserInfo } from "../../../utils/func";
 import CommentEditor from "../CommentEditor";
 import style from "./index.module.css"
+import { useNavigate } from "react-router";
 
 export default function CommentBlock(props) {
-
+    const navigate = useNavigate();
     const state = (props.isReply ? props.isReply.state : false);
 
     const handleSubmit = (e) => {
@@ -34,14 +35,18 @@ export default function CommentBlock(props) {
         props.onReply(props.comment.id, !state);
     }
 
+    const handleClick = () => {
+        navigate("/user/" + props.comment.user.id);
+    }
+
     return (
         <div className={style.comment}>
             <Comment
                 actions={[
                     <span key="comment-nested-reply-to" onClick={handleReply}>{state ? "取消回复" : "回复"}</span>,
-                    props.comment.user_id==getUserInfo("id") ? 
-                    <span key="comment-nested-reply-to" onClick={handleDelete}>删除</span> : 
-                    (<></>)
+                    props.comment.user_id == getUserInfo("id") ?
+                        <span key="comment-nested-reply-to" onClick={handleDelete}>删除</span> :
+                        (<></>)
                 ]}
                 author={
                     <>
@@ -50,7 +55,8 @@ export default function CommentBlock(props) {
                         </a> {reply_user ? ` 回复 ${reply_user}` : ''}
                     </>
                 }
-                avatar={<Avatar src={`http://bbs.wyy.ink:8080/images/${props.comment.user.avatar_uri}`}/>}
+                avatar={<Avatar src={`http://bbs.wyy.ink:8080/images/${props.comment.user.avatar_uri}`}
+                    onClick={handleClick} />}
                 content={
                     <p className={style.content}>
                         {text}
@@ -64,7 +70,7 @@ export default function CommentBlock(props) {
             >
                 {state ? (
                     <CommentEditor
-                        style={{width: props.comment.reply_id ? '610px' : '660px'}}
+                        style={{ width: props.comment.reply_id ? '610px' : '660px' }}
                         onSubmit={handleSubmit}
                         reply={props.comment}
                         mode="reply"
@@ -76,7 +82,7 @@ export default function CommentBlock(props) {
                             key={comment.id}
                             comment={comment}
                             isReply={props.isReply ? props.isReply.sonReplies[id] : []}
-                            onReply={(id, state)=>props.onReply(id, state)}
+                            onReply={(id, state) => props.onReply(id, state)}
                             onSubmit={props.onSubmit}
                         />
                     ))
