@@ -223,7 +223,8 @@ function Article() {
                     <div className={style.author}>
                         <img
                             src={`http://bbs.wyy.ink:8080/images/${user.avatar_uri}`}
-                            className={style.authorImg}>
+                            className={style.authorImg}
+                            onClick={handleClick}>
                         </img>
                         <span className={style.authorInfo}>
                             <div className={style.text1}>{user.nickname}</div>

@@ -9,6 +9,8 @@ import FollowBlock from "../../component/SelfCenter/FollowBlock";
 import { LikeTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Space } from 'antd';
 import React from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { http } from '../../utils/http'
 
 const items = [
     {
@@ -34,8 +36,27 @@ const items = [
 ]
 
 export default function SelfCenter() {
-    var userimg = getUserInfo("avatar_uri");
-    userimg = 'http://bbs.wyy.ink:8080/images/' + userimg;
+    const userParams = useParams();
+    console.log(userParams);
+    // const navigate = useNavigate();
+    const [user, setUser] = useState({
+        nickname: "昵称",
+        avatar_uri: ''
+    });
+
+    useEffect(() => {
+        fetchUser(userParams);
+    }, [userParams]);
+
+    async function fetchUser(userParams) {
+        var res = await http.get(`/account/${userParams.id}`);
+        console.log(res.data.nickname);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            setUser(res.data);
+        }
+    }
 
     const [current, setCurrent] = useState('focus-block');
     const handleClick = (e) => {
@@ -64,9 +85,10 @@ export default function SelfCenter() {
             <div className={style.box}>
                 <div className={style.left}>
                     <div className={style.userBox}>
-                        <img src={userimg} className={style.userImg}></img>
+                        <img src={`http://bbs.wyy.ink:8080/images/${user.avatar_uri}`}
+                            className={style.userImg}></img>
                         <span className={style.userContent}>
-                            <div className={style.text1}>我是吴越洋</div>
+                            <div className={style.text1}>{user.nickname}</div>
                             <button className={style.btn1}>关注</button>
                             <button className={style.btn1}>私信</button>
                         </span>
