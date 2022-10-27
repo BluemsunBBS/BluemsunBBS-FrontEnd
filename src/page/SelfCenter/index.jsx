@@ -6,7 +6,7 @@ import './index.module.css';
 import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 import FollowBlock from "../../component/SelfCenter/FollowBlock";
-import { LikeTwoTone, SmileTwoTone } from '@ant-design/icons';
+import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Space } from 'antd';
 import React from 'react';
 import { useNavigate, useParams } from 'react-router';
@@ -37,20 +37,22 @@ const items = [
 
 export default function SelfCenter() {
     const userParams = useParams();
-    console.log(userParams);
-    // const navigate = useNavigate();
+
     const [user, setUser] = useState({
         nickname: "昵称",
         avatar_uri: ''
     });
-
+    const [current, setCurrent] = useState('focus-block');
+    const [follow,setFollow] = useState(0);
+    const [fans,setFans] = useState(0);
     useEffect(() => {
         fetchUser(userParams);
+        fetchFollow(userParams);
+        fetchFans(userParams);
     }, [userParams]);
 
     async function fetchUser(userParams) {
         var res = await http.get(`/account/${userParams.id}`);
-        console.log(res.data.nickname);
         if (res.code != 0) {
             message.error(res.msg);
         } else {
@@ -58,7 +60,26 @@ export default function SelfCenter() {
         }
     }
 
-    const [current, setCurrent] = useState('focus-block');
+    async function fetchFollow(userParams) {
+        var res = await http.get(`/friend/countFollow/${userParams.id}`);
+        console.log(res);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            setFollow(res.data);
+        }
+    }
+
+    async function fetchFans(userParams) {
+        var res = await http.get(`/friend/countFans/${userParams.id}`);
+        console.log(res);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            setFans(res.data);
+        }
+    }
+    
     const handleClick = (e) => {
         console.log('click ', e);
         setCurrent(e.key);
@@ -105,14 +126,14 @@ export default function SelfCenter() {
                     </div>
                 </div>
                 <div className={style.right}>
-                    <div className={style.text2}>关于我的</div>
-                    <div>
+                    <div className={style.text2}>关于 {user.nickname}</div>
+                    <div className={style.box1}>
                         <SmileTwoTone twoToneColor="#7952b3" className={style.icon} />
-                        <div className={style.text3}>被99人关注</div>
+                        <div className={style.text3}>被 {fans} 人关注</div>
                     </div>
-                    <div>
-                        <LikeTwoTone twoToneColor="#7952b3" className={style.icon} />
-                        <div className={style.text3}>我关注了99人</div>
+                    <div className={style.box1}>
+                        <HeartTwoTone twoToneColor="#7952b3" className={style.icon} />
+                        <div className={style.text3}>关注了 {follow} 人</div>
                     </div>
 
                 </div>

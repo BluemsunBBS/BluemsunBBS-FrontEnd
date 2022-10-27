@@ -55,15 +55,29 @@
 .text2{
     height: calc(6vh);
     line-height: calc(6vh);
-    background-color: red;
+    padding-left: 20px;
+    border-bottom: 2px solid rgb(245, 245, 245);
     font-size: large;
     font-weight: bold;
+    margin-bottom: 20px;
+}
+.box1{
+    height: calc(6vh);
+    line-height: calc(6vh);
+    margin-bottom: 2px;
 }
 .text3{
+    font-weight: bold;
+    font-size: large;
     display: inline-block;
 }
 .icon{
+    width: calc(6vh);
+    height: calc(6vh);
     display: inline-block;
+    text-align: center;
+    line-height: calc(6vh);
+    font-size: x-large;
 }
 
 .menu {
