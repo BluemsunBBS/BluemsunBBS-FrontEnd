@@ -45,16 +45,6 @@ export default function FollowBlock() {
     useEffect(() => {
         fetchList(userParams,pager);
     }, [userParams,pager]);
-
-    async function fetchUser(userParams) {
-        var res = await http.get(`/account/${userParams.id}`);
-        console.log(res.data.nickname);
-        if (res.code != 0) {
-            message.error(res.msg);
-        } else {
-            setUser(res.data);
-        }
-    }
     return (
         <div>
             {data.page == 0 ? (<></>) : (
