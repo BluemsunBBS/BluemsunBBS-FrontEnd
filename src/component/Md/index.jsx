@@ -10,7 +10,7 @@ import "highlight.js/styles/vs.css";
 import { Modal, Checkbox, Col, Row, Radio } from 'antd';
 import { http } from './../../utils/http'
 import { openNotification } from '../../utils/notification'
-import { useNavigate } from 'react-router'
+import { useNavigate,useParams} from 'react-router'
 
 const plugins = [
   gfm(), highlight(), math()
@@ -26,6 +26,8 @@ function Md() {
   }
 
   const navigate = useNavigate();
+  const params = useParams();
+  console.log(params.id);
 
   const [boardData, setBoardData] = useState(APIResult);
   async function fetchBoard() {
