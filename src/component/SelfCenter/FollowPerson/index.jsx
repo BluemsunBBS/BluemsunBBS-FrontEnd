@@ -1,7 +1,8 @@
 import NoMessage from "../NoMessage"
 import { useEffect, useState } from "react";
 import { message, notification } from "antd";
-import EveryFollowPerson from "../EveryFollowPerson";
+import EveryFriend from "../EveryFriend";
+import EveryFollowPerson from '../EveryFollowPerson';
 import { http } from "../../../utils/http";
 import style from "./index.module.css"
 // import { getUserInfo } from './../../utils/func.js'
@@ -64,10 +65,9 @@ export default function FollowPerson() {
             {friendData.page == 0 ? (<></>) : (
                 (friendData && friendData.total != 0) ? (
                     <div className={style.eachOther}>
-                        <span>互相关注</span>
                         {friendData.rows.map((board) => (
-                            <EveryFollowPerson key={board.id} board={board} />
-                        ))}&nbsp;
+                            <EveryFriend key={board.id} board={board} />
+                        ))}
                     </div>
                 ) : (
                     <NoMessage />
