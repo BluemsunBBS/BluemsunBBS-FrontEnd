@@ -62,6 +62,12 @@ export default function SelfCenter() {
         } else {
             setUser(res.data);
         }
+        res = await http.get(`/friend/check/${userParams.id}`);
+        if (res.code == 0) {
+            setFollowed(true);
+        } else {
+            setFollowed(false);
+        }
     }
 
     async function fetchFollow(userParams) {
