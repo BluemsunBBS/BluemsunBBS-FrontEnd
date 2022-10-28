@@ -106,6 +106,7 @@ function Md () {
       id: e.target.id
     });
   };
+  console.log(articleTitle);
   return (
     <div className="page-wrap">
       <div className='mdBox'>
