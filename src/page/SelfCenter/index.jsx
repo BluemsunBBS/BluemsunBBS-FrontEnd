@@ -9,6 +9,7 @@ import FollowBlock from "../../component/SelfCenter/FollowBlock";
 import FollowPerson from "../../component/SelfCenter/FollowPerson";
 import Draft from "../../component/SelfCenter/Draft";
 import Fans from "../../component/SelfCenter/Fans";
+import Published from "../../component/SelfCenter/Published";
 import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Space } from 'antd';
 import React from 'react';
@@ -119,7 +120,7 @@ export default function SelfCenter() {
             case "draft":
                 return <Draft/>;
             case "published":
-                return "已发布文章";
+                return <Published/>;
             case "focus-user":
                 return <FollowPerson/>;
             case "focused":

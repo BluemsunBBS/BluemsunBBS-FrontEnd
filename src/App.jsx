@@ -56,6 +56,7 @@ function App() {
           <Route path="article/:id" element={<ArticlePage/>}></Route>
           <Route path="notification" element={<Notification />}></Route>
           <Route path="write" element={<AddArticlePage/>}></Route>
+          <Route path="write/:id" element={<AddArticlePage/>}></Route>
           <Route path="user/:id" element={<SelfCenter/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
