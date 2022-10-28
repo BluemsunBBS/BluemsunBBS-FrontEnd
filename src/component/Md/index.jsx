@@ -17,7 +17,7 @@ const plugins = [
   // Add more plugins here
 ]
 
-function Md() {
+function Md () {
   const APIResult = {
     page: 0,
     size: 0,
