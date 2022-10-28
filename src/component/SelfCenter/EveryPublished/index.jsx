@@ -8,6 +8,7 @@ export default function EveryPublished(props) {
 
         <div className={style.msgBox} >
             <div className={style.text1}>{board.title}</div>
+            <div>{board.text.substr(0, 200)}</div>
         </div>
 
     )
