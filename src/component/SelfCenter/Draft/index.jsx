@@ -1,7 +1,7 @@
 import NoMessage from "../NoMessage"
 import { useEffect, useState } from "react";
 import { message, notification } from "antd";
-import EveryFollowBlock from "../EveryFollowBlock";
+import EveryDraft from './../EveryDraft';
 import { http } from "../../../utils/http";
 // import { getUserInfo } from './../../utils/func.js'
 // import './../../utils/func.js'
@@ -16,7 +16,6 @@ export default function Draft() {
     const [pager, setPager] = useState({
         page: 1,
         size: 10,
-        userId:userParams.id
     });
 
     const APIResult = {
@@ -27,8 +26,8 @@ export default function Draft() {
     }
 
     const [data, setData] = useState(APIResult);
-    async function fetchList(userParams,pager) {
-        let res = await http.get(`/follow/listBoard/${userParams.id}`,{
+    async function fetchList(pager) {
+        let res = await http.get(`/article/draft/list`,{
             params: {
                 page: pager.page,
                 size: pager.size
@@ -43,14 +42,14 @@ export default function Draft() {
     }
 
     useEffect(() => {
-        fetchList(userParams,pager);
-    }, [userParams,pager]);
+        fetchList(pager);
+    }, [pager]);
     return (
         <div>
             {data.page == 0 ? (<></>) : (
                 (data && data.total != 0) ? (
                     data.rows.map((board) => (
-                        <EveryFollowBlock key={board.id} board={board} />
+                        <EveryDraft key={board.id} board={board} />
                     ))
                 ) : (
                     <NoMessage />

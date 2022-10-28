@@ -1,0 +1,21 @@
+.msgBox {
+    background-color: #fff;
+    width: calc(54vw);
+    /* min-height: 130px; */
+    padding: 10px;
+    margin: 2px auto;   
+}
+.boardImg{
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.text1 {
+    padding-left: 20px;
+    display: inline-block;
+    font-size: large;
+    width: 620px;
+    margin: 10px auto;
+    font-weight: bold;
+}

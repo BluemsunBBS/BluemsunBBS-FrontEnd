@@ -7,6 +7,7 @@ import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 import FollowBlock from "../../component/SelfCenter/FollowBlock";
 import FollowPerson from "../../component/SelfCenter/FollowPerson";
+import Draft from "../../component/SelfCenter/Draft";
 import Fans from "../../component/SelfCenter/Fans";
 import { HeartTwoTone, SmileTwoTone } from '@ant-design/icons';
 import { Space } from 'antd';
@@ -116,7 +117,7 @@ export default function SelfCenter() {
     function NotificationContent() {
         switch (current) {
             case "draft":
-                return "草稿箱";
+                return <Draft/>;
             case "published":
                 return "已发布文章";
             case "focus-user":
