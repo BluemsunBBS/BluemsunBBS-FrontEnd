@@ -60,16 +60,32 @@ function Md() {
   const handleOk = () => {
     setIsModalOpen(false);
     async function submitArticle() {
-      var res = await http.post(`/article/`, {
-        title: articleTitle,
-        text: articleText,
-        board_id: radio.id
+      if(whichOpen){
+        var res = await http.post(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "发布成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+        }
       }
-      );
-      if (res.code == 0) {
-        openNotification("success", "发布成功", "正在跳转", 1);
-        setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+      else{
+        var res = await http.post(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id,
+          approved:2
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "存草稿成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/home`); }, 1000);
+        }
       }
+      
     }
     submitArticle();
   };
