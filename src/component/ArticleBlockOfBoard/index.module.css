@@ -1,0 +1,43 @@
+.relatedArticle{
+    width: 900px;
+    background-color: #fff;
+    margin: auto;
+    /* margin-bottom: 20px; */
+    /* padding-top: 10px; */
+
+    padding-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+}
+.relatedArticle:hover{
+    transition: background-color 0.3s;
+    background-color: rgb(250, 250, 250);
+}
+.relatedArticle>.text1{
+    font-size: large;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.relatedArticle>.text2{
+    padding-top: 10px;
+    margin-left: 20px;
+}
+.relatedArticle>.text3{
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(110, 110, 110);
+}
+.like:hover{
+    color: #1171ee;
+}
+.reply:hover{
+    color: #1171ee;
+}
+.haveLike{
+    color: #1171ee;
+}

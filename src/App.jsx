@@ -51,7 +51,7 @@ function App() {
           <Route path="home" element={<HomePage/>} />
           <Route path="setUserInfo" element={<SetUserInfo/>}></Route>
           <Route path="test" element={<TestPage/>}></Route>
-          <Route path="board" element={<RegionPage/>}></Route>
+          <Route path="board/:id" element={<RegionPage/>}></Route>
           <Route path="list/:searchStr" element={<ShowListPage/>}></Route>
           <Route path="article/:id" element={<ArticlePage/>}></Route>
           <Route path="notification" element={<Notification />}></Route>
