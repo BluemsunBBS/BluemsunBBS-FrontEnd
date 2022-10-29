@@ -55,7 +55,7 @@ function Md () {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle, setArticleTitle] = useState('');
   const [articleText, setArticleText] = useState('');
-  const [ifSubmitted, setSubmitted] = useState(0);
+  const [ifSubmitted, setSubmitted] = useState(2);
   const showModal = (num) => {
     checkWhichOpen(num);
     setIsModalOpen(true);
@@ -92,7 +92,7 @@ function Md () {
       }
       // 已经发布过，更新帖子，点击发布
       if(whichOpen == 1 && ifSubmitted == 1){
-        var res = await http.put(`/article/`, {
+        var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id
@@ -105,7 +105,7 @@ function Md () {
       }
       // 草稿箱里进，更新帖子，点击存草稿
       if(whichOpen == 0 && ifSubmitted == 0){
-        var res = await http.put(`/article/`, {
+        var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id,
@@ -114,7 +114,7 @@ function Md () {
         );
         if (res.code == 0) {
           openNotification("success", "更新草稿成功", "正在跳转", 1);
-          setTimeout(() => { navigate(`/home`); }, 1000);
+          setTimeout(() => { navigate(-1); }, 1000);
         }
       }
       // 草稿箱里进，更新帖子，点击发布
@@ -128,19 +128,6 @@ function Md () {
         if (res.code == 0) {
           openNotification("success", "发布成功", "正在跳转", 1);
           setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
-        }
-      }
-      else{
-        var res = await http.post(`/article/`, {
-          title: articleTitle,
-          text: articleText,
-          board_id: radio.id,
-          approved:2
-        }
-        );
-        if (res.code == 0) {
-          openNotification("success", "存草稿成功", "正在跳转", 1);
-          setTimeout(() => { navigate(`/home`); }, 1000);
         }
       }
       
@@ -162,34 +149,37 @@ function Md () {
       id: e.target.id
     });
   };
-  // write后面有参数
-  if(params !== undefined){
-    async function fetchInfo(params) {
-      var res = await http.get(`/article/${params.id}`, {
-        params: {
-          page: 1,
-          size: 10
+
+  useEffect(() => {
+    // write后面有参数
+    if(params.id){
+      async function fetchInfo(params) {
+        var res = await http.get(`/article/${params.id}`, {
+          params: {
+            page: 1,
+            size: 10
+          }
+        });
+        if (res.code != 0) {
+          message.error(res.msg);
+        } else {
+          setArticleTitle(res.data.title);
+          setArticleText(res.data.text);
         }
-      });
-      if (res.code != 0) {
-        message.error(res.msg);
-      } else {
-        setArticleTitle(res.data.title);
-        setArticleText(res.data.text);
+        if(res.data.approved == 2){
+          setSubmitted(0);
+        }
+        if(res.data.approved == 1){
+          setSubmitted(1);
+        }
       }
-      if(res.data.approved == 2){
-        setSubmitted(0);
-      }
-      if(res.data.approved == 1){
-        setSubmitted(1);
-      }
+      fetchInfo(params);
+    } else {
+      setSubmitted(2);
     }
-    fetchInfo(params);
-  }
+  }, [])
+
   // write后面没有参数，直接进来发文章
-  if(params == undefined){
-    setSubmitted(2);
-  }
   console.log(params);
   return (
     <div className="page-wrap">
