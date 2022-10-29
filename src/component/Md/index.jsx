@@ -55,6 +55,7 @@ function Md () {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle, setArticleTitle] = useState('');
   const [articleText, setArticleText] = useState('');
+  const [ifSubmitted, setSubmitted] = useState(false);
   const showModal = (num) => {
     checkWhichOpen(num);
     setIsModalOpen(true);
@@ -62,8 +63,22 @@ function Md () {
   const handleOk = () => {
     setIsModalOpen(false);
     async function submitArticle() {
-      if(whichOpen){
+      // 没发布过，直接进来，点击发布
+      if(whichOpen == 1 && ifSubmitted == false){
         var res = await http.post(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "发布成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+        }
+      }
+      // 已经发布过，更新帖子
+      if(whichOpen == 1 && ifSubmitted == true){
+        var res = await http.put(`/article/`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id
@@ -106,6 +121,7 @@ function Md () {
       id: e.target.id
     });
   };
+  // write后面有参数
   if(params !== undefined){
     async function fetchInfo(params) {
       var res = await http.get(`/article/${params.id}`, {
@@ -122,6 +138,11 @@ function Md () {
       }
     }
     fetchInfo(params);
+    setSubmitted(true);
+  }
+  // write后面没有参数，直接进来发文章
+  if(params == undefined){
+    setSubmitted(false);
   }
   console.log(params);
   return (
