@@ -106,7 +106,24 @@ function Md () {
       id: e.target.id
     });
   };
-  console.log(articleTitle);
+  if(params !== undefined){
+    async function fetchInfo(params) {
+      var res = await http.get(`/article/${params.id}`, {
+        params: {
+          page: 1,
+          size: 10
+        }
+      });
+      if (res.code != 0) {
+        message.error(res.msg);
+      } else {
+        setArticleTitle(res.data.title);
+        setArticleText(res.data.text);
+      }
+    }
+    fetchInfo(params);
+  }
+  console.log(params);
   return (
     <div className="page-wrap">
       <div className='mdBox'>
