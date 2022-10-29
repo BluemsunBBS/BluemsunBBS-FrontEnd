@@ -12,13 +12,13 @@ function Region() {
     const userParams = useParams();
     console.log(userParams);
     // const navigate = useNavigate();
-    
-    const [boardinfo,setboardinfo] = useState({
-        create_time:'',
-        description:'',
-        img:'',
-        name:'',
-        update_time:''
+
+    const [boardinfo, setboardinfo] = useState({
+        create_time: '',
+        description: '',
+        img: '',
+        name: '',
+        update_time: ''
     });
     async function fetchBoard(userParams) {
         let res = await http.get(`/board/${userParams.id}`);
@@ -45,8 +45,8 @@ function Region() {
     }
 
     const [data, setData] = useState(APIResult);
-    async function fetchList(userParams,pager) {
-        let res = await http.get(`/article/list/${userParams.id}`,{
+    async function fetchList(userParams, pager) {
+        let res = await http.get(`/article/list/${userParams.id}`, {
             params: {
                 page: pager.page,
                 size: pager.size
@@ -61,10 +61,19 @@ function Region() {
         }
     }
 
+    async function handleFollow(userParams) {
+        let res = await http.get(`/follow/${userParams.id}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success(res.msg);
+        }
+    }
+
     useEffect(() => {
-        fetchList(userParams,pager);
-    }, [userParams,pager]);
-    
+        fetchList(userParams, pager);
+    }, [userParams, pager]);
+
     return (
         <div className={style.root}>
             <div className={style.regionBox}>
@@ -74,26 +83,23 @@ function Region() {
                     <span className={style.regionTitle}>
                         <span className={style.text1}>{boardinfo.name}</span><span className={style.text2}>创建于{boardinfo.create_time}</span>
                         <div className={style.text3}>{boardinfo.description}</div>
-                        <div className={style.text4}>{boardinfo.update_time}更新</div>
+                        <div className={style.box1}>
+                            <div className={style.text4}>{boardinfo.update_time}更新</div>
+                            <button className={style.btn1} onClick={handleFollow}>关注</button>
+                        </div>
+
                     </span>
                 </div>
-                {/* 吧内搜索 */}
-                {/* <div className='searchBox1'>
-                <span className='block'>文章</span>
-                <span className='block1'>板块信息</span>
-                <span className='block1'>联系管理员</span>
-                <input type="text" className='search'></input><span className='btn1'>吧内搜索</span>
-            </div> */}
                 <div>
-                {data.page == 0 ? (<></>) : (
-                (data && data.total != 0) ? (
-                    data.rows.map((article) => (
-                        <ArticleBlockOfBoard key={article.id} article={article} />
-                    ))
-                ) : (
-                    <NoMessage />
-                )
-            )}
+                    {data.page == 0 ? (<></>) : (
+                        (data && data.total != 0) ? (
+                            data.rows.map((article) => (
+                                <ArticleBlockOfBoard key={article.id} article={article} />
+                            ))
+                        ) : (
+                            <NoMessage />
+                        )
+                    )}
                 </div>
             </div>
         </div>

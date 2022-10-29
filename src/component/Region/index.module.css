@@ -14,20 +14,19 @@
 /* 吧的介绍 */
 .regionBox>.topBox{
     width: 900px;
-    height: 200px;
     background-color: #fff;
     margin-bottom: 10px;
 }
 .topBox>.regionImg{
     width: 160px;
     height: 160px;
-    margin-left: 120px;
+    margin-left: 30px;
     margin-top: 20px;
     vertical-align: top;
 }
 .topBox>.regionTitle{
     display: inline-block;
-    width: 600px;
+    width: 650px;
     height: 200px;
     padding-left: 40px;
 }
@@ -51,62 +50,25 @@
     overflow: hidden;
     /*3. 文字用省略号替代超出的部分*/
     text-overflow: ellipsis;
+    color: #9c9c9c;
 }
-.regionTitle>.text4{
+.text4{
+    display: inline-block;
     margin-top: 40px;
 }
-/* 吧内搜索 */
-.regionBox>.searchBox1{
-    width: 1000px;
-    height: 50px;
-    background-color:#f0efef;
-    line-height: 50px;
-}
-.searchBox1>.block{
+.btn1{
+    cursor: pointer;
+    float: right;
+    margin-top: 34px;
     display: inline-block;
-    height: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0 10px;
-    line-height: 50px;
-    margin-left: 100px;
+    background-color: #fff;
+    color: #7952b3;
+    border: 1px solid #7952b3;
+    border-radius: 4px;
+    padding: 0 10px;
     font-size: large;
 }
-.searchBox1>.block:hover,.searchBox1>.block1:hover{
-    transition: all 0.5s;
-    background-color: #dbdbdb;
-}
-.searchBox1>.block1{
-    display: inline-block;
-    height: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin: 0 10px;
-    line-height: 50px;
-    font-size: large;
-}
-.searchBox1>.search{
-    outline: none;
-    height: 30px;
-    border: 1px solid #9c9c9c;
-    padding-left: 10px;
-    border-bottom-left-radius: 4px;
-    border-top-left-radius: 4px;
-    margin-left: 300px;
-}
-.searchBox1>.btn1{
-    width: 70px;
-    height: 30px;
-    line-height: 30px;
-    display: inline-block;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-    border: 1px solid #9c9c9c;
-    transform: translateY(0.7px);
-    text-align: center;
-    border-left: 0;
-}
-.searchBox1>.btn1:hover{
+.btn1:hover{
     background-color: #7952b3;
     color: #fff;
 }
