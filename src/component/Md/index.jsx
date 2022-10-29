@@ -55,7 +55,7 @@ function Md () {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle, setArticleTitle] = useState('');
   const [articleText, setArticleText] = useState('');
-  const [ifSubmitted, setSubmitted] = useState(false);
+  const [ifSubmitted, setSubmitted] = useState(0);
   const showModal = (num) => {
     checkWhichOpen(num);
     setIsModalOpen(true);
@@ -64,7 +64,7 @@ function Md () {
     setIsModalOpen(false);
     async function submitArticle() {
       // 没发布过，直接进来，点击发布
-      if(whichOpen == 1 && ifSubmitted == false){
+      if(whichOpen == 1 && ifSubmitted == 2){
         var res = await http.post(`/article/`, {
           title: articleTitle,
           text: articleText,
@@ -76,9 +76,50 @@ function Md () {
           setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
         }
       }
-      // 已经发布过，更新帖子
-      if(whichOpen == 1 && ifSubmitted == true){
+      // 没发布过，直接进来，点击存草稿
+      if(whichOpen == 0 && ifSubmitted == 2){
+        var res = await http.post(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id,
+          approved:2
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "存草稿成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/home`); }, 1000);
+        }
+      }
+      // 已经发布过，更新帖子，点击发布
+      if(whichOpen == 1 && ifSubmitted == 1){
         var res = await http.put(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "更新文章成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+        }
+      }
+      // 草稿箱里进，更新帖子，点击存草稿
+      if(whichOpen == 0 && ifSubmitted == 0){
+        var res = await http.put(`/article/`, {
+          title: articleTitle,
+          text: articleText,
+          board_id: radio.id,
+          approved:2
+        }
+        );
+        if (res.code == 0) {
+          openNotification("success", "更新草稿成功", "正在跳转", 1);
+          setTimeout(() => { navigate(`/home`); }, 1000);
+        }
+      }
+      // 草稿箱里进，更新帖子，点击发布
+      if(whichOpen == 1 && ifSubmitted == 0){
+        var res = await http.put(`/article/approve/${params.id}`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id
@@ -136,13 +177,18 @@ function Md () {
         setArticleTitle(res.data.title);
         setArticleText(res.data.text);
       }
+      if(res.data.approved == 2){
+        setSubmitted(0);
+      }
+      if(res.data.approved == 1){
+        setSubmitted(1);
+      }
     }
     fetchInfo(params);
-    setSubmitted(true);
   }
   // write后面没有参数，直接进来发文章
   if(params == undefined){
-    setSubmitted(false);
+    setSubmitted(2);
   }
   console.log(params);
   return (
