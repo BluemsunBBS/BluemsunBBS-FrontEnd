@@ -17,6 +17,7 @@ import ShowListPage from "./page/ShowListPage";
 import Notification from "./page/Notification";
 import AddArticlePage from './page/AddArticlePage';
 import SelfCenter from './page/SelfCenter';
+import AdminPage from "./page/AdminPage";
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="write" element={<AddArticlePage/>}></Route>
           <Route path="write/:id" element={<AddArticlePage/>}></Route>
           <Route path="user/:id" element={<SelfCenter/>}></Route>
+          <Route path="admin" element={<AdminPage/>}></Route>
         </Route>
         <Route path="*" element={<NotfoundPage/>} />
       </Routes>
