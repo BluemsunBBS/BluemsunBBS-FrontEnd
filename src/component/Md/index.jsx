@@ -196,7 +196,8 @@ function Md () {
       <div className='mdBox'>
         <span className='text1'>文章标题</span>
         <input type="text" className='mdBox-input' onChange={(e) => titleChange(e)} value={articleTitle}></input>
-        <button className='mdBox-btn1' type="primary" onClick={()=>{showModal(0)}}>存草稿</button>
+        {(ifSubmitted == 1) ? (<></>) : (<button className='mdBox-btn1' type="primary" onClick={()=>{showModal(0)}}>存草稿</button>)}
+        
         <button className='mdBox-btn2' type="primary" onClick={()=>{showModal(1)}}>发布文章</button>
         <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
           <Radio.Group onChange={(e) => onChange(e)} value={radio.value}>

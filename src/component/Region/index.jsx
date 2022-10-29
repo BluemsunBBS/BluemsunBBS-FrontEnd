@@ -15,12 +15,12 @@ function Region(){
                 </span>
             </div>
             {/* 吧内搜索 */}
-            <div className='searchBox1'>
+            {/* <div className='searchBox1'>
                 <span className='block'>文章</span>
                 <span className='block1'>板块信息</span>
                 <span className='block1'>联系管理员</span>
                 <input type="text" className='search'></input><span className='btn1'>吧内搜索</span>
-            </div>
+            </div> */}
         </div>
     )
 }

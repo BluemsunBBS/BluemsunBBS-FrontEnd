@@ -9,10 +9,14 @@ export default function EveryPublished(props) {
     const handleClick = () =>{
         navigate(`/article/${board.id}`);
     }
+    const link = () =>{
+        navigate(`/write/${board.id}`);
+    }
     return (
 
         <div className={style.msgBox} >
             <div className={style.text1} onClick={handleClick}>{board.title}</div>
+            <button className={style.btn1} onClick={link}>编辑文章</button>
             <div className={style.text2}>{board.text.substr(0, 200)}</div>
             <span className={style.text3}>{board.create_time}</span>
         </div>
