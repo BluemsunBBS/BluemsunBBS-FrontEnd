@@ -6,6 +6,7 @@
     margin: 2px auto;   
 }
 .text1 {
+    cursor: pointer;
     padding-left: 20px;
     display: inline-block;
     font-size: large;
