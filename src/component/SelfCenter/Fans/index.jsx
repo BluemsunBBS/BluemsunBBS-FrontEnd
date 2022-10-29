@@ -70,7 +70,7 @@ export default function Fans() {
                         ))}
                     </div>
                 ) : (
-                    <NoMessage />
+                    <></>
                 )
             )}
             {data.page == 0 ? (<></>) : (
@@ -79,9 +79,10 @@ export default function Fans() {
                         <EveryFans key={board.id} board={board} />
                     ))
                 ) : (
-                    <NoMessage />
+                    <></>
                 )
             )}
+            {(data.total == 0 && friendData.total == 0)?(<NoMessage/>):(<></>)}
         </div>
     );
 }
