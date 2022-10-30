@@ -50,6 +50,7 @@
     padding-bottom: 20px;
 }
 .articleTitle{
+    display: inline-block;
     font-size: xx-large;
     font-weight: bolder;
     margin-top: 20px;
@@ -133,4 +134,14 @@
     color: #7952b3;
     border: 2px solid #7952b3;
     border-radius: 4px;
+}
+.board_name{
+    cursor: pointer;
+    display: inline-block;
+    background-color: #7952b3;
+    margin-left: 10px;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 4px;
+    vertical-align:super;
 }

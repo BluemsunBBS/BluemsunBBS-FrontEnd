@@ -24,6 +24,8 @@ function Article() {
     const [article, setArticle] = useState({
         title: "我是文章标题",
         text: `# 我是正文`,
+        board_name:'',
+        board_id:''
     });
     const [user, setUser] = useState({
         nickname: "昵称",
@@ -171,6 +173,10 @@ function Article() {
         navigate(`/user/${userId}`);
     }
 
+    const linkToBoard = () =>{
+        navigate(`/board/${article.board_id}`);
+    }
+
     return (
         <div className={style.centerBox}>
             <div className={style.articleBox}>
@@ -203,6 +209,7 @@ function Article() {
 
                 <span className={style.article}>
                     <div className={style.articleTitle}>{article.title}</div>
+                    <span className={style.board_name} onClick={linkToBoard}>{article.board_name}</span>
                     <div className={style.authorBox1}>
                         <img
                             src={`http://bbs.wyy.ink:8080/images/${user.avatar_uri}`}

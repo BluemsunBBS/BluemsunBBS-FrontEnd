@@ -17,11 +17,20 @@
     background-color: rgb(250, 250, 250);
 }
 .relatedArticle>.text1{
+    display: inline-block;
     font-size: large;
     font-weight: bold;
     margin-left: 20px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+.text11{
+    display: inline-block;
+    background-color: #72a8ef;
+    margin-left: 10px;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0 4px;
 }
 .relatedArticle>.text2{
     padding-top: 10px;

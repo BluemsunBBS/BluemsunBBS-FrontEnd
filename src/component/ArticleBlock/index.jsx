@@ -14,6 +14,7 @@ function ArticleBlock(props){
         id: "",
         title: "题目(占位)",
         author: "作者",
+        board_name:'',
         update_time: "最后一次更新时间",
         summary: "摘要",
         isLike: false,
@@ -46,6 +47,7 @@ function ArticleBlock(props){
                 id: article.id,
                 title: article.title,
                 author: (article.nickname ? article.nickname : "匿名用户"),
+                board_name:article.board_name,
                 update_time: timeDiff,
                 isLike: article.is_like,
                 like: article.like,
@@ -146,6 +148,7 @@ function ArticleBlock(props){
                     </span>
                 </div>
                 <div className={style.text1} onClick={handleClick}>{article.title}</div>
+                <span className={style.text11}>{article.board_name}</span>
                 <p className={style.text3} onClick={handleClick}>{article.summary}</p>
                 <Space className={style.text3}>
                     <EyeOutlined className={style.visit} />{article.visits}
