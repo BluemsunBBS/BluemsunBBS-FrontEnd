@@ -29,7 +29,7 @@ function Region() {
             setboardinfo(res.data);
         }
     }
-    fetchBoard(userParams);
+    useEffect(()=>{fetchBoard(userParams)}, [])
     var regionImg = "http://bbs.wyy.ink:8080/images/" + boardinfo.img;
 
     const [pager, setPager] = useState({
