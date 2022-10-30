@@ -13,6 +13,7 @@ function Region() {
     console.log(userParams);
     // const navigate = useNavigate();
 
+    const [follow, setFollow] = useState(false);
     const [boardinfo, setboardinfo] = useState({
         create_time: '',
         description: '',
@@ -27,6 +28,12 @@ function Region() {
             message.error(res.msg);
         } else {
             setboardinfo(res.data);
+        }
+        res = await http.get(`/follow/${userParams.id}`);
+        if (res.code == 0) {
+            setFollow(true);
+        } else {
+            setFollow(false);
         }
     }
     useEffect(()=>{fetchBoard(userParams)}, [])
@@ -61,13 +68,19 @@ function Region() {
         }
     }
 
-    async function handleFollow(userParams) {
-        let res = await http.get(`/follow/${userParams.id}`);
-        if (res.code != 0) {
-            message.error(res.msg);
-        } else {
-            message.success(res.msg);
+    const handleFollow = (state) => {
+        async function fetchFollow() {
+            let res;
+            if (state) res = await http.post(`/follow/${userParams.id}`);
+            else res = await http.delete(`/follow/${userParams.id}`);
+            if (res.code != 0) {
+                message.error(res.msg);
+                setFollow(!state);
+            } else {
+                setFollow(state);
+            }
         }
+        fetchFollow();
     }
 
     useEffect(() => {
@@ -85,7 +98,8 @@ function Region() {
                         <div className={style.text3}>{boardinfo.description}</div>
                         <div className={style.box1}>
                             <div className={style.text4}>{boardinfo.update_time}更新</div>
-                            <button className={style.btn1} onClick={handleFollow}>关注</button>
+                            <button className={style.btn1} onClick={()=>handleFollow(!follow)}>
+                            {(!follow) ? ("关 注") : ("取消关注")}</button>
                         </div>
 
                     </span>
