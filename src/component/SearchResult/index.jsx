@@ -96,39 +96,6 @@ function SearchResult(){
         });
     }
 
-    // const UserBlocks = () => {
-    //     if (userData && userData.total != 0) {
-    //         return (
-    //             <>
-    //                 {userData.rows.map((user) => (
-    //                     <UserBlock key={user.id} user={user} />
-    //                 ))}
-    //             </>
-    //         );
-    //     } else {
-    //         return (
-    //             <div>找不到匹配的用户</div>
-    //         )
-    //     }
-    // }
-
-    // const ArticleBlocks = () => {
-    //     if (articleData && articleData.total != 0) {
-    //         return (
-    //             <>
-    //                 {articleData.rows.map((article) => (
-    //                     <ArticleBlock key={article.id} articleId={article.id} />
-    //                 ))}
-    //                 <Pagination onChange={handlePageChange} total={articleData.total} />
-    //             </>
-    //         );
-    //     } else {
-    //         return (
-    //             <div>找不到匹配的帖子</div>
-    //         )
-    //     }
-    // }
-
     return(
         <div className={style.listBox}>
             <div className={style.title}>为您找到的搜索结果如下</div>

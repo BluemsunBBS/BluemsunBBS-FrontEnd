@@ -105,7 +105,7 @@ function Region() {
                     </span>
                 </div>
                 <div>
-                    {data.page == 0 ? (<></>) : (
+                    {data.page == 0 ? (<NoMessage />) : (
                         (data && data.total != 0) ? (
                             data.rows.map((article) => (
                                 <ArticleBlockOfBoard key={article.id} article={article} />
