@@ -11,8 +11,7 @@ export default function EveryDraft(props) {
         navigate(`/write/${board.id}`);
     }
     return (
-
-        <div className={style.msgBox} >
+        <div className={style.msgBox} onClick={handleClick}>
             <div className={style.text1} onClick={handleClick}>{board.title}</div>
         </div>
     )

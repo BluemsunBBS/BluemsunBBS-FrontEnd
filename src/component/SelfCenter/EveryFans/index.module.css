@@ -6,12 +6,14 @@
     margin: 2px auto;   
 }
 .boardImg{
+    cursor: pointer;
     margin-left: 40px;
     width: 50px;
     height: 50px;
     border-radius: 25px;
 }
 .text1 {
+    cursor: pointer;
     padding-left: 20px;
     display: inline-block;
     font-size: large;
