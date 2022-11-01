@@ -14,6 +14,23 @@ img{
     font-size: large;
     margin-left: 200px;
 }
+.text2{
+    color: #fff;
+    margin-bottom: 20px;
+    background-color: #b898ea;
+    width: 120px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+.text3{
+    color: #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #b898ea;
+    width: 120px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
 .mdBox-input{
     width: 600px;
     height: calc(4vh);

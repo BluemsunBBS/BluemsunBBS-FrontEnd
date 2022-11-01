@@ -16,9 +16,10 @@ import React from 'react';
 
 
 const { TextArea } = Input;
-
+const [summary,setSummary] = useState('');
 const onChangeSummary = (e) => {
   console.log('Change:', e.target.value);
+  setSummary(e.target.value);
 };
 
 const plugins = [
@@ -198,14 +199,15 @@ function Md () {
         {(ifSubmitted == 1) ? (<></>) : (<button className='mdBox-btn1' type="primary" onClick={()=>{showModal(0)}}>存草稿</button>)}
         
         <button className='mdBox-btn2' type="primary" onClick={()=>{showModal(1)}}>发布文章</button>
-        <Modal title="请选择文章类别" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
+        <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
+          <div className='text2'>请选择文章类别</div>
           <Radio.Group onChange={(e) => onChange(e)} value={radio.value}>
             {boardData.rows.map((board) => (
               <Radio key={board.id} value={board.name} id={board.id}>{board.name}</Radio>
             ))}
           </Radio.Group>
-          <div>请输入文章摘要</div>
-          <TextArea showCount maxLength={100} onChange={onChangeSummary} />
+          <div className='text3'>请输入文章摘要</div>
+          <TextArea showCount maxLength={100} onChange={onChangeSummary} value={summary}/>
         </Modal>
       </div>
       <Editor
