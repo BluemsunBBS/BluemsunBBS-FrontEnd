@@ -6,7 +6,7 @@ export default function EveryFollowBlock(props) {
     const board = props.board;
     var uri = "http://bbs.wyy.ink:8080/images/" + board.img;
     const handleClick =() =>{
-        navigate(`/user/${board.id}`);
+        navigate(`/board/${board.id}`);
     }
     return (
         <div className={style.msgBox} onClick={handleClick}>
