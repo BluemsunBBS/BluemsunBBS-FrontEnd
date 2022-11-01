@@ -11,11 +11,16 @@ import { http } from '../../utils/http';
 
 function HomePage() {
   var nickname = getUserInfo("nickname");
-  console.log(nickname)
+  var logUserId = getUserInfo("id");
   const url = pic;
   var userimg = getUserInfo("avatar_uri");
   userimg = 'http://bbs.wyy.ink:8080/images/' + userimg;
 
+  const [pager, setPager] = useState({
+    page: 1,
+    size: 10,
+    userId: logUserId
+  });
   const APIResult = {
     page: 0,
     size: 0,
@@ -24,7 +29,6 @@ function HomePage() {
   }
 
   const [articleData, setArticleData] = useState(APIResult);
-
   async function fetchArticle(searchParam, pager) {
     let res = await http.get(`/article/list`, {
       params: {
@@ -42,12 +46,51 @@ function HomePage() {
     }
   }
 
+  const [followBoardData, setFollowBoardData] = useState(APIResult);
+  async function fetchFollowBoardData(logUserId, pager) {
+    let res = await http.get(`/follow/listBoard/${logUserId}`, {
+      params: {
+        userId: logUserId,
+        page: pager.page,
+        size: pager.size
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+      setFollowBoardData(null);
+    } else {
+      setFollowBoardData(res.data);
+    }
+  }
+
+  const [followPersonData, setFollowPersonData] = useState(APIResult);
+  async function fetchFollowPersonData(logUserId, pager) {
+    let res = await http.get(`/friend/followList/${logUserId}`, {
+      params: {
+        userId: logUserId,
+        page: pager.page,
+        size: pager.size
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+      setFollowPersonData(null);
+    } else {
+      setFollowPersonData(res.data);
+    }
+  }
+
   useEffect(() => {
-    fetchArticle({searchStr: ""}, {
+    fetchArticle({ searchStr: "" }, {
       page: 1,
       size: 10
     });
   }, [])
+
+  useEffect(() => {
+    fetchFollowBoardData(logUserId, pager);
+    fetchFollowPersonData(logUserId, pager);
+  }, [logUserId, pager]);
 
   return (
     <div className='cbox'>
@@ -64,17 +107,25 @@ function HomePage() {
           <div className='myTitle'>我在贴吧</div>
           <img src={userimg} className="myPic"></img>
           <div className='my1'>我关注的贴吧</div>
-          <div className='ba'>东北师范大学吧</div>
-          <div className='ba'>蓝旭吧</div>
-          <div className='ba'>吴越洋吧</div>
-          <div className='ba'>赵鑫源吧</div>
-          <div className='ba'>李霁鹏吧</div>
-          <div className='ba'>冯国忠吧</div>
+          {followBoardData.page == 0 ? (<></>) : (
+            (followBoardData && followBoardData.total != 0) ? (
+              followBoardData.rows.map((board) => (
+                <div className='ba' key={board.id} board={board}>{board.name}</div>
+              ))
+            ) : (
+              <></>
+            )
+          )}
           <div className='my2'>我关注的作者</div>
-          <div className='ba'>吴越洋</div>
-          <div className='ba'>赵鑫源</div>
-          <div className='ba'>李霁鹏</div>
-          <div className='ba'>冯国忠</div>
+          {followPersonData.page == 0 ? (<></>) : (
+            (followPersonData && followPersonData.total != 0) ? (
+              followPersonData.rows.map((board) => (
+                <div className='ba' key={board.id} board={board}>{board.nickname}</div>
+              ))
+            ) : (
+              <></>
+            )
+          )}
         </div>
         {/* 右侧部分 */}
         <div className='rightBox'>

@@ -26,7 +26,7 @@ const regis = {
     phone:'',
     password:''
 }
-const repassword = '';
+var repassword = '';
 const log = {
     username:'',
     password:''
@@ -105,8 +105,8 @@ export default () => {
                 }
             }} placeholder={'请输入您的真实姓名'} rules={[
                 {
-                    required: true,
-                    message: '请输入姓名！',
+                    pattern:/^[\u4e00-\u9fa5]/,
+                    message: '请输入至少一个汉字！',
                 },
             ]}/>
             <ProFormRadio.Group
@@ -164,7 +164,7 @@ export default () => {
             <ProFormText.Password name="repassword" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
-                onChange:function(e){
+                onBlur:function(e){
                     repassword = e.target.value;
                     if(repassword != regis.password){
                         message.error("请检查密码！两次输入不一致！");
