@@ -15,13 +15,5 @@
     /* background-color: antiquewhite; */
 }
 .menu{
-    color: #fff;
-    background-color: #7a88ff !important;
-}
-.ant-menu-item-selected{
-    background-color: #7a88ff !important;
-}
-.menu>.ant-menu-submenu-active{
-    color: antiquewhite;
-    background-color: #fff;
+    background-color: #fff !important;
 }
