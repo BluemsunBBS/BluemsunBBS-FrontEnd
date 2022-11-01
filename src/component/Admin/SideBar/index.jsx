@@ -50,12 +50,12 @@ export default function SideBar() {
 
     const [current, setCurrent] = useState("dashboard");
 
-    const ManageContent = (current) => {
+    const ManageContent = () => {
         switch (current) {
             case "dashboard":
-                return '1343543565466666666666666666666666666666666666666666666666666666666666666666';
+                return <DashBoard />;
             case "userManage":
-                return '1266666666666666666666666666666666666666666666666666666666666666666666666666';
+                return <UserManage />;
         }
     }
 
