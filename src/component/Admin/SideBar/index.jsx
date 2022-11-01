@@ -60,25 +60,29 @@ export default function SideBar() {
     }
 
     return (
-        <div className={style.sideBarBox}>
-            <Avatar
-                style={{
-                    marginTop: "30px"
-                }}
-                size={100}
-                src={imgUrl}
-            />
-            <p style={{ marginTop: "20px", fontSize: "14px", color: "#fafafa" }}>欢迎您，{getUserInfo("nickname")}</p>
+        <>
+            <div className={style.sideBarBox}>
+                <Avatar
+                    style={{
+                        marginTop: "30px"
+                    }}
+                    size={100}
+                    src={imgUrl}
+                />
+                <p style={{ marginTop: "20px", fontSize: "14px", color: "#fafafa" }}>欢迎您，{getUserInfo("nickname")}</p>
 
-            <div className={style.navigationBar}>
-                {/* <p style={{textAlign: "left", fontSize: "13px", color: "#cacaca"}}>导航栏</p> */}
-                <Menu items={items} mode="inline" selectedKeys={[current]} onClick={(e) => setCurrent(e.key)} className={style.menu} />
+                <div className={style.navigationBar}>
+                    {/* <p style={{textAlign: "left", fontSize: "13px", color: "#cacaca"}}>导航栏</p> */}
+                    <Menu items={items} mode="inline" selectedKeys={[current]} onClick={(e) => setCurrent(e.key)} className={style.menu} />
+                </div>
+
             </div>
-
+            <UserManage />
+            12351452888888888888888888888888888888888888888888888888888888888888888888888
             <div className={style.managecontent}>
+                qwe
                 <ManageContent />
             </div>
-
-        </div>
+        </>
     );
 }
