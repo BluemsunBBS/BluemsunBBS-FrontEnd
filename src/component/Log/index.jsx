@@ -42,25 +42,30 @@ export default () => {
           actions={<div style={{}}></div>}
           onFinish={async (arg)=>{
             //注册口
-            if(arg.logusername == undefined){
-                var res = await http.post("/account/register", regis);
-                if(res.code == 2){
-                    openNotification("error", "注册失败", res.msg);
-                } else {
-                    openNotification("success", "注册成功", "正在跳转", 1);
-                    localStorage.setItem("token",res.data);
-                    setTimeout(()=>{navigate(-1);}, 1000);
+            if(arg.repassword == arg.password){
+                if(arg.logusername == undefined){
+                    var res = await http.post("/account/register", regis);
+                    if(res.code == 2){
+                        openNotification("error", "注册失败", res.msg);
+                    } else {
+                        openNotification("success", "注册成功", "正在跳转", 1);
+                        localStorage.setItem("token",res.data);
+                        setTimeout(()=>{navigate(-1);}, 1000);
+                    }
+                }
+                else{
+                    var res = await http.post("/account/login", log);
+                    if(res.code == 2){
+                        openNotification("error", "登录失败", res.msg);
+                    } else {
+                        openNotification("success", "登录成功", "正在跳转", 1);
+                        localStorage.setItem("token",res.data);
+                        setTimeout(()=>{navigate(-1);}, 1000);
+                    }
                 }
             }
             else{
-                var res = await http.post("/account/login", log);
-                if(res.code == 2){
-                    openNotification("error", "登录失败", res.msg);
-                } else {
-                    openNotification("success", "登录成功", "正在跳转", 1);
-                    localStorage.setItem("token",res.data);
-                    setTimeout(()=>{navigate(-1);}, 1000);
-                }
+                message.error("两次输入密码不一致！注册失败！");
             }
           }}
           >

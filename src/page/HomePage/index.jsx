@@ -63,6 +63,23 @@ function HomePage() {
     }
   }
 
+  const [followFriendData, setFollowFriendData] = useState(APIResult);
+  async function fetchFollowFriendData(logUserId, pager) {
+    let res = await http.get(`/friend/friendList/${logUserId}`, {
+      params: {
+        userId: logUserId,
+        page: pager.page,
+        size: pager.size
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+      setFollowFriendData(null);
+    } else {
+      setFollowFriendData(res.data);
+    }
+  }
+
   const [followPersonData, setFollowPersonData] = useState(APIResult);
   async function fetchFollowPersonData(logUserId, pager) {
     let res = await http.get(`/friend/followList/${logUserId}`, {
@@ -90,6 +107,7 @@ function HomePage() {
   useEffect(() => {
     fetchFollowBoardData(logUserId, pager);
     fetchFollowPersonData(logUserId, pager);
+    fetchFollowFriendData(logUserId, pager);
   }, [logUserId, pager]);
 
   return (
@@ -117,6 +135,15 @@ function HomePage() {
             )
           )}
           <div className='my2'>我关注的作者</div>
+          {followFriendData.page == 0 ? (<></>) : (
+            (followFriendData && followFriendData.total != 0) ? (
+              followFriendData.rows.map((board) => (
+                <div className='ba' key={board.id} board={board}>{board.nickname}</div>
+              ))
+            ) : (
+              <></>
+            )
+          )}
           {followPersonData.page == 0 ? (<></>) : (
             (followPersonData && followPersonData.total != 0) ? (
               followPersonData.rows.map((board) => (
