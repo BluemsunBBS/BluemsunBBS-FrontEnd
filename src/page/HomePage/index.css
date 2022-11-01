@@ -60,6 +60,9 @@
 .ba:hover{
     background-color: rgb(234, 232, 232);
 }
+.nofollow{
+    color: rgb(144, 143, 143);
+}
 /* 右侧部分 */
 .rightBox{
     display: inline-block;

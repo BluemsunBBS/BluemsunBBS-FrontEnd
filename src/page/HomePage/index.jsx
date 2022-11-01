@@ -128,7 +128,7 @@ function HomePage() {
 
   useEffect(() => {
     fetchBoard(pager);
-  },[pager]);
+  }, [pager]);
 
   return (
     <div className='cbox'>
@@ -151,7 +151,7 @@ function HomePage() {
                 <div className='ba' key={board.id} board={board}>{board.name}</div>
               ))
             ) : (
-              <></>
+              <div className='nofollow'>暂无关注</div>
             )
           )}
           <div className='my2'>我关注的作者</div>
@@ -173,6 +173,7 @@ function HomePage() {
               <></>
             )
           )}
+          {(followFriendData.total == 0 && followPersonData.total == 0)?(<div className='nofollow'>暂无关注</div>):(<></>)}
         </div>
         {/* 右侧部分 */}
         <div className='rightBox'>
@@ -180,85 +181,23 @@ function HomePage() {
           <div className='hotBox'>
             <div className='hotTitle'>热门贴吧</div>
             <div className='hot-region'>
-            {boardData.page == 0 ? (<></>) : (
-            (boardData && boardData.total != 0) ? (
-              boardData.rows.map((board) => (
-                // <div className='ba' key={board.id} board={board}>{board.name}</div>
-                <div className='hotBlockBox' key={board.id} board={board}>
-                <img src={'http://bbs.wyy.ink:8080/images/'+board.img} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>{board.name}</div>
-                  <div className='hot-text'>{board.total}篇文章</div>
-                </span>
-              </div>
-              ))
-            ) : (
-              <></>
-            )
-          )}
-              {/* <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div>
-              <div className='hotBlockBox'>
-                <img src={url} className="hotPic"></img>
-                <span className='hot-text-box'>
-                  <div className='hot-text1'>冯国忠吧</div>
-                  <div className='hot-text'>1000篇文章</div>
-                </span>
-              </div> */}
+              {boardData.page == 0 ? (<></>) : (
+                (boardData && boardData.total != 0) ? (
+                  boardData.rows.map((board) => (
+                    // <div className='ba' key={board.id} board={board}>{board.name}</div>
+                    <div className='hotBlockBox' key={board.id} board={board}>
+                      <img src={'http://bbs.wyy.ink:8080/images/' + board.img} className="hotPic"></img>
+                      <span className='hot-text-box'>
+                        <div className='hot-text1'>{board.name}</div>
+                        <div className='hot-text'>{board.total}篇文章</div>
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <></>
+                )
+              )}
+
             </div>
 
           </div>
@@ -269,46 +208,6 @@ function HomePage() {
               articleData={articleData}
               pager={false}
             />
-            {/* <div className='hot-article-block'>
-              <img src={url} className='hotPic1' />
-              <span className='hot-text-box1'>
-                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
-                <div className='hot-text3'>不早了，洗洗睡吧</div>
-                <div className='hot-text4'>吴越洋最新发布</div>
-              </span>
-            </div>
-            <div className='hot-article-block'>
-              <img src={url} className='hotPic1' />
-              <span className='hot-text-box1'>
-                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
-                <div className='hot-text3'>不早了，洗洗睡吧</div>
-                <div className='hot-text4'>吴越洋最新发布</div>
-              </span>
-            </div>
-            <div className='hot-article-block'>
-              <img src={url} className='hotPic1' />
-              <span className='hot-text-box1'>
-                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
-                <div className='hot-text3'>不早了，洗洗睡吧</div>
-                <div className='hot-text4'>吴越洋最新发布</div>
-              </span>
-            </div>
-            <div className='hot-article-block'>
-              <img src={url} className='hotPic1' />
-              <span className='hot-text-box1'>
-                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
-                <div className='hot-text3'>不早了，洗洗睡吧</div>
-                <div className='hot-text4'>吴越洋最新发布</div>
-              </span>
-            </div>
-            <div className='hot-article-block'>
-              <img src={url} className='hotPic1' />
-              <span className='hot-text-box1'>
-                <div className='hot-text2'>如何做到在冯国忠课上不被提问？</div>
-                <div className='hot-text3'>不早了，洗洗睡吧</div>
-                <div className='hot-text4'>吴越洋最新发布</div>
-              </span>
-            </div> */}
           </div>
         </div>
       </div>

@@ -4,7 +4,6 @@ import SideBar from "../../component/Admin/SideBar";
 export default function AdminPage() {
     return (
         <>
-            <Nav />
             <SideBar />
         </>
     );
