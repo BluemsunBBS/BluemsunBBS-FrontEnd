@@ -10,7 +10,16 @@ import "highlight.js/styles/vs.css";
 import { Modal, Checkbox, Col, Row, Radio } from 'antd';
 import { http } from './../../utils/http'
 import { openNotification } from '../../utils/notification'
-import { useNavigate,useParams} from 'react-router'
+import { useNavigate,useParams} from 'react-router';
+import { Input } from 'antd';
+import React from 'react';
+
+
+const { TextArea } = Input;
+
+const onChangeSummary = (e) => {
+  console.log('Change:', e.target.value);
+};
 
 const plugins = [
   gfm(), highlight(), math()
@@ -195,6 +204,8 @@ function Md () {
               <Radio key={board.id} value={board.name} id={board.id}>{board.name}</Radio>
             ))}
           </Radio.Group>
+          <div>请输入文章摘要</div>
+          <TextArea showCount maxLength={100} onChange={onChangeSummary} />
         </Modal>
       </div>
       <Editor
