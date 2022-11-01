@@ -60,6 +60,16 @@ export default function Fans() {
     useEffect(() => {
         fetchList(userParams,pager);
     }, [userParams,pager]);
+
+    async function handleFollow(id) {
+        var res = await http.post(`/friend/${id}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("关注成功！");
+            fetchList(userParams,pager);
+        }
+    }
     return (
         <div>
             {friendData.page == 0 ? (<></>) : (
@@ -76,7 +86,7 @@ export default function Fans() {
             {data.page == 0 ? (<></>) : (
                 (data && data.total != 0) ? (
                     data.rows.map((board) => (
-                        <EveryFans key={board.id} board={board} />
+                        <EveryFans key={board.id} board={board} onFollow={handleFollow}/>
                     ))
                 ) : (
                     <></>

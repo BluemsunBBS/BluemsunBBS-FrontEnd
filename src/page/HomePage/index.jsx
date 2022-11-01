@@ -46,6 +46,22 @@ function HomePage() {
     }
   }
 
+  const [boardData, setBoardData] = useState(APIResult);
+  async function fetchBoard(pager) {
+    let res = await http.get(`/board/`, {
+      params: {
+        page: pager.page,
+        size: 9
+      }
+    });
+    if (res.code != 0) {
+      message.error(res.msg);
+      setBoardData(null);
+    } else {
+      setBoardData(res.data);
+    }
+  }
+
   const [followBoardData, setFollowBoardData] = useState(APIResult);
   async function fetchFollowBoardData(logUserId, pager) {
     let res = await http.get(`/follow/listBoard/${logUserId}`, {
@@ -110,6 +126,10 @@ function HomePage() {
     fetchFollowFriendData(logUserId, pager);
   }, [logUserId, pager]);
 
+  useEffect(() => {
+    fetchBoard(pager);
+  },[pager]);
+
   return (
     <div className='cbox'>
       {/* 导航栏 */}
@@ -160,7 +180,23 @@ function HomePage() {
           <div className='hotBox'>
             <div className='hotTitle'>热门贴吧</div>
             <div className='hot-region'>
-              <div className='hotBlockBox'>
+            {boardData.page == 0 ? (<></>) : (
+            (boardData && boardData.total != 0) ? (
+              boardData.rows.map((board) => (
+                // <div className='ba' key={board.id} board={board}>{board.name}</div>
+                <div className='hotBlockBox' key={board.id} board={board}>
+                <img src={url} className="hotPic"></img>
+                <span className='hot-text-box'>
+                  <div className='hot-text1'>{board.name}</div>
+                  <div className='hot-text'>{board.total}篇文章</div>
+                </span>
+              </div>
+              ))
+            ) : (
+              <></>
+            )
+          )}
+              {/* <div className='hotBlockBox'>
                 <img src={url} className="hotPic"></img>
                 <span className='hot-text-box'>
                   <div className='hot-text1'>冯国忠吧</div>
@@ -222,7 +258,7 @@ function HomePage() {
                   <div className='hot-text1'>冯国忠吧</div>
                   <div className='hot-text'>1000篇文章</div>
                 </span>
-              </div>
+              </div> */}
             </div>
 
           </div>

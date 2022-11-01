@@ -16,20 +16,13 @@ export default function EveryFans (props) {
         navigate(`user/${board.id}`);
     }
 
-    async function handleFollow() {
-        var res = await http.post(`/friend/${board.id}`);
-        if (res.code != 0) {
-            message.error(res.msg);
-        } else {
-            message.success("关注成功！");
-        }
-    }
+    
 
     return (
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            {(useparams.id == logUserId)?(<button className={style.btn1} onClick={handleFollow}>关注</button>):(<></>)}
+            {(useparams.id == logUserId)?(<button className={style.btn1} onClick={()=>props.onFollow(board.id)}>关注</button>):(<></>)}
             
         </div>
 

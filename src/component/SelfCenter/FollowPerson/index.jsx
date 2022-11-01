@@ -60,13 +60,32 @@ export default function FollowPerson() {
     useEffect(() => {
         fetchList(userParams,pager);
     }, [userParams,pager]);
+
+    async function handleFollow(id) {
+        var res = await http.post(`/friend/${id}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("关注成功！");
+            fetchList(userParams,pager);
+        }
+    }
+    async function deleteFollow(id) {
+        var res = await http.delete(`/friend/${id}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("取关成功！");
+            fetchList(userParams,pager);
+        }
+    }
     return (
         <div>
             {friendData.page == 0 ? (<></>) : (
                 (friendData && friendData.total != 0) ? (
                     <div className={style.eachOther}>
                         {friendData.rows.map((board) => (
-                            <EveryFriend key={board.id} board={board} />
+                            <EveryFriend key={board.id} board={board} onFollow={handleFollow}/>
                         ))}
                     </div>
                 ) : (
@@ -76,7 +95,7 @@ export default function FollowPerson() {
             {data.page == 0 ? (<></>) : (
                 (data && data.total != 0) ? (
                     data.rows.map((board) => (
-                        <EveryFollowPerson key={board.id} board={board} />
+                        <EveryFollowPerson key={board.id} board={board} onFollow={deleteFollow}/>
                     ))
                 ) : (
                     <></>
