@@ -14,6 +14,7 @@ export default function EveryFans(props) {
         <div className={style.msgBox} onClick={handleClick}>
             <img className={style.boardImg} src={uri}></img>
             <div className={style.text1}>{board.nickname}</div>
+            <button className={style.btn1}>关注</button>
         </div>
 
     )

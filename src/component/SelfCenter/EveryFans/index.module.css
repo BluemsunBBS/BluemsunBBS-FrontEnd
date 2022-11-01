@@ -13,11 +13,26 @@
     border-radius: 25px;
 }
 .text1 {
+    display: inline-block;
     cursor: pointer;
     padding-left: 20px;
     display: inline-block;
     font-size: large;
-    width: 620px;
+    width: 600px;
     margin: 10px auto;
     font-weight: bold;
+}
+.btn1{
+    display: inline-block;
+    cursor: pointer;
+    font-size: large;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #7952b3;
+    border-radius: 4px;
+    color: #7952b3;
+}
+.btn1:hover{
+    background-color: #7952b3;
+    color: #fff;
 }
