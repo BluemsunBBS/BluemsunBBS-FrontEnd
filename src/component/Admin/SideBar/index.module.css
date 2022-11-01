@@ -10,6 +10,18 @@
     margin: auto;
     margin-top: 50px;
     width: 100%;
+    background-color: #7a88ff;
     /* height: fit-content; */
     /* background-color: antiquewhite; */
+}
+.menu{
+    color: #fff;
+    background-color: #7a88ff !important;
+}
+.ant-menu-item-selected{
+    background-color: #7a88ff !important;
+}
+.menu>.ant-menu-submenu-active{
+    color: antiquewhite;
+    background-color: #fff;
 }
