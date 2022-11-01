@@ -3,7 +3,8 @@ import style from "./index.module.css";
 import { getUserInfo } from "../../../utils/func";
 import { ContainerOutlined, DashboardOutlined, SettingOutlined } from "@ant-design/icons";
 import { useState } from "react";
-import DashBoard from "../DashBoard";
+import DashBoard from "./../DashBoard";
+import UserManage from "./../UserManage";
 
 const items = [
     {
@@ -22,7 +23,7 @@ const items = [
             },
             {
                 label: "用户管理",
-                key: "userManager",
+                key: "userManage",
             },
             {
                 label: "板块管理",
@@ -52,7 +53,9 @@ export default function SideBar() {
     const ManageContent = (current) => {
         switch (current) {
             case "dashboard":
-                return <DashBoard />
+                return <DashBoard />;
+            case "userManage":
+                return <UserManage/>;
         }
     }
 
