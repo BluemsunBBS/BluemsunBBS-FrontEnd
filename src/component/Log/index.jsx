@@ -26,6 +26,7 @@ const regis = {
     phone:'',
     password:''
 }
+const repassword = '';
 const log = {
     username:'',
     password:''
@@ -163,6 +164,13 @@ export default () => {
             <ProFormText.Password name="repassword" fieldProps={{
                 size: 'large',
                 prefix: <LockOutlined className={'prefixIcon'}/>,
+                onChange:function(e){
+                    repassword = e.target.value;
+                    if(repassword != regis.password){
+                        message.error("请检查密码！两次输入不一致！");
+                    }
+                    console.log(regis);
+                }
             }} placeholder={'请再次确认你的密码'} rules={[
                 {
                     required: true,
