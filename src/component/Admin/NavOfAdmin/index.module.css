@@ -1,5 +1,6 @@
 .topBox{
     background-color:pink;
     height: 50px;
-    width: 200px;
+    width: 100%;
+    float: right;
 }

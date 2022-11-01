@@ -1,4 +1,6 @@
 .root{
-    height: 100px;
-    background-color: #fff;
+    width: 83%;
+    height: calc(100vh);
+    float: right;
+    background-color:antiquewhite;
 }

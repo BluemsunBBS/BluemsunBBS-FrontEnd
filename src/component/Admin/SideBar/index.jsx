@@ -55,7 +55,7 @@ export default function SideBar() {
             case "dashboard":
                 return <DashBoard />;
             case "userManage":
-                return <UserManage/>;
+                return <UserManage />;
         }
     }
 
@@ -78,9 +78,7 @@ export default function SideBar() {
 
             </div>
             <UserManage />
-            12351452888888888888888888888888888888888888888888888888888888888888888888888
             <div className={style.managecontent}>
-                qwe
                 <ManageContent />
             </div>
         </>
