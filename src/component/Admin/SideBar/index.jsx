@@ -53,9 +53,9 @@ export default function SideBar() {
     const ManageContent = (current) => {
         switch (current) {
             case "dashboard":
-                return <DashBoard />;
+                return '1343543565466666666666666666666666666666666666666666666666666666666666666666';
             case "userManage":
-                return <UserManage />;
+                return '1266666666666666666666666666666666666666666666666666666666666666666666666666';
         }
     }
 
@@ -77,7 +77,6 @@ export default function SideBar() {
                 </div>
 
             </div>
-            <UserManage />
             <div className={style.managecontent}>
                 <ManageContent />
             </div>

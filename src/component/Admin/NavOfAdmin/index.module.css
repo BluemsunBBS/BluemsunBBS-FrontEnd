@@ -1,6 +1,19 @@
 .topBox{
-    background-color:pink;
-    height: 50px;
+    background-color:rgb(225, 232, 250);
+    height: 70px;
     width: 100%;
     float: right;
+    box-shadow: 0 10px 20px #c5caf4;
+}
+.btn1{
+    font-weight: bold;
+    height: 32px;
+    float: right;
+    font-size: large;
+    padding: 0 16px;
+    border-radius: 6px;
+    border: none;
+    margin-right: 20px;
+    margin-top: 19px;
+    box-shadow: 4px 4px 10px #afb5f7;
 }
