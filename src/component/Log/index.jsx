@@ -9,6 +9,7 @@ import '../../utils/http.js'
 import { http } from '../../utils/http.js';
 import { openNotification } from '../../utils/notification';
 import { useNavigate } from 'react-router';
+import { getUserInfo } from '../../utils/func';
 
 const logourl = logoUrl;
 const bgcurl = bgcUrl;
@@ -60,7 +61,13 @@ export default () => {
                     } else {
                         openNotification("success", "登录成功", "正在跳转", 1);
                         localStorage.setItem("token",res.data);
-                        setTimeout(()=>{navigate(-1);}, 1000);
+                        var role = getUserInfo("role");
+                        if(role == 1){
+                            setTimeout(()=>{navigate(`/home`);}, 1000);
+                        }
+                        if(role == 2){
+                            setTimeout(()=>{navigate(`/admin`);}, 1000);
+                        }
                     }
                 }
             }
