@@ -29,7 +29,7 @@ export default function EveryFans (props) {
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            {(useparams.id == logUserId.id)?(<button className={style.btn1} onClick={handleFollow}>关注</button>):(<></>)}
+            {(useparams.id == logUserId)?(<button className={style.btn1} onClick={handleFollow}>关注</button>):(<></>)}
             
         </div>
 

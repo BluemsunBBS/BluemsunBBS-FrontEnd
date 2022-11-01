@@ -15,12 +15,20 @@ export default function EveryFollowPerson(props) {
     const handleClick = ()=>{
         navigate(`user/${board.id}`);
     }
+    async function deleteFollow() {
+        var res = await http.delete(`/friend/${board.id}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("取关成功！");
+        }
+    }
     return (
 
-        <div className={style.msgBox} onClick={handleClick}>
-            <img className={style.boardImg} src={uri}></img>
+        <div className={style.msgBox}>
+            <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            {(useparams.id == logUserId.id)?(<button className={style.btn1} onClick={handleFollow}>取消关注</button>):(<></>)}
+            {(useparams.id == logUserId)?(<button className={style.btn1} onClick={deleteFollow}>取消关注</button>):(<></>)}
         </div>
 
     )
