@@ -185,7 +185,7 @@ function HomePage() {
               boardData.rows.map((board) => (
                 // <div className='ba' key={board.id} board={board}>{board.name}</div>
                 <div className='hotBlockBox' key={board.id} board={board}>
-                <img src={url} className="hotPic"></img>
+                <img src={'http://bbs.wyy.ink:8080/images/'+board.img} className="hotPic"></img>
                 <span className='hot-text-box'>
                   <div className='hot-text1'>{board.name}</div>
                   <div className='hot-text'>{board.total}篇文章</div>
