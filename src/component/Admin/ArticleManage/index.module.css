@@ -2,12 +2,40 @@
     width: 83%;
     height: calc(100vh);
     float: right;
-    background-color:antiquewhite;
 }
 .contentBox{
-    width: 100%;
+    width: 94%;
     height: 600px;
-    background-color: pink;
+    background-color: rgb(225, 232, 250);
+    margin: 110px auto 0;
+}
+.title{
+    text-align: center;
+    background-color: #7a88ff;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 4px;
+    transform: translate(10px,-10px);
+}
+.text1{
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    margin: 0 auto 20px;
+    font-size: large;
+    background-color: #7a88ff;
+    color: #fff;
+    border-radius: 4px;
+}
+.boardBox{
+    padding-top: 20px;
+    width: 90%;
+    height: 400px;
+    margin: 0 auto;
+    background-color: #fff;
 }
 .menu{
     float: right;
