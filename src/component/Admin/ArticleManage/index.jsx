@@ -31,8 +31,12 @@ export default function ArticleManage() {
         <div className={style.root}>
             <NavOfAdmin />
             <div className={style.contentBox}>
-                <div>管理文章</div>
-                <Menu
+                <div className={style.title}>管理文章</div>
+                <div className={style.text1}>请选择文章所属板块</div>
+                <div className={style.boardBox}>
+
+                </div>
+                {/* <Menu
                     className={style.menu}
                     mode="horizontal"
                     onClick={handleClick}
@@ -41,7 +45,7 @@ export default function ArticleManage() {
                 />
                 <div className={style.notificationContent}>
                     <NotificationContent />
-                </div>
+                </div> */}
             </div>
 
         </div>
