@@ -118,7 +118,7 @@ function Region() {
                                 {data.rows.map((article) => (
                                     <ArticleBlockOfBoard key={article.id} article={article} />
                                 ))}
-                                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} />
+                                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page}/>
                             </>
                         ) : (
                             <NoMessage />

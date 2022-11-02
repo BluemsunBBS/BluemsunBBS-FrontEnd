@@ -6,10 +6,14 @@ import pic from './../../img/1.jpg'
 import { getUserInfo } from './../../utils/func.js'
 import './../../utils/func.js'
 import { ArticleResult } from '../../component/ArticleResult';
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 import { http } from '../../utils/http';
+import { useNavigate } from 'react-router';
+
+
 
 function HomePage() {
+  const Navigate = useNavigate();
   var nickname = getUserInfo("nickname");
   var logUserId = getUserInfo("id");
   const url = pic;
@@ -130,6 +134,10 @@ function HomePage() {
     fetchBoard(pager);
   }, [pager]);
 
+  const handleLink = (id)=>{
+    Navigate(`/board/${id}`);
+  }
+
   return (
     <div className='cbox'>
       {/* 导航栏 */}
@@ -186,10 +194,10 @@ function HomePage() {
                   boardData.rows.map((board) => (
                     // <div className='ba' key={board.id} board={board}>{board.name}</div>
                     <div className='hotBlockBox' key={board.id} board={board}>
-                      <img src={'http://bbs.wyy.ink:8080/images/' + board.img} className="hotPic"></img>
+                      <img src={'http://bbs.wyy.ink:8080/images/' + board.img} className="hotPic" onClick={()=>{handleLink(board.id)}}></img>
                       <span className='hot-text-box'>
                         <div className='hot-text1'>{board.name}</div>
-                        <div className='hot-text'>{board.total}篇文章</div>
+                        <div className='hot-text'>{board.article_num}篇文章</div>
                       </span>
                     </div>
                   ))

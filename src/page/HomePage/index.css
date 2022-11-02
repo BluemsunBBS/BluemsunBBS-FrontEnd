@@ -103,14 +103,23 @@
     vertical-align: top;
     display: inline-block;
 }
-.hot-text,.hot-text1{
+.hot-text{
     cursor: pointer;
     padding-left: 10px;
-    width: 100px;
+    /* width: 100px; */
     height: 40px;
     line-height: 40px;
 }
 .hot-text1{
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #a27fd8;
+    color: #fff;
+    border-radius: 4px;
+    padding: 0 10px;
+    margin-left: 10px;
     font-weight: bold;
 }
 /* 下半部分 */
