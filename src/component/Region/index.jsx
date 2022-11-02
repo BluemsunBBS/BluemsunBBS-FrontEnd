@@ -4,7 +4,7 @@ import url from './../../img/1.jpg'
 import ArticleBlockOfBoard from './../ArticleBlockOfBoard';
 import NoMessage from './../NotificationContent/NoMessage';
 import { useEffect, useState } from "react";
-import { message, notification } from "antd";
+import { message, notification, Pagination } from "antd";
 import { http } from './../../utils/http'
 import { useNavigate, useParams } from 'react-router';
 
@@ -87,6 +87,13 @@ function Region() {
         fetchList(userParams, pager);
     }, [userParams, pager]);
 
+    const handlePageChange = (cur, size) => {
+        setPager({
+            page: cur,
+            size: size
+        });
+    }
+
     return (
         <div className={style.root}>
             <div className={style.regionBox}>
@@ -107,9 +114,12 @@ function Region() {
                 <div>
                     {data.page == 0 ? (<NoMessage />) : (
                         (data && data.total != 0) ? (
-                            data.rows.map((article) => (
-                                <ArticleBlockOfBoard key={article.id} article={article} />
-                            ))
+                            <>
+                                {data.rows.map((article) => (
+                                    <ArticleBlockOfBoard key={article.id} article={article} />
+                                ))}
+                                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} />
+                            </>
                         ) : (
                             <NoMessage />
                         )
