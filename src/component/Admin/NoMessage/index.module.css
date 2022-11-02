@@ -1,0 +1,17 @@
+.noMessageBox {
+    text-align: center;
+    vertical-align: middle;
+    width: calc(54vw);
+    height: 600px;
+    background-color: #fff;
+    margin: auto;
+}
+
+.notFoundImg {
+    margin-top: 150px;
+}
+
+.notFoundText {
+    font-size: 16px;
+    color: #4e5969;
+}

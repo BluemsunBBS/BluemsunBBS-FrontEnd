@@ -31,6 +31,7 @@
     border-radius: 4px;
 }
 .boardBox{
+    padding-top: 20px;
     width: 90%;
     height: 400px;
     margin: 0 auto;
