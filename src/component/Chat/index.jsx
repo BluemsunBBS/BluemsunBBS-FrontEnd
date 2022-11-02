@@ -11,7 +11,10 @@ export default function Chat() {
     const [userList, setUserList] = useState([]);
 
     useEffect(() => {
-        setUserList(fetchUserList());
+        async function update() {
+            setUserList(await fetchUserList());
+        }
+        update();
     }, []);
 
     async function fetchUserList() {
