@@ -83,7 +83,7 @@ export default function ArticleManage() {
                         ) : (
                             <NoMessage />
                         )
-                    )):(<div>kncdknckldckdnc</div>)}
+                    )):(<div>{link}</div>)}
                 </div>
                 {/* <Menu
                     className={style.menu}

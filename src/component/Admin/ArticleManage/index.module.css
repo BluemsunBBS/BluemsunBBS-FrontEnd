@@ -1,14 +1,23 @@
 .root{
     width: 83%;
     height: calc(100vh);
+    background-color: rgb(225, 232, 250);
     float: right;
 }
 .contentBox{
     width: 94%;
-    height: 600px;
     background-color: rgb(225, 232, 250);
     margin: 110px auto 0;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    box-shadow:
+        -10px -10px 20px #fff, /*左边阴影*/
+        10px 10px 20px #c6ccf7, /*右边阴影*/
+        -10px -10px 20px #fff, /*顶部阴影*/
+        10px 10px 20px #c6ccf7; /*底边阴影*/
+
 }
+
 .title{
     text-align: center;
     background-color: #7a88ff;
@@ -33,9 +42,9 @@
 .boardBox{
     padding-top: 20px;
     width: 90%;
-    height: 400px;
     margin: 0 auto;
     background-color: #fff;
+    padding-bottom: 40px;
 }
 .menu{
     float: right;
