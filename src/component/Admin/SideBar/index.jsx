@@ -6,6 +6,7 @@ import { useState } from "react";
 import DashBoard from "./../DashBoard";
 import UserManage from "./../UserManage";
 import ArticleManage from "../ArticleManage";
+import BoardManage from "./../BoardManage";
 
 const items = [
     {
@@ -59,6 +60,8 @@ export default function SideBar() {
                 return <ArticleManage />;
             case "userManage":
                 return <UserManage />;
+            case "boardManage":
+                return <BoardManage />;
         }
     }
 
