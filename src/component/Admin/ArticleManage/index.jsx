@@ -64,7 +64,7 @@ export default function ArticleManage() {
         }
     }
     const [link,setLink] = useState('0');
-    const changeClick =(id) =>{
+    const changeClick = (id) => {
         setLink(id);
         console.log(id);
     }
