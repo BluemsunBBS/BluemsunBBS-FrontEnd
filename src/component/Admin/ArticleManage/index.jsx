@@ -63,6 +63,11 @@ export default function ArticleManage() {
                 return "ewjfmkwelnfmklwefnehiwfhnelwnfklwenvgewiovnklde";
         }
     }
+    const [link,setLink] = useState('0');
+    const changeClick =(id) =>{
+        setLink(id);
+        console.log(id);
+    }
     return (
         <div className={style.root}>
             <NavOfAdmin />
@@ -70,15 +75,15 @@ export default function ArticleManage() {
                 <div className={style.title}>管理文章</div>
                 <div className={style.text1}>请选择文章所属板块</div>
                 <div className={style.boardBox}>
-                    {data.page == 0 ? (<></>) : (
+                    {(link == '0')?((data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
                             data.rows.map((board) => (
-                                <EveryBlock key={board.id} board={board} />
+                                <EveryBlock key={board.id} board={board} onClick={()=>changeClick(board.id)}/>
                             ))
                         ) : (
                             <NoMessage />
                         )
-                    )}
+                    )):(<div>kncdknckldckdnc</div>)}
                 </div>
                 {/* <Menu
                     className={style.menu}
