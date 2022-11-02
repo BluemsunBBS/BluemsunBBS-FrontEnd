@@ -5,6 +5,7 @@ import { ContainerOutlined, DashboardOutlined, SettingOutlined } from "@ant-desi
 import { useState } from "react";
 import DashBoard from "./../DashBoard";
 import UserManage from "./../UserManage";
+import ArticleManage from "../ArticleManage";
 
 const items = [
     {
@@ -54,6 +55,8 @@ export default function SideBar() {
         switch (current) {
             case "dashboard":
                 return <DashBoard />;
+            case "articleManage":
+                return <ArticleManage />;
             case "userManage":
                 return <UserManage />;
         }

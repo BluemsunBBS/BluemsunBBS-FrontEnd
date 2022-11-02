@@ -6,6 +6,7 @@
     box-shadow: 0 10px 20px #c5caf4;
 }
 .btn1{
+    cursor: pointer;
     font-weight: bold;
     height: 32px;
     float: right;
