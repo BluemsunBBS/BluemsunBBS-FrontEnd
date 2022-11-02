@@ -16,11 +16,11 @@ import React from 'react';
 
 
 const { TextArea } = Input;
-const [summary,setSummary] = useState('');
-const onChangeSummary = (e) => {
-  console.log('Change:', e.target.value);
-  setSummary(e.target.value);
-};
+// const [summary,setSummary] = useState('');
+// const onChangeSummary = (e) => {
+//   console.log('Change:', e.target.value);
+//   setSummary(e.target.value);
+// };
 
 const plugins = [
   gfm(), highlight(), math()
@@ -207,7 +207,8 @@ function Md () {
             ))}
           </Radio.Group>
           <div className='text3'>请输入文章摘要</div>
-          <TextArea showCount maxLength={100} onChange={onChangeSummary} value={summary}/>
+          <TextArea showCount maxLength={100}/>
+          {/* <TextArea showCount maxLength={100} onChange={onChangeSummary} value={summary}/> */}
         </Modal>
       </div>
       <Editor
