@@ -209,7 +209,7 @@ function Md () {
           </Radio.Group>
           <div className='text3'>请输入文章摘要</div>
           {/* <TextArea showCount maxLength={100}/> */}
-          <TextArea showCount maxLength={100} onChange={onChangeSummary} value={summary}/>
+          <TextArea showCount maxLength={200} onChange={onChangeSummary} value={summary}/>
         </Modal>
       </div>
       <Editor
