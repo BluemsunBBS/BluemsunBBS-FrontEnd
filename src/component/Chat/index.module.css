@@ -1,0 +1,23 @@
+.chatBox {
+    background-color: red;
+    margin: auto;
+    width: 1200px;
+    height: 630px;
+}
+
+.userList {
+    background-color: aqua;
+    width: 300px;
+    height: 630px;
+    float: left;
+    border: 1px black;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.chatDetail {
+    background-color: aquamarine;
+    width: 900px;
+    height: 630px;
+    float: left;
+}

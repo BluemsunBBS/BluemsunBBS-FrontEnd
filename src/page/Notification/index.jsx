@@ -6,6 +6,7 @@ import FollowNotification from './../../component/NotificationContent/FollowNoti
 import SystemNotification from './../../component/NotificationContent/SystemNotification'
 import Nav from "../../component/Nav/Nav";
 import style from "./index.module.css"
+import Chat from "../../component/Chat";
 
 const items = [
     {
@@ -47,7 +48,7 @@ export default function Notification() {
             case "follow":
                 return <FollowNotification/>;
             case "im":
-                return "im";
+                return <Chat />;
             case "system":
                 return <SystemNotification/>;
         }
