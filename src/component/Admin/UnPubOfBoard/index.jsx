@@ -8,7 +8,7 @@ import { getTimeDiff } from '../../../utils/func';
 import { Link } from 'react-router-dom';
 import { EyeOutlined, HeartFilled, HeartOutlined, MessageOutlined } from '@ant-design/icons';
 
-function ArticleBlock(props) {
+function UnPubOfBoard(props) {
 
     var [article, setArticle] = useState({
         id: "",
@@ -157,4 +157,4 @@ function ArticleBlock(props) {
         </div>
     )
 }
-export default ArticleBlock;
+export default UnPubOfBoard;

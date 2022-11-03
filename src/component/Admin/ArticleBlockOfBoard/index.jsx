@@ -136,6 +136,7 @@ function ArticleBlock(props) {
         fetchLike();
     }
 
+    
     return (
         <div className={style.relatedArticle}>
             <Skeleton loading={loading} active={true} round={true}>
@@ -148,7 +149,7 @@ function ArticleBlock(props) {
                     <span onClick={handleClick} className={style.text5}>
                         {article.update_time}
                     </span>
-                    <button className={style.btn1}>删除文章</button>
+                    <button className={style.btn1} onClick={()=>props.onDelete(article.id)}>删除文章</button>
                 </div>
 
 
