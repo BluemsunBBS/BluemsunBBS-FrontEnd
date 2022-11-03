@@ -1,3 +1,14 @@
 .userBlock {
-    background-color: blue;
+    background-color: white;
+    width: 300px;
+    height: 80px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    border-color: #e8e8e8;
+}
+
+.userBlock:hover {
+    background-color: #e8e8e8;
+    cursor: pointer;
 }
