@@ -46,13 +46,32 @@ export default function ArticleList(props) {
             size: size
         });
     }
+
+    async function deleteArticle(articleId){
+        let res = await http.delete(`/article/${articleId}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("删除成功！");
+        }
+        fetchList(props,pager);
+    }
+    async function passDraft(articleId){
+        let res = await http.put(`/article/approve/${articleId}`);
+        if (res.code != 0) {
+            message.error(res.msg);
+        } else {
+            message.success("审核成功！");
+        }
+        fetchList(props,pager);
+    }
     return (
         <div>
             {data.page == 0 ? (<NoMessage />) : (
                 (data && data.total != 0) ? (
                     <>
                         {data.rows.map((article) => (
-                            <UnPubOfBoard key={article.id} article={article} />
+                            <UnPubOfBoard key={article.id} article={article} onDelete={deleteArticle} onPass={passDraft}/>
                         ))}
                         <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} />
                     </>
