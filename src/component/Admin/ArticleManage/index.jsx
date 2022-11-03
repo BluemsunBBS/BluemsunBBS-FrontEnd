@@ -104,6 +104,7 @@ export default function ArticleManage() {
                         <button className={style.btn1} onClick={changeLink}>返回板块列表 &nbsp;<ReloadOutlined/></button>
                         <button className={style.btn1} onClick={toPublished}>查看已发布文章</button>
                         <button className={style.btn1} onClick={toUnpublished}>查看待审核文章</button>
+                        <div className={style.divide}></div>
                         {(link == '1')?(<UnpublishedArticle link={id}/>):(<ArticleList link={link}/>)}
                         
                     </div>
