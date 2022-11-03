@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { message, notification, Pagination } from "antd";
 import { useNavigate } from 'react-router';
 import { http } from '../../../utils/http';
-import ArticleBlockOfBoard from './../ArticleBlockOfBoard';
+import UnPubOfBoard from './../UnPubOfBoard';
 
 export default function ArticleList(props) {
     const [pager, setPager] = useState({
@@ -52,7 +52,7 @@ export default function ArticleList(props) {
                 (data && data.total != 0) ? (
                     <>
                         {data.rows.map((article) => (
-                            <ArticleBlockOfBoard key={article.id} article={article} />
+                            <UnPubOfBoard key={article.id} article={article} />
                         ))}
                         <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} />
                     </>
