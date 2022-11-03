@@ -40,6 +40,7 @@
     border-radius: 4px;
 }
 .boardBox{
+    text-align: center;
     padding-top: 20px;
     width: 90%;
     margin: 0 auto;
@@ -57,4 +58,14 @@
     width: 1000px;
     height: 100px;
     background-color: red;
+}
+.btn1{
+    cursor: pointer;
+    padding: 0 20px;
+    margin: 0 auto;
+    background-color: #7a88ff;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    height: 30px;
 }
