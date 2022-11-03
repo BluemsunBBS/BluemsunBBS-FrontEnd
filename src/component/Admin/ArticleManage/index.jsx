@@ -9,6 +9,7 @@ import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import { ReloadOutlined } from '@ant-design/icons';
 import ArticleList from '../ArticleList';
+import UnpublishedArticle from './../UnpublishedArticle';
 
 const items = [
     {
@@ -69,13 +70,16 @@ export default function ArticleManage() {
         }
     }
     const [link, setLink] = useState('0');
+    const [id,setId] = useState('');
     const changeClick = (id) => {
         setLink(id);
         localStorage.setItem("selectedId",id);
+        setId(id);
         console.log(id);
     }
+    var boardid;
     const toPublished = () => {
-        let boardid = localStorage.getItem("selectedId");
+        boardid = localStorage.getItem("selectedId");
         setLink(boardid);
     }
     const toUnpublished = () => {
@@ -100,7 +104,7 @@ export default function ArticleManage() {
                         <button className={style.btn1} onClick={changeLink}>返回板块列表 &nbsp;<ReloadOutlined/></button>
                         <button className={style.btn1} onClick={toPublished}>查看已发布文章</button>
                         <button className={style.btn1} onClick={toUnpublished}>查看待审核文章</button>
-                        {(link == '1')?(<></>):(<ArticleList link={link}/>)}
+                        {(link == '1')?(<UnpublishedArticle link={id}/>):(<ArticleList link={link}/>)}
                         
                     </div>
                     )}

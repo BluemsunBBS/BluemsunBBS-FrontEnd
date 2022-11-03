@@ -21,7 +21,7 @@ export default function ArticleList(props) {
 
     const [data, setData] = useState(APIResult);
     async function fetchList(props, pager) {
-        let res = await http.get(`/article/list/${props.link}`, {
+        let res = await http.get(`/article/approve/list/${props.link}`, {
             params: {
                 page: pager.page,
                 size: pager.size

@@ -138,7 +138,7 @@ function ArticleBlock(props){
         <div className={style.relatedArticle}>
             <Skeleton loading={loading} active={true} round={true}>
                 <div className={style.text2}>
-                    {(article.top != 0) ? (<span>置顶 | </span>) : ("")}
+                    {/* {(article.top != 0) ? (<span>置顶 | </span>) : ("")} */}
                     <Link to={`/user/${props.article.user_id}`}>
                         {article.author}
                     </Link> | <span onClick={handleClick}>
@@ -146,7 +146,7 @@ function ArticleBlock(props){
                     </span>
                 </div>
                 <div className={style.text1} onClick={handleClick}>{article.title}</div>
-                <p className={style.text3} onClick={handleClick}>{article.summary}</p>
+                {/* <p className={style.text3} onClick={handleClick}>{article.summary}</p>
                 <Space className={style.text3}>
                     <EyeOutlined className={style.visit} />{article.visits}
                     {!article.isLike ? (
@@ -170,7 +170,7 @@ function ArticleBlock(props){
                             {article.reply == 0 ? "评论" : article.reply}
                         </span>
                     </Space>
-                </Space>
+                </Space> */}
             </Skeleton>
         </div>
     )
