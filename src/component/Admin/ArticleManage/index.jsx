@@ -8,6 +8,7 @@ import { message, notification } from 'antd';
 import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import { ReloadOutlined } from '@ant-design/icons';
+import ArticleList from '../ArticleList';
 
 const items = [
     {
@@ -90,7 +91,7 @@ export default function ArticleManage() {
                     )) : (<div>
                         <button className={style.btn1} onClick={changeLink}>返回 &nbsp;
                         <ReloadOutlined/></button>
-                        <div>{link}</div>
+                        <ArticleList link={link}/>
                     </div>
                     )}
                 </div>
