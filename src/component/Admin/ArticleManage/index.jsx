@@ -71,7 +71,15 @@ export default function ArticleManage() {
     const [link, setLink] = useState('0');
     const changeClick = (id) => {
         setLink(id);
+        localStorage.setItem("selectedId",id);
         console.log(id);
+    }
+    const toPublished = () => {
+        let boardid = localStorage.getItem("selectedId");
+        setLink(boardid);
+    }
+    const toUnpublished = () => {
+        setLink('1');
     }
     return (
         <div className={style.root}>
@@ -89,9 +97,11 @@ export default function ArticleManage() {
                             <NoMessage />
                         )
                     )) : (<div>
-                        <button className={style.btn1} onClick={changeLink}>返回 &nbsp;
-                        <ReloadOutlined/></button>
-                        <ArticleList link={link}/>
+                        <button className={style.btn1} onClick={changeLink}>返回板块列表 &nbsp;<ReloadOutlined/></button>
+                        <button className={style.btn1} onClick={toPublished}>查看已发布文章</button>
+                        <button className={style.btn1} onClick={toUnpublished}>查看待审核文章</button>
+                        {(link == '1')?(<></>):(<ArticleList link={link}/>)}
+                        
                     </div>
                     )}
                 </div>
