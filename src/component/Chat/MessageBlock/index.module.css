@@ -2,15 +2,18 @@
     margin-top: 5px;
     margin-left: 10px;
     display: inline-block;
-    padding: 5px;
-    background-color: aquamarine;
+    padding: 5px 15px;
+    background-color: #7a88ff;
+    color: #fff;
     border-radius: 5px;
     max-width: 700px;
     word-wrap: break-word;
 }
 
 .nickName {
-    height: 13px;
+    display: inline-block;
+    margin-left: 10px;
+    width: 80px;
     font-size: 13px;
     color: #999;
 }
