@@ -149,7 +149,7 @@ function UnPubOfBoard(props) {
                         {article.update_time}
                     </span>
                     <button className={style.btn1} onClick={()=>props.onDelete(article.id)}>删除文章</button>
-                    <button className={style.btn1} onClick={()=>props.onPass(article.id)}>审核通过</button>
+                    <button className={style.btn1} onClick={()=>props.onPass(article.id)}>通过</button>
                 </div>
 
 
