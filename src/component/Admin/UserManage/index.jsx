@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { message, notification } from 'antd';
 import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
-import EveryFollowPerson from '../EveryFollowPerson';
+import EveryPerson from '../EveryPerson';
 
 export default function UserManage() {
     const [pager, setPager] = useState({
@@ -50,7 +50,7 @@ export default function UserManage() {
                 {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
                         data.rows.map((board) => (
-                            <EveryFollowPerson key={board.id} board={board} />
+                            <EveryPerson key={board.id} board={board} />
                         ))
                     ) : (
                         <></>

@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { useParams } from 'react-router';
 import { getUserInfo } from '../../../utils/func';
 
-export default function EveryFollowPerson(props) {
+export default function EveryPerson(props) {
     const useparams = useParams();
     var logUserId = getUserInfo("id");
     const navigate = useNavigate();
