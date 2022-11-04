@@ -33,6 +33,7 @@
     margin-bottom: 20px;
 }
 .btn1{
+    cursor: pointer;
     background-color: #7a88ff;
     color: #fff;
     border-radius: 4px;
@@ -41,4 +42,8 @@
     padding: 0 10px;
     height: 30px;
     line-height: 30px;
+}
+.btn1:hover{
+    background-color: #fff;
+    color: #7a88ff;
 }
