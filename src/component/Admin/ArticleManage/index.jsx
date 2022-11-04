@@ -11,16 +11,16 @@ import { ReloadOutlined } from '@ant-design/icons';
 import ArticleList from '../ArticleList';
 import UnpublishedArticle from './../UnpublishedArticle';
 
-const items = [
-    {
-        label: '未审核文章',
-        key: 'unchecked'
-    },
-    {
-        label: '已审核文章',
-        key: 'checked'
-    }
-]
+// const items = [
+//     {
+//         label: '未审核文章',
+//         key: 'unchecked'
+//     },
+//     {
+//         label: '已审核文章',
+//         key: 'checked'
+//     }
+// ]
 export default function ArticleManage() {
     const [pager, setPager] = useState({
         page: 1,
@@ -61,14 +61,14 @@ export default function ArticleManage() {
     const changeLink = () => {
         setLink('0');
     }
-    function NotificationContent() {
-        switch (current) {
-            case "unchecked":
-                return "hijcklsjcklsamcklmsaclkmsklvjdvjmdlksvnwel";
-            case "checked":
-                return "ewjfmkwelnfmklwefnehiwfhnelwnfklwenvgewiovnklde";
-        }
-    }
+    // function NotificationContent() {
+    //     switch (current) {
+    //         case "unchecked":
+    //             return "hijcklsjcklsamcklmsaclkmsklvjdvjmdlksvnwel";
+    //         case "checked":
+    //             return "ewjfmkwelnfmklwefnehiwfhnelwnfklwenvgewiovnklde";
+    //     }
+    // }
     const [link, setLink] = useState('0');
     const [id,setId] = useState('');
     const changeClick = (id) => {
