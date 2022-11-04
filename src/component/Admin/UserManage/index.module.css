@@ -17,7 +17,6 @@
         10px 10px 20px #c6ccf7; /*底边阴影*/
 
 }
-
 .title{
     text-align: center;
     background-color: #7a88ff;
@@ -28,4 +27,18 @@
     font-weight: bold;
     border-radius: 4px;
     transform: translate(10px,-10px);
+}
+.btnBox{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.btn1{
+    background-color: #7a88ff;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    margin-right: 20px;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
 }
