@@ -1,3 +1,37 @@
+.titleBox{
+    text-align: left;
+    background-color: pink;
+}
+.title1{
+    text-align: center;
+    display: inline-block;
+    width: 480px;
+    background-color: #fff;
+}
+.title2{
+    text-align: center;
+    display: inline-block;
+    width: 100px;
+    background-color: red;
+}
+.title2{
+    display: inline-block;
+    width: 100px;
+    background-color: #fff;
+    margin-left: 10px;
+}
+.title3{
+    display: inline-block;
+    width: 100px;
+    background-color: #fff;
+    margin-left: 10px;
+}
+.title4{
+    margin-left: 20px;
+}
+.title5{
+    margin-left: 20px;
+}
 .page{
     margin-top: 20px;
 }
