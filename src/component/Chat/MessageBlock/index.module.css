@@ -1,31 +1,46 @@
 .messageBlock{
+    padding-left: 20px;
     vertical-align:middle;
     min-height: 40px;
     margin-bottom: 10px;
 }
-.img{
+.img,.img1{
     vertical-align: top;
     width: 50px;
     height: 50px;
 }
-.messageBubble {
-    margin-top: 15px;
-    padding: 0 10px;
+.img1{
+    float: right;
+    margin-right: 20px;
+}
+.box,.box1{
     display: inline-block;
+}
+.box1{
+    margin-right: 10px;
+    text-align: right;
+    float: right;
+}
+.messageBubble {
+    margin-top: 4px;
+    margin-left: 10px;
+    padding: 0 10px;
     background-color: #7a88ff;
     color: #fff;
     border-radius: 5px;
     max-width: 700px;
     word-wrap: break-word;
 }
-.nickName {
-    padding-top: 10px;
-    vertical-align: top;
-    display: inline-block;
+.nickName,.nickName1{
     margin-left: 10px;
     width: 80px;
     font-size: 13px;
     color: #999;
+}
+.nickName1{
+    width: 100%;
+    text-align: right;
+    margin-left: 0;
 }
 .text{
     vertical-align: middle;
