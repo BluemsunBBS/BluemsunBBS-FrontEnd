@@ -10,7 +10,7 @@ export default function ChatDetail(props) {
         <>
             <div className={style.messageBox}>
                 {messageList ? (messageList.map((msg) => (
-                    <MessageBlock key={msg.id} message={msg} />
+                    <MessageBlock key={msg.id} message={msg} user={user}/>
                 ))) : (<></>)}
             </div>
         </>

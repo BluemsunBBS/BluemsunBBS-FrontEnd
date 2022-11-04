@@ -28,13 +28,21 @@ export default function Chat() {
             console.log("msg解析错误：" + msg);
             return;
         }
-        console.log(msg);
         var newMessageMap = { ...messageMap };
-        console.log(newMessageMap);
-        if (!newMessageMap[msg.fromUser]) {
-            newMessageMap[msg.fromUser] = [];
+        if (msg instanceof Array) {
+            for (let i = 0; i < msg.length; i++) {
+                let message = msg[i];
+                if (!newMessageMap[message.fromUser]) {
+                    newMessageMap[message.fromUser] = [];
+                }
+                newMessageMap[message.fromUser].push(message);
+            }
+        } else {
+            if (!newMessageMap[msg.fromUser]) {
+                newMessageMap[msg.fromUser] = [];
+            }
+            newMessageMap[msg.fromUser].push(msg);
         }
-        newMessageMap[msg.fromUser].push(msg);
         setMessageMap(()=>newMessageMap);
     }
 

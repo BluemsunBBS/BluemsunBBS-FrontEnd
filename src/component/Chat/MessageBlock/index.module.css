@@ -1,0 +1,14 @@
+.messageBubble {
+    margin-top: 5px;
+    margin-left: 10px;
+    display: inline-block;
+    padding: 5px;
+    background-color: aquamarine;
+    border-radius: 5px;
+}
+
+.nickName {
+    height: 13px;
+    font-size: 13px;
+    color: #999;
+}
