@@ -13,7 +13,7 @@ export default function MessageBlock(props) {
             <Avatar size={40} src={`http://bbs.wyy.ink:8080/images/${avatarUrl}`} />
             <span className={style.nickName}>{msg.fromUser == user.id ? user.nickname : getUserInfo("nickname")}</span>
             <div className={style.messageBubble}>
-                {msg.text}
+                <p>{msg.text}</p>
             </div>
         </div>
     );
