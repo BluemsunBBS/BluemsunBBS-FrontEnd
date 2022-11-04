@@ -7,19 +7,20 @@ export default function ChatInput(props) {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
-        console.log(e.target.keyCode);
         setValue(e.target.value);
     }
 
-    const handleSend = () => {
-        if (value == "") return;
-        props.onSend({
-            text: value,
-            toUser: props.user.id
-        });
-        // setTimeout(() => {
-        //     setValue("");
-        // }, 3);
+    const handleSend = (e) => {
+        if (e.key == "Enter" && e.ctrlKey) {
+            if (value == "") return;
+            props.onSend({
+                text: value,
+                toUser: props.user.id
+            });
+            setTimeout(() => {
+                setValue("");
+            }, 3);
+        }
     }
 
     return (
@@ -33,7 +34,7 @@ export default function ChatInput(props) {
                 }}
                 onChange={handleChange}
                 bordered={false}
-                onPressEnter={handleSend}
+                onKeyDown={handleSend}
                 value={value}
             />
             <span
