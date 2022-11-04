@@ -1,6 +1,31 @@
 .root{
     width: 83%;
     height: calc(100vh);
+    background-color: rgb(225, 232, 250);
     float: right;
-    background-color:antiquewhite;
+}
+.contentBox{
+    width: 94%;
+    background-color: rgb(225, 232, 250);
+    margin: 110px auto 0;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    box-shadow:
+        -10px -10px 20px #fff, /*左边阴影*/
+        10px 10px 20px #c6ccf7, /*右边阴影*/
+        -10px -10px 20px #fff, /*顶部阴影*/
+        10px 10px 20px #c6ccf7; /*底边阴影*/
+
+}
+
+.title{
+    text-align: center;
+    background-color: #7a88ff;
+    width: 120px;
+    height: 30px;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    border-radius: 4px;
+    transform: translate(10px,-10px);
 }
