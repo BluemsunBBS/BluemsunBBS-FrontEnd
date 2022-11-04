@@ -1,9 +1,9 @@
 .messageBlock{
+    margin-top: 10px;
     padding-left: 20px;
     display: block;
     min-height: 60px;
     width: 100%;
-    margin-bottom: 10px;
 }
 .messageBlock1{
     text-align: right;
@@ -18,10 +18,11 @@
     display: inline-block;
 }
 .box{
+    text-align: left;
     display: inline-block;
 }
 .box1{
-    text-align: center;
+    text-align-last: right !important;
     margin-right: 10px;
     display: inline-block;
     background-color: pink;
@@ -36,8 +37,10 @@
     max-width: 500px;
     word-wrap: break-word;
 }
+.messageBubble{
+    margin-left: 10px;
+}
 .messageBubble1{
-    float: right;
     margin-right: 0px;
 }
 .nickName{
@@ -49,13 +52,5 @@
 .nickName1{
     font-size: 13px;
     color: #999;
-    text-align: right;
-}
-.text{
-    vertical-align: middle;
-    margin: 0 auto;
-    padding-bottom: 0;
-}
-.text1{
     text-align: right;
 }

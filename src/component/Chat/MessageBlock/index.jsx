@@ -10,7 +10,10 @@ export default function MessageBlock(props) {
 
     return (
         <div>
-            {(msg.fromUser == user.id) ? (<div className={style.messageBlock}><Avatar src={`http://bbs.wyy.ink:8080/images/${avatarUrl}`} className={style.img} />
+            {(msg.fromUser == user.id) ? (<div className={style.messageBlock}>
+                <div className={style.imgBox}>
+                    <Avatar size={50} src={`http://bbs.wyy.ink:8080/images/${avatarUrl}`} />
+                </div>
                 <div className={style.box}>
                     <div className={style.nickName}>{msg.fromUser == user.id ? user.nickname : getUserInfo("nickname")}</div>
                     <div className={style.messageBubble}>
