@@ -1,7 +1,7 @@
 import style from './index.module.css';
 import NavOfAdmin from '../NavOfAdmin';
 import { useEffect, useState } from "react";
-import { message, notification } from 'antd';
+import { message, notification,Pagination} from 'antd';
 import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import EveryPerson from '../EveryPerson';
@@ -37,6 +37,12 @@ export default function UserManage() {
         fetchList(pager);
     }, [pager]);
 
+    const handlePageChange = (cur, size) => {
+        setPager({
+            page: cur,
+            size: size
+        });
+    }
     return (
         <div className={style.root}>
             <NavOfAdmin />
@@ -56,6 +62,7 @@ export default function UserManage() {
                         <></>
                     )
                 )}
+                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} />
             </div>
 
         </div>
