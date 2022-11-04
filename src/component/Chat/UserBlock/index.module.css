@@ -1,6 +1,7 @@
 .userBlock {
     background-color: white;
-    width: 300px;
+    margin: auto;
+    width: 280px;
     height: 80px;
     padding: 10px;
     border-style: solid;

@@ -44,8 +44,14 @@ let heartCheck = {
 let closeWebSocket = () => {
     websocket && websocket.close();
 }
+
+let sendMessage = (msg) => {
+    websocket.send(msg);
+}
+
 export {
     websocket,
     createWebSocket,
-    closeWebSocket
+    closeWebSocket,
+    sendMessage
 };
