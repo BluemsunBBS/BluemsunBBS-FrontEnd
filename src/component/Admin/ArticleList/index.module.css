@@ -1,36 +1,48 @@
 .titleBox{
     text-align: left;
-    background-color: pink;
+    width: 90%;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 
+    10px 0px 10px rgb(225, 232, 250) inset,
+    0px 10px 10px rgb(225, 232, 250) inset,
+    -10px 0px 10px #fff inset,
+    0px -10px 10px #fff inset;
+}
+.title1,.title2,.title3,.title4,.title5{
+    font-weight: bold;
+    font-size: large;
 }
 .title1{
     text-align: center;
     display: inline-block;
-    width: 480px;
-    background-color: #fff;
+    width: 420px;
 }
 .title2{
     text-align: center;
     display: inline-block;
     width: 100px;
-    background-color: red;
-}
-.title2{
-    display: inline-block;
-    width: 100px;
-    background-color: #fff;
-    margin-left: 10px;
 }
 .title3{
+    text-align: center;
     display: inline-block;
     width: 100px;
-    background-color: #fff;
     margin-left: 10px;
 }
 .title4{
+    text-align: center;
+    display: inline-block;
+    width: 150px;
     margin-left: 20px;
 }
 .title5{
-    margin-left: 20px;
+    text-align: center;
+    display: inline-block;
+    width: 60px;
+    margin-left: 30px;
 }
 .page{
     margin-top: 20px;

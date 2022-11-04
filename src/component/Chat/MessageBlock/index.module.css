@@ -1,49 +1,55 @@
 .messageBlock{
+    margin-top: 10px;
     padding-left: 20px;
-    vertical-align:middle;
-    min-height: 40px;
+    display: block;
+    min-height: 60px;
+    width: 100%;
+}
+.messageBlock1{
+    text-align: right;
+    padding-left: 20px;
+    display: block;
+    min-height: 60px;
+    width: 100%;
     margin-bottom: 10px;
 }
-.img,.img1{
+.imgBox{
     vertical-align: top;
-    width: 50px;
-    height: 50px;
+    display: inline-block;
 }
-.img1{
-    float: right;
-    margin-right: 20px;
-}
-.box,.box1{
+.box{
+    text-align: left;
     display: inline-block;
 }
 .box1{
+    text-align-last: right !important;
     margin-right: 10px;
-    text-align: right;
-    float: right;
+    display: inline-block;
 }
-.messageBubble {
-    margin-top: 4px;
-    margin-left: 10px;
-    padding: 0 10px;
+.messageBubble,.messageBubble1{
+    width: fit-content;
+    padding: 0 4px;
+    display: block;
     background-color: #7a88ff;
     color: #fff;
     border-radius: 5px;
-    max-width: 700px;
+    max-width: 500px;
     word-wrap: break-word;
 }
-.nickName,.nickName1{
+.messageBubble{
+    margin-left: 10px;
+}
+.messageBubble1{
+    margin-right: 0px;
+}
+.nickName{
     margin-left: 10px;
     width: 80px;
     font-size: 13px;
     color: #999;
 }
 .nickName1{
-    width: 100%;
+    font-size: 13px;
+    color: #999;
     text-align: right;
-    margin-left: 0;
-}
-.text{
-    vertical-align: middle;
-    margin: 0 auto;
-    padding-bottom: 0;
 }

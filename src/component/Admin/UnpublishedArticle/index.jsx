@@ -69,7 +69,13 @@ export default function ArticleList(props) {
         <div>
             {data.page == 0 ? (<NoMessage />) : (
                 (data && data.total != 0) ? (
-                    <>
+                    <><div className={style.titleBox}>
+                    <span className={style.title1}>标题</span>
+                    <span className={style.title2}>作者</span>
+                    <span className={style.title3}>所属板块</span>
+                    <span className={style.title4}>更新时间</span>
+                    <span className={style.title5}>操作</span>
+                </div>
                         {data.rows.map((article) => (
                             <UnPubOfBoard key={article.id} article={article} onDelete={deleteArticle} onPass={passDraft}/>
                         ))}
