@@ -1,11 +1,17 @@
-/* .messageBlock{
-
-} */
+.messageBlock{
+    vertical-align:middle;
+    min-height: 40px;
+    margin-bottom: 10px;
+}
+.img{
+    vertical-align: top;
+    width: 50px;
+    height: 50px;
+}
 .messageBubble {
-    margin-top: 5px;
-    margin-left: 10px;
+    margin-top: 15px;
+    padding: 0 10px;
     display: inline-block;
-    padding: 5px 15px;
     background-color: #7a88ff;
     color: #fff;
     border-radius: 5px;
@@ -13,9 +19,16 @@
     word-wrap: break-word;
 }
 .nickName {
+    padding-top: 10px;
+    vertical-align: top;
     display: inline-block;
     margin-left: 10px;
     width: 80px;
     font-size: 13px;
     color: #999;
+}
+.text{
+    vertical-align: middle;
+    margin: 0 auto;
+    padding-bottom: 0;
 }
