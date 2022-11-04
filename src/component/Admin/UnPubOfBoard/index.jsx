@@ -8,7 +8,7 @@ import { getTimeDiff } from '../../../utils/func';
 import { Link } from 'react-router-dom';
 import { EyeOutlined, HeartFilled, HeartOutlined, MessageOutlined } from '@ant-design/icons';
 
-function ArticleBlock(props) {
+function UnPubOfBoard(props) {
 
     var [article, setArticle] = useState({
         id: "",
@@ -136,7 +136,6 @@ function ArticleBlock(props) {
         fetchLike();
     }
 
-    
     return (
         <div className={style.relatedArticle}>
             <Skeleton loading={loading} active={true} round={true}>
@@ -150,6 +149,7 @@ function ArticleBlock(props) {
                         {article.update_time}
                     </span>
                     <button className={style.btn1} onClick={()=>props.onDelete(article.id)}>删除文章</button>
+                    <button className={style.btn1} onClick={()=>props.onPass(article.id)}>审核通过</button>
                 </div>
 
 
@@ -157,4 +157,4 @@ function ArticleBlock(props) {
         </div>
     )
 }
-export default ArticleBlock;
+export default UnPubOfBoard;
