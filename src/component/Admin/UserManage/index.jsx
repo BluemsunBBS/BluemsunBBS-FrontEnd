@@ -6,6 +6,7 @@ import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import EveryPerson from '../EveryPerson';
 import EveryBanned from '../EveryBanned';
+import NoMessage from '../NoMessage';
 
 export default function UserManage() {
     const [pager, setPager] = useState({
@@ -96,16 +97,17 @@ export default function UserManage() {
                 </div>
                 {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
-                        data.rows.map((board) => (state == 0?(<EveryPerson key={board.id} board={board} onBan={banUser}/>):(<EveryBanned key={board.id} board={board} onFree={deBanUser}/>)
-                            
-                        ))
+                        <div>{data.rows.map((board) => (state == 0?(<EveryPerson key={board.id} board={board} onBan={banUser}/>):(<EveryBanned key={board.id} board={board} onFree={deBanUser}/>)
+                        ))}
+                        <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></div>
+                        
                     ) : (
-                        <></>
+                        <NoMessage/>
                     )
                 )}
                 
                 
-                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} />
+                
             </div>
 
         </div>
