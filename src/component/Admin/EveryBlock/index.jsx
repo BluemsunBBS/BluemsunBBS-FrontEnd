@@ -1,12 +1,12 @@
 import style from './index.module.css';
 import { useNavigate } from 'react-router';
 
+const navigate = useNavigate();
 export default function EveryBlock(props) {
-    const Navigate = useNavigate();
     const board = props.board;
     var uri = "http://bbs.wyy.ink:8080/images/" + board.img;
     const handleLink = (id)=>{
-        Navigate(`/board/${id}`);
+        navigate(`/board/${id}`);
       }
     return (
         <div className={style.msgBox} onClick={props.onClick}>
