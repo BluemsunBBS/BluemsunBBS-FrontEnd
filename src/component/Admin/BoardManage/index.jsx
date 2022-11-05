@@ -60,8 +60,12 @@ export default function BoardManage() {
     const [boardName,setBoardName] = useState('');
     const [avatarUri, setUri] = useState('');
     const [boardDes,setBoardDes] = useState('');
+
     const onChangeDes = (e) =>{
         setBoardDes(e.target.value);
+    };
+    const onchangeName = (e) =>{
+        setBoardName(e.target.value);
     };
     
     const handleOk = () => {
@@ -93,11 +97,11 @@ export default function BoardManage() {
                 </div>
                 <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认'>
                     <p className={style.text2}>板块名称</p>
-                    <Input placeholder='请输入板块名称'/>
+                    <Input placeholder='请输入板块名称' value={boardName} onChange={onchangeName}/>
                     <p className={style.text2}>设置图片</p>
                     <Upload setImageUrl={setUri}/>
                     <p className={style.text2}>板块简介</p>
-                    <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50}/>
+                    <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50} value={boardDes} onChange={onChangeDes}/>
                 </Modal>
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
