@@ -89,6 +89,15 @@ export default function BoardManage() {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+    async function deleteUser(id){
+        let res = await http.delete(`/board/${id}`);
+        if(res.code != 0){
+            message.error(res.msg);
+        }else{
+            message.success("删除版块成功！");
+            fetchList(pager);
+        }
+    }
     return (
         <div className={style.root}>
             <NavOfAdmin />
@@ -112,7 +121,7 @@ export default function BoardManage() {
                     {(data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
                             <>{data.rows.map((board) => (
-                                <EveryBlock key={board.id} board={board} />
+                                <EveryBlock key={board.id} board={board} onDelete={deleteUser}/>
                             ))}
                                 <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
 
