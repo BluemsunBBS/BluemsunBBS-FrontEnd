@@ -39,6 +39,15 @@
     color: #fff;
     border-radius: 4px;
 }
+.text2{
+    width: 80px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    background-color: #a5adfa;
+    color: #fff;
+}
 .btnBox{
     text-align: center;
     margin-bottom: 20px;

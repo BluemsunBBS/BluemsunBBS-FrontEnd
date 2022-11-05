@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import NoMessage from '../NoMessage';
 import { message, Pagination, Modal } from 'antd';
 import { http } from '../../../utils/http';
+import { Input } from 'antd';
+
+const { TextArea } = Input;
 
 export default function BoardManage() {
     const [pager, setPager] = useState({
@@ -66,10 +69,12 @@ export default function BoardManage() {
                     <button className={style.btn1} onClick={manageNow}>管理当前板块</button>
                     <button className={style.btn1} onClick={showModal}>添加板块</button>
                 </div>
-                <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+                <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                    <p className={style.text2}>板块名称</p>
+                    <Input placeholder='请输入板块名称'/>
+                    <p className={style.text2}>设置图片</p>
+                    <p className={style.text2}>板块简介</p>
+                    <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50}/>
                 </Modal>
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
