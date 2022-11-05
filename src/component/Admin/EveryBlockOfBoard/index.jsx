@@ -8,8 +8,6 @@ export default function EveryBlock(props) {
             <img className={style.boardImg} src={uri}></img>
             <div className={style.text1}>{board.name}</div>
             <span className={style.des}>{board.description}</span>
-            <button className={style.btn1} onClick={()=>props.onDelete(board.id)}>删除版块</button>
-            <button className={style.btn1}>管理版主</button>
         </div>
     )
 }

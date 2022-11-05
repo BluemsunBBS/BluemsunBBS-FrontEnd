@@ -2,7 +2,7 @@ import style from './index.module.css';
 import NavOfAdmin from '../NavOfAdmin';
 import { Menu } from 'antd';
 import { useEffect, useState } from "react";
-import EveryBlock from './../EveryBlock';
+import EveryBlockOfBoard from './../EveryBlockOfBoard';
 import NoMessage from './../NoMessage';
 import { message, notification,Pagination} from 'antd';
 import { http } from '../../../utils/http';
@@ -102,7 +102,7 @@ export default function ArticleManage() {
                     {(link == '0') ? ((data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
                             <>{data.rows.map((board) => (
-                                <EveryBlock key={board.id} board={board} onClick={() => changeClick(board.id)} />
+                                <EveryBlockOfBoard key={board.id} board={board} onClick={() => changeClick(board.id)} />
                             ))}
                             <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
                             
