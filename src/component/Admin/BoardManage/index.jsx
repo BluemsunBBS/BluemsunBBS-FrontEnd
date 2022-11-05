@@ -6,6 +6,7 @@ import NoMessage from '../NoMessage';
 import { message, Pagination, Modal } from 'antd';
 import { http } from '../../../utils/http';
 import { Input } from 'antd';
+import Upload from './../Upload';
 
 const { TextArea } = Input;
 
@@ -54,8 +55,25 @@ export default function BoardManage() {
     const showModal = () => {
         setIsModalOpen(true);
     };
+
+
+    const [boardName,setBoardName] = useState('');
+    const [avatarUri, setUri] = useState('');
+    const [boardDes,setBoardDes] = useState('');
     const handleOk = () => {
         setIsModalOpen(false);
+        async function submitBoard(){
+            let res = await http.post(`/board`,{
+                name:'',
+                img:'',
+                description:''
+            });
+            if(res.code == 0){
+                message.success("添加版块成功！");
+            }else{
+                message.error(res.msg);
+            }
+        }
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -69,10 +87,11 @@ export default function BoardManage() {
                     <button className={style.btn1} onClick={manageNow}>管理当前板块</button>
                     <button className={style.btn1} onClick={showModal}>添加板块</button>
                 </div>
-                <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认'>
                     <p className={style.text2}>板块名称</p>
                     <Input placeholder='请输入板块名称'/>
                     <p className={style.text2}>设置图片</p>
+                    <Upload setImageUrl={setUri}/>
                     <p className={style.text2}>板块简介</p>
                     <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50}/>
                 </Modal>
