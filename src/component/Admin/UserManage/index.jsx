@@ -33,6 +33,20 @@ export default function UserManage() {
             setData(res.data);
         }
     }
+    async function fetchBanList(pager) {
+        let res = await http.get(`/account/ban/`, {
+            params: {
+                page: pager.page,
+                size: pager.size
+            }
+        });
+        if (res.code != 0) {
+            message.error(res.msg);
+            setData(APIResult);
+        } else {
+            setData(res.data);
+        }
+    }
     useEffect(() => {
         fetchList(pager);
     }, [pager]);
@@ -43,14 +57,20 @@ export default function UserManage() {
             size: size
         });
     }
+    const checkAll = () => {
+        fetchList(pager);
+    }
+    const checkBan = () => {
+        fetchBanList(pager);
+    }
     return (
         <div className={style.root}>
             <NavOfAdmin />
             <div className={style.contentBox}>
                 <div className={style.title}>管理用户</div>
                 <div className={style.btnBox}>
-                    <button className={style.btn1}>查看未封禁用户</button>
-                    <button className={style.btn1}>查看封禁用户</button>
+                    <button className={style.btn1} onClick={checkAll}>查看未封禁用户</button>
+                    <button className={style.btn1} onClick={checkBan}>查看封禁用户</button>
                 </div>
 
                 {data.page == 0 ? (<></>) : (
