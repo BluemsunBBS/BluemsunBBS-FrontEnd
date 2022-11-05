@@ -3,7 +3,7 @@ import NavOfAdmin from '../NavOfAdmin';
 import EveryBlock from './../EveryBlock';
 import { useEffect, useState } from "react";
 import NoMessage from '../NoMessage';
-import { message } from 'antd';
+import { message,Pagination} from 'antd';
 import { http } from '../../../utils/http';
 
 export default function BoardManage(){
@@ -36,6 +36,13 @@ export default function BoardManage(){
     useEffect(() => {
         fetchList(pager);
     }, [pager]);
+
+    const handlePageChange = (cur, size) => {
+        setPager({
+            page: cur,
+            size: size
+        });
+    }
     return(
         <div className={style.root}>
             <NavOfAdmin />
@@ -48,9 +55,11 @@ export default function BoardManage(){
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
-                            data.rows.map((board) => (
+                            <>{data.rows.map((board) => (
                                 <EveryBlock key={board.id} board={board} onClick={() => changeClick(board.id)} />
-                            ))
+                            ))}
+                            <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
+                            
                         ) : (
                             <NoMessage />
                         )

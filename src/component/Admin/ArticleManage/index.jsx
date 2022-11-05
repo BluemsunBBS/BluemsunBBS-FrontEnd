@@ -4,7 +4,7 @@ import { Menu } from 'antd';
 import { useEffect, useState } from "react";
 import EveryBlock from './../EveryBlock';
 import NoMessage from './../NoMessage';
-import { message, notification } from 'antd';
+import { message, notification,Pagination} from 'antd';
 import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import { ReloadOutlined } from '@ant-design/icons';
@@ -85,6 +85,13 @@ export default function ArticleManage() {
     const toUnpublished = () => {
         setLink('1');
     }
+
+    const handlePageChange = (cur, size) => {
+        setPager({
+            page: cur,
+            size: size
+        });
+    }
     return (
         <div className={style.root}>
             <NavOfAdmin />
@@ -94,9 +101,11 @@ export default function ArticleManage() {
                 <div className={style.boardBox}>
                     {(link == '0') ? ((data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
-                            data.rows.map((board) => (
+                            <>{data.rows.map((board) => (
                                 <EveryBlock key={board.id} board={board} onClick={() => changeClick(board.id)} />
-                            ))
+                            ))}
+                            <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
+                            
                         ) : (
                             <NoMessage />
                         )
