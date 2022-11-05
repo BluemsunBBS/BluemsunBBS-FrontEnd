@@ -67,6 +67,10 @@
     background-color: #fff;
     color: #7a88ff;
 }
+.imgBox{
+    width: 100px;
+    height: 100px;
+}
 .page{
     text-align: center;
     margin-top:20px;

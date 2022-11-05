@@ -67,7 +67,7 @@ export default function BoardManage() {
     const onchangeName = (e) =>{
         setBoardName(e.target.value);
     };
-    
+
     const handleOk = () => {
         setIsModalOpen(false);
         async function submitBoard(){
@@ -99,7 +99,7 @@ export default function BoardManage() {
                     <p className={style.text2}>板块名称</p>
                     <Input placeholder='请输入板块名称' value={boardName} onChange={onchangeName}/>
                     <p className={style.text2}>设置图片</p>
-                    <Upload setImageUrl={setUri}/>
+                    <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/"+avatarUri} className={style.imgBox}/>
                     <p className={style.text2}>板块简介</p>
                     <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50} value={boardDes} onChange={onChangeDes}/>
                 </Modal>
