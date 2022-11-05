@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { useParams } from 'react-router';
 import { getUserInfo } from '../../../utils/func';
 
-export default function EveryPerson(props) {
+export default function EveryBanned(props) {
     const useparams = useParams();
     var logUserId = getUserInfo("id");
     const navigate = useNavigate();
@@ -29,7 +29,7 @@ export default function EveryPerson(props) {
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            <button className={style.btn1} onClick={()=>props.onBan(board.id)}>封禁用户</button>
+            <button className={style.btn1} onClick={()=>props.onFree(board.id)}>解封用户</button>
         </div>
 
     )

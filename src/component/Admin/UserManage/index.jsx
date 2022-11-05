@@ -5,6 +5,7 @@ import { message, notification,Pagination} from 'antd';
 import { http } from '../../../utils/http';
 import { useNavigate } from 'react-router';
 import EveryPerson from '../EveryPerson';
+import EveryBanned from '../EveryBanned';
 
 export default function UserManage() {
     const [pager, setPager] = useState({
@@ -18,6 +19,7 @@ export default function UserManage() {
         rows: [],
         total: 0
     }
+    const [state,setState] = useState(0);
     const [data, setData] = useState(APIResult);
     async function fetchList(pager) {
         let res = await http.get(`/account/`, {
@@ -59,9 +61,29 @@ export default function UserManage() {
     }
     const checkAll = () => {
         fetchList(pager);
+        setState(0);
     }
     const checkBan = () => {
         fetchBanList(pager);
+        setState(1);
+    }
+    async function banUser(id){
+        let res = await http.delete(`/account/ban/${id}`);
+        if(res.code != 0){
+            message.error(res.msg);
+        }else{
+            message.success("封禁成功！");
+            fetchList(pager);
+        }
+    }
+    async function deBanUser(id){
+        let res = await http.put(`/account/ban/${id}`);
+        if(res.code != 0){
+            message.error(res.msg);
+        }else{
+            message.success("解封成功！");
+            fetchBanList(pager);
+        }
     }
     return (
         <div className={style.root}>
@@ -72,16 +94,17 @@ export default function UserManage() {
                     <button className={style.btn1} onClick={checkAll}>查看未封禁用户</button>
                     <button className={style.btn1} onClick={checkBan}>查看封禁用户</button>
                 </div>
-
                 {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
-                        data.rows.map((board) => (
-                            <EveryPerson key={board.id} board={board} />
+                        data.rows.map((board) => (state == 0?(<EveryPerson key={board.id} board={board} onBan={banUser}/>):(<EveryBanned key={board.id} board={board} onFree={deBanUser}/>)
+                            
                         ))
                     ) : (
                         <></>
                     )
                 )}
+                
+                
                 <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} />
             </div>
 
