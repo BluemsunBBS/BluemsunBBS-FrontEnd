@@ -60,6 +60,10 @@ export default function BoardManage() {
     const [boardName,setBoardName] = useState('');
     const [avatarUri, setUri] = useState('');
     const [boardDes,setBoardDes] = useState('');
+    const onChangeDes = (e) =>{
+        setBoardDes(e.target.value);
+    };
+    
     const handleOk = () => {
         setIsModalOpen(false);
         async function submitBoard(){
