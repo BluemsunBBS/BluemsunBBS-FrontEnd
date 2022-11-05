@@ -48,10 +48,10 @@ export default function BoardManage(){
             <NavOfAdmin />
             <div className={style.contentBox}>
                 <div className={style.title}>管理板块</div>
-                {/* <div className={style.btnBox}>
-                    <button className={style.btn1}>查看未封禁用户</button>
-                    <button className={style.btn1}>查看封禁用户</button>
-                </div> */}
+                <div className={style.btnBox}>
+                    <button className={style.btn1}>管理当前板块</button>
+                    <button className={style.btn1}>添加板块</button>
+                </div>
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (

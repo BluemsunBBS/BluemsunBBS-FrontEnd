@@ -32,9 +32,9 @@
 .text1{
     width: 200px;
     height: 30px;
+    line-height: 30px;
     text-align: center;
     margin: 0 auto 20px;
-    font-size: large;
     background-color: #7a88ff;
     color: #fff;
     border-radius: 4px;

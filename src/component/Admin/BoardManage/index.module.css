@@ -28,6 +28,17 @@
     border-radius: 4px;
     transform: translate(10px,-10px);
 }
+.text1{
+    text-align: center;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    margin: 10px auto;
+    background-color: #7a88ff;
+    color: #fff;
+    border-radius: 4px;
+}
 .btnBox{
     text-align: center;
     margin-bottom: 20px;
