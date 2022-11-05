@@ -57,31 +57,34 @@ export default function BoardManage() {
     };
 
 
-    const [boardName,setBoardName] = useState('');
+    const [boardName, setBoardName] = useState('');
     const [avatarUri, setUri] = useState('');
-    const [boardDes,setBoardDes] = useState('');
+    const [boardDes, setBoardDes] = useState('');
 
-    const onChangeDes = (e) =>{
+    const onChangeDes = (e) => {
         setBoardDes(e.target.value);
     };
-    const onchangeName = (e) =>{
+    const onchangeName = (e) => {
         setBoardName(e.target.value);
     };
 
     const handleOk = () => {
-        setIsModalOpen(false);
-        async function submitBoard(){
-            let res = await http.post(`/board`,{
-                name:'',
-                img:'',
-                description:''
+        async function submitBoard() {
+            let res = await http.post(`/board`, {
+                name: boardName,
+                img: avatarUri,
+                description: boardDes
             });
-            if(res.code == 0){
+            if (res.code == 0) {
                 message.success("添加版块成功！");
-            }else{
+                fetchList(pager);
+            } else {
                 message.error(res.msg);
             }
         }
+        submitBoard();
+        
+        setIsModalOpen(false);
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -92,22 +95,24 @@ export default function BoardManage() {
             <div className={style.contentBox}>
                 <div className={style.title}>管理板块</div>
                 <div className={style.btnBox}>
-                    <button className={style.btn1} onClick={manageNow}>管理当前板块</button>
-                    <button className={style.btn1} onClick={showModal}>添加板块</button>
+                    <button className={style.btn1} onClick={manageNow}>管理当前版块</button>
+                    <button className={style.btn1} onClick={showModal}>添加版块</button>
                 </div>
                 <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认'>
-                    <p className={style.text2}>板块名称</p>
-                    <Input placeholder='请输入板块名称' value={boardName} onChange={onchangeName}/>
+                    <p className={style.text2}>版块名称</p>
+                    <Input placeholder='请输入版块名称（不多于10个字符）' value={boardName} onChange={onchangeName} maxLength={10}/>
                     <p className={style.text2}>设置图片</p>
-                    <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/"+avatarUri} className={style.imgBox}/>
-                    <p className={style.text2}>板块简介</p>
-                    <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50} value={boardDes} onChange={onChangeDes}/>
+                    <div className={style.imgBox}>
+                        <Upload setImageUrl={setUri} imageUrl={"http://bbs.wyy.ink:8080/images/" + avatarUri} />
+                    </div>
+                    <p className={style.text2}>版块简介</p>
+                    <TextArea rows={4} placeholder="请输入不多于50字的简介" maxLength={50} value={boardDes} onChange={onChangeDes} />
                 </Modal>
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
                             <>{data.rows.map((board) => (
-                                <EveryBlock key={board.id} board={board} onClick={() => changeClick(board.id)} />
+                                <EveryBlock key={board.id} board={board} />
                             ))}
                                 <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
 

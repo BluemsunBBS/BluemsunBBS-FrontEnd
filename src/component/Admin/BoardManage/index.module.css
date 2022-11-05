@@ -67,9 +67,9 @@
     background-color: #fff;
     color: #7a88ff;
 }
-.imgBox{
-    width: 100px;
+img{
     height: 100px;
+    overflow: hidden;
 }
 .page{
     text-align: center;
