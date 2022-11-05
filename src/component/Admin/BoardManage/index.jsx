@@ -3,10 +3,10 @@ import NavOfAdmin from '../NavOfAdmin';
 import EveryBlock from './../EveryBlock';
 import { useEffect, useState } from "react";
 import NoMessage from '../NoMessage';
-import { message,Pagination} from 'antd';
+import { message, Pagination, Modal } from 'antd';
 import { http } from '../../../utils/http';
 
-export default function BoardManage(){
+export default function BoardManage() {
     const [pager, setPager] = useState({
         page: 1,
         size: 10,
@@ -43,26 +43,42 @@ export default function BoardManage(){
             size: size
         });
     }
-    const manageNow = ()=>{
+    const manageNow = () => {
         fetchList(pager);
     }
-    return(
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const showModal = () => {
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+    return (
         <div className={style.root}>
             <NavOfAdmin />
             <div className={style.contentBox}>
                 <div className={style.title}>管理板块</div>
                 <div className={style.btnBox}>
                     <button className={style.btn1} onClick={manageNow}>管理当前板块</button>
-                    <button className={style.btn1}>添加板块</button>
+                    <button className={style.btn1} onClick={showModal}>添加板块</button>
                 </div>
+                <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                    <p>Some contents...</p>
+                </Modal>
                 <div className={style.boardBox}>
                     {(data.page == 0) ? (<></>) : (
                         (data && data.total != 0) ? (
                             <>{data.rows.map((board) => (
                                 <EveryBlock key={board.id} board={board} onClick={() => changeClick(board.id)} />
                             ))}
-                            <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
-                            
+                                <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></>
+
                         ) : (
                             <NoMessage />
                         )
@@ -71,6 +87,6 @@ export default function BoardManage(){
             </div>
 
         </div>
-        
+
     )
 }
