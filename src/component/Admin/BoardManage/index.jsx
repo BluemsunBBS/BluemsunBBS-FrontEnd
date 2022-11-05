@@ -43,13 +43,16 @@ export default function BoardManage(){
             size: size
         });
     }
+    const manageNow = ()=>{
+        fetchList(pager);
+    }
     return(
         <div className={style.root}>
             <NavOfAdmin />
             <div className={style.contentBox}>
                 <div className={style.title}>管理板块</div>
                 <div className={style.btnBox}>
-                    <button className={style.btn1}>管理当前板块</button>
+                    <button className={style.btn1} onClick={manageNow}>管理当前板块</button>
                     <button className={style.btn1}>添加板块</button>
                 </div>
                 <div className={style.boardBox}>
