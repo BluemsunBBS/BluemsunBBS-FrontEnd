@@ -2,7 +2,7 @@ img{
     max-width: 100%;
 }
 .bytemd{
-    height: calc(94vh) !important;
+    height: calc(88vh) !important;
 }
 .mdBox{
     width: 100%;
@@ -30,6 +30,10 @@ img{
     width: 120px;
     padding-left: 10px;
     border-radius: 4px;
+}
+.text4Box{
+    margin-top: calc(1vh);
+    height: calc(4vh);
 }
 .mdBox-input{
     width: 600px;
@@ -68,4 +72,8 @@ img{
     border: 1px solid #7952b3 !important;
     outline: none !important;
     box-shadow: none !important;
+}
+.btnOfUpload{
+    background-color: #7952b3;
+    color: #fff;
 }

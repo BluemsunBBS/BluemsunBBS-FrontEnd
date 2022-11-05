@@ -10,9 +10,11 @@ import "highlight.js/styles/vs.css";
 import { Modal, Checkbox, Col, Row, Radio } from 'antd';
 import { http } from './../../utils/http'
 import { openNotification } from '../../utils/notification'
-import { useNavigate,useParams} from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { Input } from 'antd';
 import React from 'react';
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, message, Upload } from 'antd';
 
 
 const { TextArea } = Input;
@@ -22,7 +24,7 @@ const plugins = [
   // Add more plugins here
 ]
 
-function Md () {
+function Md() {
   const APIResult = {
     page: 0,
     size: 0,
@@ -30,7 +32,7 @@ function Md () {
     total: 0
   }
 
-  const [summary,setSummary] = useState('');
+  const [summary, setSummary] = useState('');
   const onChangeSummary = (e) => {
     console.log('Change:', e.target.value);
     setSummary(e.target.value);
@@ -62,7 +64,7 @@ function Md () {
     value: "",
     id: ""
   });
-  const [whichOpen,checkWhichOpen] = useState(0);
+  const [whichOpen, checkWhichOpen] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle, setArticleTitle] = useState('');
   const [articleText, setArticleText] = useState('');
@@ -75,7 +77,7 @@ function Md () {
     setIsModalOpen(false);
     async function submitArticle() {
       // 没发布过，直接进来，点击发布
-      if(whichOpen == 1 && ifSubmitted == 2){
+      if (whichOpen == 1 && ifSubmitted == 2) {
         var res = await http.post(`/article/`, {
           title: articleTitle,
           text: articleText,
@@ -88,12 +90,12 @@ function Md () {
         }
       }
       // 没发布过，直接进来，点击存草稿
-      if(whichOpen == 0 && ifSubmitted == 2){
+      if (whichOpen == 0 && ifSubmitted == 2) {
         var res = await http.post(`/article/`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id,
-          approved:2
+          approved: 2
         }
         );
         if (res.code == 0) {
@@ -102,7 +104,7 @@ function Md () {
         }
       }
       // 已经发布过，更新帖子，点击发布
-      if(whichOpen == 1 && ifSubmitted == 1){
+      if (whichOpen == 1 && ifSubmitted == 1) {
         var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
@@ -115,12 +117,12 @@ function Md () {
         }
       }
       // 草稿箱里进，更新帖子，点击存草稿
-      if(whichOpen == 0 && ifSubmitted == 0){
+      if (whichOpen == 0 && ifSubmitted == 0) {
         var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
           board_id: radio.id,
-          approved:2
+          approved: 2
         }
         );
         if (res.code == 0) {
@@ -129,7 +131,7 @@ function Md () {
         }
       }
       // 草稿箱里进，更新帖子，点击发布
-      if(whichOpen == 1 && ifSubmitted == 0){
+      if (whichOpen == 1 && ifSubmitted == 0) {
         var res = await http.put(`/article/approve/${params.id}`, {
           title: articleTitle,
           text: articleText,
@@ -141,7 +143,7 @@ function Md () {
           setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
         }
       }
-      
+
     }
     submitArticle();
   };
@@ -163,7 +165,7 @@ function Md () {
 
   useEffect(() => {
     // write后面有参数
-    if(params.id){
+    if (params.id) {
       async function fetchInfo(params) {
         var res = await http.get(`/article/${params.id}`, {
           params: {
@@ -177,10 +179,10 @@ function Md () {
           setArticleTitle(res.data.title);
           setArticleText(res.data.text);
         }
-        if(res.data.approved == 2){
+        if (res.data.approved == 2) {
           setSubmitted(0);
         }
-        if(res.data.approved == 1){
+        if (res.data.approved == 1) {
           setSubmitted(1);
         }
       }
@@ -189,17 +191,40 @@ function Md () {
       setSubmitted(2);
     }
   }, [])
-
   // write后面没有参数，直接进来发文章
   console.log(params);
+
+  const props = {
+    name: 'file',
+    action: "http://bbs.wyy.ink:8080/file/upload",
+    headers: { token: localStorage.getItem("token") },
+    onChange(info) {
+      if (info.file.status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === 'done') {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === 'error') {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
+    progress: {
+      strokeColor: {
+        '0%': '#108ee9',
+        '100%': '#87d068',
+      },
+      strokeWidth: 3,
+      format: (percent) => percent && `${parseFloat(percent.toFixed(2))}%`,
+    },
+  };
   return (
     <div className="page-wrap">
       <div className='mdBox'>
         <span className='text1'>文章标题</span>
         <input type="text" className='mdBox-input' onChange={(e) => titleChange(e)} value={articleTitle}></input>
-        {(ifSubmitted == 1) ? (<></>) : (<button className='mdBox-btn1' type="primary" onClick={()=>{showModal(0)}}>存草稿</button>)}
-        
-        <button className='mdBox-btn2' type="primary" onClick={()=>{showModal(1)}}>发布文章</button>
+        {(ifSubmitted == 1) ? (<></>) : (<button className='mdBox-btn1' type="primary" onClick={() => { showModal(0) }}>存草稿</button>)}
+
+        <button className='mdBox-btn2' type="primary" onClick={() => { showModal(1) }}>发布文章</button>
         <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认发布'>
           <div className='text2'>请选择文章类别</div>
           <Radio.Group onChange={(e) => onChange(e)} value={radio.value}>
@@ -209,9 +234,10 @@ function Md () {
           </Radio.Group>
           <div className='text3'>请输入文章摘要</div>
           {/* <TextArea showCount maxLength={100}/> */}
-          <TextArea showCount maxLength={200} onChange={onChangeSummary} value={summary}/>
+          <TextArea showCount maxLength={200} onChange={onChangeSummary} value={summary} />
         </Modal>
       </div>
+
       <Editor
         // 语言
         locale={zhHans}
@@ -224,7 +250,7 @@ function Md () {
         //插入图片
         uploadImages={async (files) => {
           var data = new FormData();
-          data.append("file",files[0]);
+          data.append("file", files[0]);
           var res = await http.post('/file/upload/', data);
 
           console.log(res.data);
@@ -235,6 +261,11 @@ function Md () {
           ];
         }}
       />
+      <div className='text4Box'>
+        <Upload {...props}>
+          <Button icon={<UploadOutlined />} className='btnOfUpload'>添加附件</Button>
+        </Upload>
+      </div>
     </div>
   )
 }
