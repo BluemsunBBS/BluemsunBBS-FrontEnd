@@ -3,7 +3,7 @@ import NavOfAdmin from '../NavOfAdmin';
 import EveryBlock from './../EveryBlock';
 import { useEffect, useState } from "react";
 import NoMessage from '../NoMessage';
-import { message, Pagination, Modal } from 'antd';
+import { message, Pagination, Modal} from 'antd';
 import { http } from '../../../utils/http';
 import { Input } from 'antd';
 import Upload from './../Upload';
