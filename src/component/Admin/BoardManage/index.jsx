@@ -53,6 +53,9 @@ export default function BoardManage() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
+        setBoardName('');
+        setBoardDes('');
+        setUri("file.jpg");
         setIsModalOpen(true);
     };
 
