@@ -29,7 +29,7 @@ export default function EveryHost(props) {
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            <button className={style.btn1}>设为版主</button>
+            <button className={style.btn1} onClick={()=>props.onHost(board.id)}>设为版主</button>
         </div>
 
     )

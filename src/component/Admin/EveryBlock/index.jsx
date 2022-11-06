@@ -55,6 +55,16 @@ export default function EveryBlock(props) {
     const handleClick = () => {
         window.open(`/board/${board.id}`);
     }
+
+    async function handleHost(id){
+        let res = await http.put(`/board/host`);
+        if(res.code != 0){
+            message.error(res.msg);
+        }else{
+            message.success("封禁成功！");
+            fetchList(pager);
+        }
+    }
     return (
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
@@ -65,7 +75,7 @@ export default function EveryBlock(props) {
             <Drawer title="管理当前版块版主" placement="right" onClose={onClose} open={open} size={'large'}>
             {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
-                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board}/>))}
+                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board} onHost={handleHost}/>))}
                         <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></div>
                         
                     ) : (
