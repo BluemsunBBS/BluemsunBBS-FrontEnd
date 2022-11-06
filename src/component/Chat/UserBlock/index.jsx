@@ -6,6 +6,7 @@ export default function UserBlock(props) {
     const user = props.user
 
     return (
+        // 左侧列表
         <div className={style.userBlock} onClick={props.onClick}>
             <Avatar
                 size={60}

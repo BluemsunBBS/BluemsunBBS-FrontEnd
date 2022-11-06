@@ -133,15 +133,15 @@ function Region() {
                 </div>
                 <div className={style.managerBox}>
                     <div className={style.title}>版主列表</div>
-                    <>{hostdata.length == 0 ? (<></>) : (
-                        (hostdata && hostdata.length != 0) ? (
+                    <>{hostdata.page == 0 ? (<></>) : (
+                        (hostdata && hostdata.total != 0) ? (
                             <>
                                 {hostdata && hostdata.map((board) => (
                                     <EveryHost board={board} key={board.id}/>
                                 ))}
                             </>
                         ) : (
-                            <p>空空如也</p>
+                            <p></p>
                         )
                     )}</>
                 </div>
