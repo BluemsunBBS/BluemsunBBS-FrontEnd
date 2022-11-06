@@ -87,7 +87,8 @@ export default function EveryBlock(props) {
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.name}</div>
             <span className={style.des}>{board.description}</span>
-            <button className={style.btn1} onClick={() => props.onDelete(board.id)}>删除版块</button>
+            <button className={style.btn1} onClick={() => props.onDelete(board.id)}>删除</button>
+            <button className={style.btn1}>编辑</button>
             <button className={style.btn1} onClick={showDrawer}>管理版主</button>
             <Drawer title="管理当前版块版主" placement="right" onClose={onClose} open={open} size={'large'}>
                 {data.page == 0 ? (<></>) : (
