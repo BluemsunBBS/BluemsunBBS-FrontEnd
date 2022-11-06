@@ -6,9 +6,11 @@ import { http } from "../../../utils/http";
 // import { getUserInfo } from './../../utils/func.js'
 // import './../../utils/func.js'
 import { useNavigate, useParams } from 'react-router';
+import { getUserInfo } from "../../../utils/func";
+import style from './index.module.css';
 
 export default function Draft() {
-
+    var logUserId = getUserInfo("id");
     const userParams = useParams();
     console.log(userParams);
     // const navigate = useNavigate();
@@ -46,7 +48,7 @@ export default function Draft() {
     }, [pager]);
     return (
         <div>
-            {data.page == 0 ? (<></>) : (
+            {(userParams.id == logUserId)?((data.page == 0) ? (<></>) : (
                 (data && data.total != 0) ? (
                     data.rows.map((board) => (
                         <EveryDraft key={board.id} board={board} />
@@ -54,7 +56,10 @@ export default function Draft() {
                 ) : (
                     <NoMessage />
                 )
-            )}
+            )):(<div className={style.banBox}>
+                <p className={style.banText}>您没有查看权限哦！</p>
+            </div>)}
+            
         </div>
     );
 }

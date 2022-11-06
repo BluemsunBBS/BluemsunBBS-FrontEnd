@@ -1,0 +1,11 @@
+.banBox{
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+    text-align: center;
+}
+.banText{
+    font-size: large;
+    padding-top: 100px;
+    color: #4e5969;
+}
