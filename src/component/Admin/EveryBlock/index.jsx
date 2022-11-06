@@ -1,6 +1,6 @@
 import style from './index.module.css';
-import { Drawer, message ,Pagination} from 'antd';
-import { useEffect,useState } from 'react';
+import { Drawer, message, Pagination } from 'antd';
+import { useEffect, useState } from 'react';
 import { http } from '../../../utils/http';
 import EveryHost from '../EveryHost';
 
@@ -44,7 +44,7 @@ export default function EveryBlock(props) {
 
     const [open, setOpen] = useState(false);
     const showDrawer = () => {
-        localStorage.setItem("selectedId",board.id);
+        localStorage.setItem("selectedId", board.id);
         setOpen(true);
     };
     const onClose = () => {
@@ -56,17 +56,15 @@ export default function EveryBlock(props) {
         window.open(`/board/${board.id}`);
     }
 
-    async function handleHost(id){
+    async function handleHost(id) {
         let boardid = localStorage.getItem("selectedId");
-        let res = await http.put(`/board/host`,{
-            params:{
-                user_id:id,
-                board_id:boardid
-            }
+        let res = await http.put(`/board/host`, {
+            user_id: id,
+            board_id: boardid
         });
-        if(res.code != 0){
+        if (res.code != 0) {
             message.error(res.msg);
-        }else{
+        } else {
             message.success("添加主持人成功！");
             fetchList(pager);
         }
@@ -79,11 +77,11 @@ export default function EveryBlock(props) {
             <button className={style.btn1} onClick={() => props.onDelete(board.id)}>删除版块</button>
             <button className={style.btn1} onClick={showDrawer}>管理版主</button>
             <Drawer title="管理当前版块版主" placement="right" onClose={onClose} open={open} size={'large'}>
-            {data.page == 0 ? (<></>) : (
+                {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
-                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board} onHost={handleHost}/>))}
-                        <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></div>
-                        
+                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board} onHost={handleHost} />))}
+                            <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></div>
+
                     ) : (
                         <></>
                     )
