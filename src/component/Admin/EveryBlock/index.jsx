@@ -44,6 +44,7 @@ export default function EveryBlock(props) {
 
     const [open, setOpen] = useState(false);
     const showDrawer = () => {
+        localStorage.setItem("selectedId",board.id);
         setOpen(true);
     };
     const onClose = () => {
