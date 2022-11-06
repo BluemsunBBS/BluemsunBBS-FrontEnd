@@ -222,6 +222,7 @@ function Article() {
                             </div>
                             <div className={style.text4}>{article.update_time}</div>
                         </span>
+                        <a>{article.files}</a>
                     </div>
                     <Markdown text={article.text} />
                 </span>

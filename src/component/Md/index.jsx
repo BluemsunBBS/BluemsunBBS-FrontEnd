@@ -68,6 +68,7 @@ function Md() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [articleTitle, setArticleTitle] = useState('');
   const [articleText, setArticleText] = useState('');
+  const [articleFile, setArticleFile] = useState('');
   const [ifSubmitted, setSubmitted] = useState(2);
   const showModal = (num) => {
     checkWhichOpen(num);
@@ -81,6 +82,7 @@ function Md() {
         var res = await http.post(`/article/`, {
           title: articleTitle,
           text: articleText,
+          files: articleFile,
           board_id: radio.id
         }
         );
@@ -94,6 +96,7 @@ function Md() {
         var res = await http.post(`/article/`, {
           title: articleTitle,
           text: articleText,
+          files: articleFile,
           board_id: radio.id,
           approved: 2
         }
@@ -108,6 +111,7 @@ function Md() {
         var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
+          files: articleFile,
           board_id: radio.id
         }
         );
@@ -121,6 +125,7 @@ function Md() {
         var res = await http.put(`/article/${params.id}`, {
           title: articleTitle,
           text: articleText,
+          files: articleFile,
           board_id: radio.id,
           approved: 2
         }
@@ -135,6 +140,7 @@ function Md() {
         var res = await http.put(`/article/approve/${params.id}`, {
           title: articleTitle,
           text: articleText,
+          files: articleFile,
           board_id: radio.id
         }
         );
@@ -197,15 +203,18 @@ function Md() {
   const props = {
     name: 'file',
     action: "http://bbs.wyy.ink:8080/file/upload",
+    maxCount:'1',
     headers: { token: localStorage.getItem("token") },
     onChange(info) {
       if (info.file.status !== 'uploading') {
         console.log(info.file, info.fileList);
       }
       if (info.file.status === 'done') {
-        message.success(`${info.file.name} file uploaded successfully`);
+        message.success(`${info.file.name}上传成功！`);
+        setArticleFile(info.file.response.data);
+        console.log(articleFile);
       } else if (info.file.status === 'error') {
-        message.error(`${info.file.name} file upload failed.`);
+        message.error(`${info.file.name}上传失败！`);
       }
     },
     progress: {
