@@ -1,0 +1,23 @@
+.root{
+    width: 83%;
+    height: calc(140vh);
+    background-color: rgb(225, 232, 250);
+    float: right;
+}
+.imgBox{
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+}
+.img{
+    width: 800px;
+    height: 800px;
+    margin: 20px auto;
+}
+.text1{
+    margin-top: 100px;
+    background-color: rgb(225, 232, 250);
+    height: 50px;
+    line-height: 50px;
+    font-size: large;
+}
