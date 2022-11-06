@@ -107,7 +107,7 @@ export default function BoardManage() {
             <div className={style.contentBox}>
                 <div className={style.title}>管理板块</div>
                 <div className={style.btnBox}>
-                    <button className={style.btn1} onClick={manageNow}>管理当前版块</button>
+                    <button className={style.btn1} onClick={manageNow}>刷新当前版块</button>
                     <button className={style.btn1} onClick={showModal}>添加版块</button>
                 </div>
                 <Modal title="请填写文章信息" open={isModalOpen} onOk={handleOk} onCancel={handleCancel} cancelText='关闭' okText='确认'>
