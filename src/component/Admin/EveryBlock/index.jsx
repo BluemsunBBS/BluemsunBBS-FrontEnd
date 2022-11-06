@@ -72,10 +72,8 @@ export default function EveryBlock(props) {
     async function deleteHost(id) {
         let boardid = localStorage.getItem("selectedId");
         let res = await http.delete(`/board/host`, {
-            params:{
-                user_id: id,
-                board_id: boardid
-            }
+            user_id: id,
+            board_id: boardid
         });
         if (res.code != 0) {
             message.error(res.msg);
@@ -94,7 +92,7 @@ export default function EveryBlock(props) {
             <Drawer title="管理当前版块版主" placement="right" onClose={onClose} open={open} size={'large'}>
                 {data.page == 0 ? (<></>) : (
                     (data && data.total != 0) ? (
-                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board} onHost={handleHost} deleteHost={deleteHost}/>))}
+                        <div>{data.rows.map((board) => (<EveryHost key={board.id} board={board} onHost={handleHost} deleteHost={deleteHost} />))}
                             <Pagination total={data.total} current={pager.page} onChange={handlePageChange} className={style.page} /></div>
 
                     ) : (
