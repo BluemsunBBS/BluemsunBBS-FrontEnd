@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { message, notification, Pagination } from "antd";
 import { http } from './../../utils/http'
 import { useNavigate, useParams } from 'react-router';
+import EveryHost from './../EveryHost';
 
 function Region() {
     const userParams = useParams();
@@ -68,6 +69,22 @@ function Region() {
         }
     }
 
+    const [hostdata, setHostData] = useState(APIResult);
+    async function fetchHostList(userParams) {
+        let res = await http.get(`/board/host`, {
+            params: {
+                board_id:userParams.id
+            }
+        });
+        console.log(res);
+        if (res.code != 0) {
+            message.error(res.msg);
+            setHostData(APIResult);
+        } else {
+            setHostData(res.data);
+        }
+    }
+
     const handleFollow = (state) => {
         async function fetchFollow() {
             let res;
@@ -86,6 +103,9 @@ function Region() {
     useEffect(() => {
         fetchList(userParams, pager);
     }, [userParams, pager]);
+    useEffect(() => {
+        fetchHostList(userParams);
+    }, [userParams]);
 
     const handlePageChange = (cur, size) => {
         setPager({
@@ -110,6 +130,20 @@ function Region() {
                         </div>
 
                     </span>
+                </div>
+                <div className={style.managerBox}>
+                    <div>版主列表</div>
+                    {/* <>{hostdata.page == 0 ? (<></>) : (
+                        (hostdata && hostdata.total != 0) ? (
+                            <>
+                                {hostdata && hostdata.rows.map((board) => (
+                                    <EveryHost board={board} key={board.id}/>
+                                ))}
+                            </>
+                        ) : (
+                            <NoMessage />
+                        )
+                    )}</> */}
                 </div>
                 <div>
                     {data.page == 0 ? (<NoMessage />) : (
