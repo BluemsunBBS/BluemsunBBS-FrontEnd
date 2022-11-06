@@ -136,7 +136,7 @@ function Region() {
                     <>{hostdata.page == 0 ? (<></>) : (
                         (hostdata && hostdata.total != 0) ? (
                             <>
-                                {hostdata && hostdata.rows.map((board) => (
+                                {hostdata && hostdata.map((board) => (
                                     <EveryHost board={board} key={board.id}/>
                                 ))}
                             </>
