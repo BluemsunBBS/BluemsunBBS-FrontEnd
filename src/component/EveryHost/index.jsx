@@ -13,7 +13,7 @@ export default function EveryHost(props) {
     const board = props.board;
     var uri = "http://bbs.wyy.ink:8080/images/" + board.avatar_uri;
     const handleClick = ()=>{
-        navigate(`user/${board.id}`);
+        navigate(`/user/${board.id}`);
     }
     // async function handleBan() {
     //     var res = await http.delete(`/account/ban/${board.id}`);
@@ -29,7 +29,7 @@ export default function EveryHost(props) {
         <div className={style.msgBox}>
             <img className={style.boardImg} src={uri} onClick={handleClick}></img>
             <div className={style.text1}>{board.nickname}</div>
-            <button className={style.btn1} onClick={()=>props.onBan(board.id)}>封禁用户</button>
+            {/* <button className={style.btn1} onClick={()=>props.onBan(board.id)}>封禁用户</button> */}
         </div>
 
     )

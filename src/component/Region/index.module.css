@@ -76,3 +76,14 @@
     margin-top: 10px;
     text-align: center;
 }
+.title{
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #7952b3;
+    color:#fff;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

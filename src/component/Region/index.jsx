@@ -132,7 +132,7 @@ function Region() {
                     </span>
                 </div>
                 <div className={style.managerBox}>
-                    <div>版主列表</div>
+                    <div className={style.title}>版主列表</div>
                     <>{hostdata.page == 0 ? (<></>) : (
                         (hostdata && hostdata.total != 0) ? (
                             <>
@@ -145,6 +145,7 @@ function Region() {
                         )
                     )}</>
                 </div>
+                <div className={style.title}>文章列表</div>
                 <div>
                     {data.page == 0 ? (<NoMessage />) : (
                         (data && data.total != 0) ? (
