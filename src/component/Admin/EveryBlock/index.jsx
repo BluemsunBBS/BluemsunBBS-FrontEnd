@@ -1,5 +1,5 @@
 import style from './index.module.css';
-import { Drawer,message,Pagination} from 'antd';
+import { Drawer, message ,Pagination} from 'antd';
 import { useEffect,useState } from 'react';
 import { http } from '../../../utils/http';
 import EveryHost from '../EveryHost';
@@ -57,11 +57,17 @@ export default function EveryBlock(props) {
     }
 
     async function handleHost(id){
-        let res = await http.put(`/board/host`);
+        let boardid = localStorage.getItem("selectedId");
+        let res = await http.put(`/board/host`,{
+            params:{
+                user_id:id,
+                board_id:boardid
+            }
+        });
         if(res.code != 0){
             message.error(res.msg);
         }else{
-            message.success("封禁成功！");
+            message.success("添加主持人成功！");
             fetchList(pager);
         }
     }
