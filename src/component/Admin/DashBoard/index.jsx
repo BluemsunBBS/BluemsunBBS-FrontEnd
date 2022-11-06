@@ -8,7 +8,7 @@ export default function DashBoard() {
             <NavOfAdmin />
             <div className={style.imgBox}>
                 <div className={style.textBox}>
-                    <div>欢迎来到管理员界面</div>
+                    <div className={style.text1}>欢迎来到管理员界面</div>
                 </div>
                 <img src={uri} className={style.img} />
             </div>

@@ -133,7 +133,7 @@ function Region() {
                 </div>
                 <div className={style.managerBox}>
                     <div>版主列表</div>
-                    {/* <>{hostdata.page == 0 ? (<></>) : (
+                    <>{hostdata.page == 0 ? (<></>) : (
                         (hostdata && hostdata.total != 0) ? (
                             <>
                                 {hostdata && hostdata.rows.map((board) => (
@@ -143,7 +143,7 @@ function Region() {
                         ) : (
                             <NoMessage />
                         )
-                    )}</> */}
+                    )}</>
                 </div>
                 <div>
                     {data.page == 0 ? (<NoMessage />) : (
