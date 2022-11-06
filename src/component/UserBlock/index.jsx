@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { http } from '../../utils/http';
 import url from './../../img/file.jpg'
-import './index.css'
+import './index.module.css';
+import style from './index.module.css'
 
 export default function UserBlock(props) {
 
@@ -59,11 +60,11 @@ export default function UserBlock(props) {
     }
 
     return (
-        <div className='relatedMember' onClick={handleClick}>
-            <img src={user.avatarUri} className="memberImg"></img>
-            <span className='contentBox'>
-                <div className='text1'>{user.nickname}</div>
-                <div className='text2'>粉丝：{user.fans}</div>
+        <div className={style.relatedMember} onClick={handleClick}>
+            <img src={user.avatarUri} className={style.memberImg}></img>
+            <span className={style.contentBox}>
+                <div className={style.text1}>{user.nickname}</div>
+                <div className={style.text2}>粉丝：{user.fans}</div>
             </span>
         </div>
     )

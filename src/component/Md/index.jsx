@@ -217,6 +217,7 @@ function Md() {
       format: (percent) => percent && `${parseFloat(percent.toFixed(2))}%`,
     },
   };
+  
   return (
     <div className="page-wrap">
       <div className='mdBox'>
@@ -263,7 +264,8 @@ function Md() {
       />
       <div className='text4Box'>
         <Upload {...props}>
-          <Button icon={<UploadOutlined />} className='btnOfUpload'>添加附件</Button>
+          <Button icon={<UploadOutlined />} className='btnOfUpload'>添加附件</Button>&nbsp;&nbsp;
+          <Button className='btnOfUpload'>添加到文章中</Button>
         </Upload>
       </div>
     </div>
