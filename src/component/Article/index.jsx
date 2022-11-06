@@ -8,7 +8,7 @@ import {
     HeartFilled,
     MessageFilled
 } from '@ant-design/icons';
-import { Badge, message } from 'antd';
+import { Badge, message, BackTop } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import CommentResult from '../Comment/CommentResult';
@@ -24,8 +24,8 @@ function Article() {
     const [article, setArticle] = useState({
         title: "我是文章标题",
         text: `# 我是正文`,
-        board_name:'',
-        board_id:''
+        board_name: '',
+        board_id: ''
     });
     const [user, setUser] = useState({
         nickname: "昵称",
@@ -162,18 +162,18 @@ function Article() {
         submitComment();
     }
 
-    const handleClick = () =>{
+    const handleClick = () => {
         console.log(user);
         let userId;
-        if(user){
+        if (user) {
             userId = user.id;
-        }else{
+        } else {
             return;
         }
         navigate(`/user/${userId}`);
     }
 
-    const linkToBoard = () =>{
+    const linkToBoard = () => {
         navigate(`/board/${article.board_id}`);
     }
 
@@ -186,12 +186,12 @@ function Article() {
                             {!article.is_like ? (
                                 <HeartOutlined
                                     className={style.like}
-                                    onClick={()=>handleLike(true)}
+                                    onClick={() => handleLike(true)}
                                 />
                             ) : (
                                 <HeartFilled
                                     className={style.like}
-                                    onClick={()=>handleLike(false)}
+                                    onClick={() => handleLike(false)}
                                 />
                             )}
                         </Badge>
@@ -237,7 +237,7 @@ function Article() {
                             <div className={style.text1}>{user.nickname}</div>
                             <div className={style.text2}>粉丝：{fans}</div>
                         </span>
-                        <button className={style.likeBtn} onClick={()=>handleFollow(!follow)}>
+                        <button className={style.likeBtn} onClick={() => handleFollow(!follow)}>
                             {(!follow) ? ("关 注") : ("取消关注")}
                         </button>
                     </div>
@@ -250,6 +250,10 @@ function Article() {
                         onSubmit={handleReply}
                     />
                 </span>
+
+                <BackTop>
+                    <div className={style.backTop}>回顶部</div>
+                </BackTop>
 
             </div>
         </div>
