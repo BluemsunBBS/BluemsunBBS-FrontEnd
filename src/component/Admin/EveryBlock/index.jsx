@@ -75,8 +75,10 @@ export default function EveryBlock(props) {
     async function deleteHost(id) {
         let boardid = localStorage.getItem("selectedId");
         let res = await http.delete(`/board/host`, {
-            user_id: id,
-            board_id: boardid
+            data: {
+                user_id: id,
+                board_id: boardid
+            }
         });
         if (res.code != 0) {
             message.error(res.msg);
