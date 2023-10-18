@@ -22,7 +22,7 @@ function Search(){
                 value={str}
                 onChange={(e)=>{setStr(e.target.value)}}
             ></input>
-            <button className="searchBtn" onClick={handleClick}>BBS搜索</button>
+            <button className="searchBtn" onClick={handleClick}>TechVerse搜索</button>
         </div>
     )
 }

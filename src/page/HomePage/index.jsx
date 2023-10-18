@@ -150,9 +150,9 @@ function HomePage() {
       <div className='centerBox'>
         {/* 左侧部分 */}
         <div className='leftBox'>
-          <div className='myTitle'>我在贴吧</div>
+          <div className='myTitle'>我在TechVerse</div>
           <img src={userimg} className="myPic"></img>
-          <div className='my1'>我关注的贴吧</div>
+          <div className='my1'>我关注的版块</div>
           {followBoardData.page == 0 ? (<></>) : (
             (followBoardData && followBoardData.total != 0) ? (
               followBoardData.rows.map((board) => (
@@ -187,7 +187,7 @@ function HomePage() {
         <div className='rightBox'>
           {/* 上半部分 */}
           <div className='hotBox'>
-            <div className='hotTitle'>热门贴吧</div>
+            <div className='hotTitle'>热门版块</div>
             <div className='hot-region'>
               {boardData.page == 0 ? (<></>) : (
                 (boardData && boardData.total != 0) ? (

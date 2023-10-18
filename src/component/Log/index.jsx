@@ -38,8 +38,8 @@ export default () => {
 
     const navigate = useNavigate();
 
-    return (<div style={{ backgroundColor: 'white', height: 'calc(100vh - 48px)', margin: -24 ,width:'1230px',textAlign:'center',marginLeft:100}}>
-      <LoginFormPage backgroundImageUrl={bgcurl} logo={logourl} title="BluemsunBBS" subTitle="全东师最大的技术交流论坛" width='800px'
+    return (<div style={{ backgroundColor: 'white', height: 'calc(85vh)', margin: -36 ,width:'1200px',textAlign:'center',marginLeft:100}}>
+      <LoginFormPage backgroundImageUrl={logourl} title="TechVerse" subTitle="全东师最大的技术交流论坛" width='800px'
           actions={<div style={{}}></div>}
           onFinish={async (arg)=>{
             //注册口
@@ -132,11 +132,11 @@ export default () => {
             }}
             options={[
               {
-                label: 'I am a male',
+                label: '我是男生',
                 value: 'male',
               },
               {
-                label: 'I am a female',
+                label: '我是女生',
                 value: 'female',
               },
             ]}

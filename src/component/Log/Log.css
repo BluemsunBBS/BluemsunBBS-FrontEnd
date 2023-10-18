@@ -28,3 +28,6 @@
 .ant-radio-button-wrapper:hover{
     color: #7952b3;
 }
+.ant-pro-form-login-page-desc{
+    margin-block-end: 10px !important;
+}

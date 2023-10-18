@@ -98,7 +98,7 @@ export default function Nav(props) {
     return (
         <div className={style.navContainer}>
             <img src={bbsurl} className={style.logo}/>
-            <span className={style.bbsTitle} onClick={()=>{navigate('/')}}>BluemsunBBS</span>
+            <span className={style.bbsTitle} onClick={()=>{navigate('/')}}>TechVerse</span>
             
             {/* <button className={style.navBtn} id="regis" onClick={()=>{window.location.href="/login"}}>创建新账户</button>
             <button className={style.navBtn} onClick={()=>{window.location.href="/login"}}>登录</button> */}
