@@ -119,7 +119,7 @@ function Md() {
         if (res.code == 0) {
           openNotification("success", "更新文章成功，等待管理员审核", "正在跳转首页", 1);
           // setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
-          setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+          setTimeout(() => { navigate(`/home`); }, 1000);
         }
       }
       // 草稿箱里进，更新帖子，点击存草稿
