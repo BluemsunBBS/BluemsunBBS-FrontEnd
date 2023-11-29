@@ -87,8 +87,9 @@ function Md() {
         }
         );
         if (res.code == 0) {
-          openNotification("success", "发布成功", "正在跳转", 1);
-          setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+          openNotification("success", "发布成功，等待管理员审核", "正在跳转首页", 1);
+          // setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
+          setTimeout(() => { navigate(`/home`); }, 1000);
         }
       }
       // 没发布过，直接进来，点击存草稿
@@ -102,7 +103,7 @@ function Md() {
         }
         );
         if (res.code == 0) {
-          openNotification("success", "存草稿成功", "正在跳转", 1);
+          openNotification("success", "存草稿成功", "正在跳转首页", 1);
           setTimeout(() => { navigate(`/home`); }, 1000);
         }
       }
@@ -116,7 +117,8 @@ function Md() {
         }
         );
         if (res.code == 0) {
-          openNotification("success", "更新文章成功", "正在跳转", 1);
+          openNotification("success", "更新文章成功，等待管理员审核", "正在跳转首页", 1);
+          // setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
           setTimeout(() => { navigate(`/article/${res.data.id}`); }, 1000);
         }
       }
