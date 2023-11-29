@@ -13,7 +13,8 @@ export default function EveryFollowPerson(props) {
     const board = props.board;
     var uri = "http://bbs.wyy.ink:8080/images/" + board.avatar_uri;
     const handleClick = ()=>{
-        navigate(`user/${board.id}`);
+        window.location.href = `${board.id}`;
+        // navigate(`user/${board.id}`);
     }
     // async function deleteFollow() {
     //     var res = await http.delete(`/friend/${board.id}`);
